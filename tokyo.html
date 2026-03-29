@@ -349,6 +349,23 @@
     flex-shrink: 0;
   }
 
+  /* MAP LINKS */
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--blue);
+    text-decoration: none;
+    border: 0.5px solid #93bce0;
+    border-radius: 10px;
+    padding: 2px 8px;
+    margin-top: 7px;
+    background: var(--blue-light);
+    transition: opacity 0.15s;
+  }
+  .map-link:hover { opacity: 0.75; }
+
   /* FOOTER */
   footer {
     text-align: center;
@@ -387,9 +404,10 @@
     <div class="alert-item">🥞 Rizlabo closed Mondays — pancakes Monday = Uzna Omom</div>
     <div class="alert-item">🌸 Fleur de Sarrasin lunch only Fri/Sat</div>
     <div class="alert-item">🚄 Book Romancecar + Hakone Freepass in advance</div>
-    <div class="alert-item">🍱 Tempura dinner — call to reschedule to 8:30pm after Hakone</div>
+    <div class="alert-item">🍱 Tempura dinner — call to reschedule, 6pm conflicts with Hakone return</div>
     <div class="alert-item">🐾 Where is a Dog? closed Tuesdays</div>
-    <div class="alert-item">🫖 Call hotel ahead for celiac-safe afternoon tea</div>
+    <div class="alert-item">🏛 Showakan (WWII museum) closed Mondays — Wed visit is fine</div>
+    <div class="alert-item">🎮 Super Potato opens 11am daily</div>
   </div>
 </div>
 
@@ -400,7 +418,7 @@
       <span class="tab-date">Sun Apr 5</span>
     </button>
     <button class="nav-tab" onclick="show(1)">
-      Tsukiji + Harajuku
+      Tsukiji + Akihabara + Udon
       <span class="tab-date">Mon Apr 6</span>
     </button>
     <button class="nav-tab" onclick="show(2)">
@@ -408,7 +426,7 @@
       <span class="tab-date">Tue Apr 7</span>
     </button>
     <button class="nav-tab" onclick="show(3)">
-      Pancakes + Takeshita + TeamLab
+      WWII + Pancakes + TeamLab
       <span class="tab-date">Wed Apr 8</span>
     </button>
     <button class="nav-tab" onclick="show(4)">
@@ -416,7 +434,7 @@
       <span class="tab-date">Thu Apr 9</span>
     </button>
     <button class="nav-tab" onclick="show(5)">
-      Asakusa + 🎂 + ⚾
+      Kappabashi + 🎂 + ⚾
       <span class="tab-date">Fri Apr 10</span>
     </button>
     <button class="nav-tab" onclick="show(6)">
@@ -455,7 +473,8 @@
     <div class="block-title">🍽 Oh Nana! — 100% GF Japanese Café</div>
     <div class="block-detail">A 15-min train ride to Kanda (Chiyoda, near Kanda station). Owner Nana is celiac herself — everything is made safely with no cross-contamination. Comfort Japanese food: rice dishes, soups, mains. Open Sundays 11:30am–10pm. A perfect low-effort first night.</div>
     <div class="tags"><span class="tag t-food">dinner</span><span class="tag t-gf">100% GF · celiac safe</span></div>
-    <div class="note">📍 Ginza Line to Nihonbashi, change to Sobu for Kanda. Or taxi ~15 min.</div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJ17zbf2SPGGARsBcEJsgwAeE" target="_blank">📍 Map</a>
+    <div class="note">Ginza Line to Nihonbashi, change to Sobu for Kanda. Or taxi ~15 min.</div>
   </div>
 </div>
 
@@ -463,8 +482,8 @@
 <div class="day-panel" id="p1">
   <div class="day-header">
     <div class="day-number">Day 1 · Monday, April 6</div>
-    <div class="day-title">Tsukiji + Harajuku + Udon</div>
-    <div class="day-subtitle">Street food morning, soufflé pancakes in the afternoon, GF udon for dinner. Covers two great neighborhoods at an easy pace.</div>
+    <div class="day-title">Tsukiji + Pancakes + Akihabara + Udon</div>
+    <div class="day-subtitle">Street food morning, soufflé pancakes, retro gaming at Super Potato, GF udon for dinner.</div>
   </div>
 
   <div class="block">
@@ -472,6 +491,7 @@
     <div class="block-title">🦐 Tsukiji Outer Market</div>
     <div class="block-detail">Most stalls close by 1pm so 9am is still plenty early. Graze your way through: fresh sushi, tamagoyaki egg rolls, grilled scallops, uni on rice, oysters, tuna skewers. Most fresh seafood is naturally GF. Easy walk (~15 min) or one stop on the Hibiya Line from Ginza.</div>
     <div class="tags"><span class="tag t-food">street food</span><span class="tag t-act">market</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJW2cLzSGLGGARXAKXv6EkbqI" target="_blank">📍 Map</a>
     <div class="warn">⚠ Ask about soy sauce on any prepared or sauced items. Request グルテンフリー (gluten-free) or plain.</div>
   </div>
 
@@ -480,14 +500,17 @@
     <div class="block-title">🥞 Uzna Omom — GF Soufflé Pancakes</div>
     <div class="block-detail">Head to Harajuku / Cat Street (30 min on the Hibiya Line to Meiji-Jingumae). Opens 11am so no rush — a lunchtime arrival works perfectly. Rice flour soufflé pancakes, famously jiggly. Also try the earl grey yogurt. Open daily including Mondays.</div>
     <div class="tags"><span class="tag t-food">pancakes</span><span class="tag t-gf">GF rice flour</span><span class="tag t-treat">🥞</span></div>
-    <div class="note">📍 Hidden on a side street off Cat Street, near Harajuku. Address: 5-17-8 Jingumae, Shibuya.</div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJOW7spKaMGGARQf2NmufcgLs" target="_blank">📍 Map</a>
+    <div class="note">5-17-8 Jingumae, Shibuya — hidden on a side street off Cat Street.</div>
   </div>
 
   <div class="block">
-    <div class="block-time">2:00 – 5:00 pm</div>
-    <div class="block-title">Cat Street + Harajuku backstreets</div>
-    <div class="block-detail">Browse the quiet backstreets of Ura-Harajuku — independent fashion, vintage, and lifestyle shops. Far less chaotic than Takeshita (saving that for Wednesday). Optional detour north to Ueno Station for Avan's GF rice-flour churros (inside JR paid area — tap in with Suica).</div>
-    <div class="tags"><span class="tag t-act">walk + browse</span><span class="tag t-treat">churros at Avan</span><span class="tag t-gf">GF</span></div>
+    <div class="block-time">2:00 – 5:30 pm</div>
+    <div class="block-title">🎮 Akihabara — Super Potato + GiGO Arcade</div>
+    <div class="block-detail">Take the Hibiya Line from Meiji-Jingumae to Akihabara (20 min direct). Head straight to Super Potato: three floors of retro games and consoles in a building painted in Mario motifs, plus a working retro arcade on the 5th floor with original 80s/90s cabinets — Street Fighter, Pac-Man, Donkey Kong. Japanese versions of familiar games, rare Famicom hardware, original Game Boy units. Even if you don't buy, it's a genuine museum of gaming history. Then explore GiGO Akihabara's RETRO:G on the 6th floor for more arcade action. The broader Akihabara street can be overwhelming — stick to these two anchors and browse organically.</div>
+    <div class="tags"><span class="tag t-act">gaming 🎮</span><span class="tag t-act">retro arcade</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJcUJuHqeOGGARd-7iN1Ijt2k" target="_blank">📍 Super Potato</a>
+    <div class="note">Super Potato: 1-11-2 Sotokanda, Chiyoda (3F–5F). Open daily 11am–8pm. GiGO RETRO:G: same building area, 6F.</div>
   </div>
 
   <div class="block">
@@ -508,17 +531,20 @@
 
   <div class="block">
     <div class="block-time">10:00 am — BOOKED</div>
-    <div class="block-title">🍡 Mochi-Making Class</div>
-    <div class="block-detail">Allow travel time to the venue. Mochi is naturally rice-based — confirm your booking is fully celiac-safe with no shared equipment or wheat in the space.</div>
-    <div class="tags"><span class="tag t-book">booked</span><span class="tag t-act">cooking class</span></div>
+    <div class="block-title">🍡 Mochi-Making Class — Simply Oishii Wagashi School</div>
+    <div class="block-detail">2-hour class at the Wagashi Promotion Association in Meguro. Allow 20–25 min travel from Ginza (Namboku Line or taxi). Mochi is naturally rice-based — confirm your booking is fully celiac-safe with no shared equipment or wheat in the space.</div>
+    <div class="tags"><span class="tag t-book">booked 10am · 2 hrs</span><span class="tag t-act">cooking class</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJxw1zHg6Yj4URi6nDmA81PR8" target="_blank">📍 Map — 1-3-16 Meguro, Meguro City</a>
     <div class="warn">⚠ Double-check with the organizer that the kitchen is celiac-safe — no shared surfaces or equipment with wheat.</div>
   </div>
 
   <div class="block">
     <div class="block-time">Early afternoon</div>
-    <div class="block-title">Shibuya Crossing</div>
+    <div class="block-title">Shibuya Crossing + Shibuya Sky</div>
     <div class="block-detail">Walk the famous scramble crossing — best to be in the middle of the crowd, not just watching. The Starbucks above has a window view if you want to watch. Consider Shibuya Sky rooftop observation deck (book online) — one of the best panoramas in Tokyo, great for teens.</div>
     <div class="tags"><span class="tag t-act">sightseeing</span></div>
+    <a class="map-link" href="https://maps.google.com/?cid=1&q=Shibuya+Crossing+Tokyo&ll=35.659482,139.7005596" target="_blank">📍 Shibuya Crossing</a>
+    <a class="map-link" href="https://shibuya-sky.jp/en/" target="_blank">🎟 Shibuya Sky tickets</a>
   </div>
 
   <div class="block">
@@ -534,7 +560,7 @@
     <div class="block-title">🍜 Shinbu Sakiya — GF Ramen</div>
     <div class="block-detail">Dedicated GF ramen in Shibuya's Dogenzaka area. Order at the machine outside (English available), then head in. The double-meat ramen and GF fried chicken are the standouts. GF gyoza too. Open until 4:30am — no need to rush.</div>
     <div class="tags"><span class="tag t-food">dinner</span><span class="tag t-gf">GF · dedicated</span></div>
-    <div class="note">📍 2-10-3 Dogenzaka, Shibuya. Near Shibuya Station, Dogenzaka exit.</div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJNWp4BFaLGGARp_wDqNJ15Zg" target="_blank">📍 Map — 2-10-3 Dogenzaka, Shibuya</a>
   </div>
 </div>
 
@@ -542,30 +568,49 @@
 <div class="day-panel" id="p3">
   <div class="day-header">
     <div class="day-number">Day 3 · Wednesday, April 8</div>
-    <div class="day-title">Pancakes + Takeshita + TeamLab</div>
-    <div class="day-subtitle">Leisurely start, noon pancakes at Rizlabo, Takeshita Street in the afternoon, T's Kitchen dinner, then TeamLab by monorail.</div>
+    <div class="day-title">WWII Museums + Pancakes + Takeshita + TeamLab</div>
+    <div class="day-subtitle">History museums in the morning, noon pancakes at Rizlabo, afternoon TBD, T's Kitchen dinner, TeamLab by monorail.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">9:30 – 12:00 pm</div>
+    <div class="block-title">🏛 WWII Museums — Japanese Perspective</div>
+    <div class="block-detail">Two museums near Kudanshita Station, 20 min from Ginza. Start at the <strong>National Showa Memorial Museum (Showakan)</strong> — focuses on the daily lives of ordinary Japanese civilians during and after the war: rationing, air raids, personal letters, rebuilt lives. Fascinating and human. ¥300 entry. Download the <em>Pocket Curator</em> app for English translations. Then walk 5 min to <strong>Yushukan</strong> inside Yasukuni Shrine — Japan's oldest military museum with a Zero fighter aircraft, kamikaze pilot letters, and a naval locomotive from the Death Railway. Note: the narrative frames Japan as reluctant and defensive, which is controversial internationally but is itself important to understand coming from Pearl Harbor. ¥1,000 entry. Together allow 2–2.5 hours. Closed Mondays — Wednesday is perfect.</div>
+    <div class="tags"><span class="tag t-act">history · WWII</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJP5nfE2uMGGARCD9T7XHuNb4" target="_blank">📍 Showakan (National Showa Memorial Museum)</a>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJMaBzyd6NGGARdrjc4u0e6w4" target="_blank">📍 Yushukan (Yasukuni Shrine)</a>
+    <div class="note">Showakan: 10am–5:30pm, closed Mondays. Yushukan: 9am–4pm. Both walkable from Kudanshita Station (Hanzomon/Tozai/Toei Shinjuku lines). Download Pocket Curator app before visiting Showakan.</div>
   </div>
 
   <div class="block">
     <div class="block-time">Until noon</div>
-    <div class="block-title">Hotel breakfast + relaxed morning</div>
-    <div class="block-detail">TeamLab is a late night — enjoy a slow morning at the hotel. This is a good day to sleep in, recharge, and head out around 11:30am to be at Rizlabo right at noon opening.</div>
-    <div class="tags"><span class="tag t-act">slow morning</span></div>
+    <div class="block-title">Travel to Harajuku</div>
+    <div class="block-detail">From Kudanshita, take the Hanzomon Line to Omotesando (10 min), then walk to Harajuku. Aim to arrive by 11:45am to be at Rizlabo for noon opening.</div>
+    <div class="tags"><span class="tag t-move">Hanzomon Line</span></div>
   </div>
 
   <div class="block">
     <div class="block-time">12:00 noon sharp</div>
     <div class="block-title">🥞 Rizlabo Kitchen — GF Soufflé Pancakes</div>
-    <div class="block-detail">Opens at noon. Time your exit from the cat café to arrive right at opening — it fills fast. Rizlabo is a 5-min walk from Harajuku Station and literally 2 min from Takeshita Street. All GF, beautiful rice flour soufflés. Budget 20 min wait for pancakes to cook. Also serves savory dishes and drinks.</div>
+    <div class="block-detail">Opens at noon. Rizlabo is a 5-min walk from Harajuku Station and literally 2 min from Takeshita Street. All GF, beautiful rice flour soufflés. Budget 20 min wait for pancakes to cook. Also serves savory dishes and drinks.</div>
     <div class="tags"><span class="tag t-food">pancakes</span><span class="tag t-gf">100% GF</span><span class="tag t-treat">🥞</span></div>
-    <div class="note">📍 4-15-2 Jingumae, Shibuya. Closed Mondays.</div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJ2ZMxHaKMGGARHmhvtbLcJ5E" target="_blank">📍 Map — 4-15-2 Jingumae, Shibuya</a>
+    <div class="note">Closed Mondays.</div>
   </div>
 
   <div class="block">
     <div class="block-time">1:30 – 4:30 pm</div>
-    <div class="block-title">Takeshita Street + Harajuku</div>
-    <div class="block-detail">Takeshita is maximalist, colorful, chaotic Tokyo — the teens will love it or love to hate it. Crepe stalls, costume shops, everything pastel. Also check out the quieter Harajuku backstreets for independent fashion and less tourist density.</div>
+    <div class="block-title">Takeshita Street</div>
+    <div class="block-detail">Takeshita is maximalist, colorful, chaotic Tokyo — the teens will love it or love to hate it. Crepe stalls, costume shops, everything pastel and oversized. Short and intense: 45 minutes is probably enough, then you can spill out into the calmer streets around Harajuku Station.</div>
     <div class="tags"><span class="tag t-act">shopping</span></div>
+    <a class="map-link" href="https://maps.google.com/?cid=1&q=Takeshita+Street+Harajuku&ll=35.6710335,139.7051821" target="_blank">📍 Takeshita Street</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Afternoon — TBD</div>
+    <div class="block-title">Afternoon TBD</div>
+    <div class="block-detail">Time to fill in. Some ideas: Omotesando for architecture and window shopping (the Prada building and Tadao Ando's Omotesando Hills are worth a look), Meiji Shrine for a peaceful forest walk, or just a slow coffee and browse before heading to Roppongi for dinner.</div>
+    <div class="tags"><span class="tag t-act">TBD</span></div>
   </div>
 
   <div class="block">
@@ -573,7 +618,8 @@
     <div class="block-title">🍱 T's Kitchen — GF Fried Food</div>
     <div class="block-detail">15 min from Harajuku to Roppongi. T's Kitchen is 2F — look for the sign at street level. Chicken katsu, gyoza, takoyaki, orange chicken, spring rolls — all GF. Closed Tuesdays. Open lunch + dinner; time to eat before heading to Toyosu.</div>
     <div class="tags"><span class="tag t-food">dinner</span><span class="tag t-gf">GF · dedicated</span></div>
-    <div class="note">📍 7-8-5-2F Roppongi, Minato City. Closed Tuesdays. Open from 5:30pm.</div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJnRJx-zCLGGARTdvyHUqQ3Qs" target="_blank">📍 Map — 7-8-5-2F Roppongi, Minato City</a>
+    <div class="note">Closed Tuesdays. Opens 5:30pm for dinner.</div>
   </div>
 
   <div class="block">
@@ -581,6 +627,7 @@
     <div class="block-title">🎨 TeamLab Planets — Toyosu</div>
     <div class="block-detail">From Roppongi take the Oedo Line to Tsukiji-shijo, then catch the Yurikamome automated monorail over Tokyo Bay to Shijo-mae. The monorail ride itself is a spectacular transport experience — driverless, elevated, views of Rainbow Bridge and the bay at night. Arrive 15 min early. Wear clothes you can get wet. Socks off for most of the experience.</div>
     <div class="tags"><span class="tag t-book">booked 7:30pm</span><span class="tag t-move">Yurikamome monorail 🚝</span><span class="tag t-act">immersive art</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJSeco5wiJGGARItbTS8lQ5G0" target="_blank">📍 Map — 6-1-16 Toyosu, Koto City</a>
     <div class="note">🚝 The Yurikamome is driverless and elevated over Tokyo Bay — a genuinely memorable transport experience to end the night.</div>
   </div>
 </div>
@@ -598,7 +645,9 @@
     <div class="block-title">🚄 Odakyu Romancecar to Hakone</div>
     <div class="block-detail">Take the Ginza Line from Ginza to Shinjuku (8 min). Board the Romancecar — book reserved seats in advance at odakyu.jp, ideally panoramic front seats. ~90 min scenic journey to Hakone-Yumoto. No changes needed. Arriving ~10:30am still gives you a full day on the loop.</div>
     <div class="tags"><span class="tag t-move">Romancecar 🚄</span><span class="tag t-book">book in advance</span></div>
-    <div class="note">🎟 Buy the Hakone Freepass at Shinjuku — covers Romancecar (upgrade fee), Tozan train, ropeway, lake cruise, and buses all day. Best value for the full loop.</div>
+    <a class="map-link" href="https://www.odakyu-global.com/passes/hakone-freepass/" target="_blank">🎟 Hakone Freepass + Romancecar booking</a>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJl0TCagKNGGAR9pSy4NY5l94" target="_blank">📍 Odakyu Service Center, Shinjuku</a>
+    <div class="note">Buy the Hakone Freepass at Shinjuku — covers Romancecar (upgrade fee), Tozan train, ropeway, lake cruise, and buses all day. Best value for the full loop.</div>
   </div>
 
   <div class="block">
@@ -613,6 +662,7 @@
     <div class="block-title">Hakone Open-Air Museum</div>
     <div class="block-detail">One stop from Gora on the funicular to Chokoku-no-Mori. Outdoor sculpture park set against mountain views — Picasso pavilion, a stained-glass tower you can climb, a natural hot spring foot bath. Interactive and spacious; not a stuffy museum. Budget 1.5–2 hours.</div>
     <div class="tags"><span class="tag t-act">museum · outdoor</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJMfOWowSiGWARX2wK6ac5jlg" target="_blank">📍 Map — 1121 Ninotaira, Hakone</a>
   </div>
 
   <div class="block">
@@ -628,6 +678,7 @@
     <div class="block-title">🚡 Hakone Ropeway → Owakudani</div>
     <div class="block-detail">Gondola ride over active volcanic valleys — sulfuric steam rising from the earth below, dramatic views. Stop at Owakudani: volcanic rock landscape, steam vents, and the famous black eggs (kurotamago) — hard-boiled in the sulfur springs, turning the shells black. They're regular eggs inside, but eating one supposedly adds 7 years to your life. Naturally GF.</div>
     <div class="tags"><span class="tag t-move">ropeway 🚡</span><span class="tag t-act">volcanic landscape</span><span class="tag t-food">black eggs</span><span class="tag t-gf">GF</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJfw3hyDefGWARilyx_0ZSqKE" target="_blank">📍 Owakudani Map</a>
   </div>
 
   <div class="block">
@@ -635,6 +686,7 @@
     <div class="block-title">⛵ Lake Ashi Sightseeing Cruise</div>
     <div class="block-detail">Continue the ropeway down to Togendai. Board the pirate-ship-style Lake Ashi cruise — sweeping views of Mt. Fuji on clear days (early April can be beautifully clear). Cruise to Moto-Hakone or Hakone-machi (~30 min).</div>
     <div class="tags"><span class="tag t-move">lake cruise ⛵</span><span class="tag t-act">Mt. Fuji views</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJuSzGc2mYGWARcHDoWGHTLws" target="_blank">📍 Togendai Port (boarding)</a>
   </div>
 
   <div class="block">
@@ -648,8 +700,10 @@
     <div class="block-time">BOOKED — Evening</div>
     <div class="block-title">🍱 Tempura Asakusa SAKURA — Splurge Dinner</div>
     <div class="block-detail">100% dedicated GF tempura restaurant on the 7th floor above Kaminarimon Gate — the iconic Asakusa gateway. Omakase courses with seafood and wagyu options, all fried in GF batter with GF soy sauce. Bar-style seating watching the chefs work. One of Tokyo's most celebrated celiac-safe dining experiences.</div>
-    <div class="tags"><span class="tag t-food">splurge dinner</span><span class="tag t-gf">100% GF · celiac safe</span><span class="tag t-book">booked 6pm</span></div>
-    <div class="warn">⚠ With a 9am departure, you'll be back in Tokyo around 8pm. Call Tempura Asakusa SAKURA to shift the reservation to 8:30pm — or consider making this dinner a separate night if the timing feels too rushed after a big Hakone day.</div>
+    <div class="tags"><span class="tag t-food">splurge dinner</span><span class="tag t-gf">100% GF · celiac safe</span><span class="tag t-book">needs rescheduling</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJWUVY-DuPGGAR0KRSemNJ6rk" target="_blank">📍 Map — 2-18-16 Kaminarimon, THE CITY 浅草 7F</a>
+    <a class="map-link" href="tel:+81362847307">📞 +81-3-6284-7307</a>
+    <div class="warn">⚠ With a 9am departure the full loop returns to Tokyo ~8pm — too late for a 6pm dinner. Call to move the reservation to 8:30pm, or shift this dinner to a different night (Friday or Saturday work well).</div>
   </div>
 </div>
 
@@ -657,31 +711,34 @@
 <div class="day-panel" id="p5">
   <div class="day-header">
     <div class="day-number">Day 5 · Friday, April 10</div>
-    <div class="day-title">Asakusa + 🎂 Birthday Tea + ⚾ Baseball</div>
-    <div class="day-subtitle">Happy birthday Phoebe! Morning crepes in Asakusa, afternoon tea celebration at the hotel, evening at Tokyo Dome.</div>
+    <div class="day-title">Kappabashi + 🎂 Birthday Lunch + ⚾ Baseball</div>
+    <div class="day-subtitle">Happy birthday Phoebe! Kitchen Street in the morning, birthday lunch at Fleur de Sarrasin, evening at Tokyo Dome.</div>
   </div>
 
   <div class="block">
-    <div class="block-time">Morning</div>
-    <div class="block-title">Senso-ji Temple + Nakamise Street</div>
-    <div class="block-detail">Walk Nakamise shopping street to Senso-ji — snap the famous Kaminarimon thunder gate photo. Browse for souvenirs: lacquerware, fans, tenugui towels, handmade goods. The temple grounds are free and beautiful in the morning before crowds build.</div>
-    <div class="tags"><span class="tag t-act">temple · sightseeing</span><span class="tag t-act">shopping</span></div>
+    <div class="block-time">Morning — TBD</div>
+    <div class="block-title">Morning TBD</div>
+    <div class="block-detail">Time to fill in — or just a relaxed hotel breakfast before heading to Kappabashi. One option: Ueno Park is a 15-min walk from Kappabashi if you want a peaceful morning stroll through cherry blossom remnants before the kitchen street opens at 10am.</div>
+    <div class="tags"><span class="tag t-act">TBD</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">10:00 – 11:30 am</div>
+    <div class="block-title">🔪 Kappabashi Kitchen Street</div>
+    <div class="block-detail">Tokyo's legendary restaurant supply district — ~170 shops along an 800-metre street between Ueno and Asakusa. Browse: professional Japanese knives (Kama-Asa is the standout shop), beautiful ceramics at bargain prices, baking molds, bamboo steamers, and the hyper-realistic plastic food samples (sampuru) that you see in restaurant windows all over Japan. Affordable keychain and magnet versions make great souvenirs. Most shops open from 10am. Note: most are closed Sundays — Friday is ideal.</div>
+    <div class="tags"><span class="tag t-act">shopping · kitchen supplies</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJXYV-6JWOGGAR85vIZbM1RCE" target="_blank">📍 Kappabashi Kitchen Street</a>
+    <div class="note">Start at the giant chef's head statue (Niimi shop corner) and walk north. Side streets are worth exploring. Most shops close by 5–6pm.</div>
   </div>
 
   <div class="block">
     <div class="block-time">11:45 am — BOOK AHEAD</div>
-    <div class="block-title">🥐 Fleur de Sarrasin — GF Buckwheat Galettes</div>
-    <div class="block-detail">A few blocks into Nishi-Asakusa from the temple. Opens Friday lunch at 11:45am. Husband and wife team who lived in France — buckwheat ground fresh daily for the galettes (crepes). 100% GF. The duck galette and camembert + walnut + honey galette are standouts. Tiny, intimate, exceptional. Book ahead — only open Friday lunch, Saturday lunch, plus evenings.</div>
-    <div class="tags"><span class="tag t-food">lunch</span><span class="tag t-gf">100% GF · buckwheat</span><span class="tag t-book">book ahead</span></div>
-    <div class="note">📍 2-14-2 Nishiasakusa, Taito City. Open Fri/Sat 11:45am–2pm + evenings. Closed Wed/Thu.</div>
-  </div>
-
-  <div class="block">
-    <div class="block-time">~2:00 pm — Hotel</div>
-    <div class="block-title">🫖 Afternoon Tea at Hyatt Centric Ginza — Phoebe's Birthday</div>
-    <div class="block-detail">Back to the hotel for the birthday celebration. Contact the hotel before the trip to confirm they can prepare a dedicated celiac-safe afternoon tea spread — luxury hotels are usually very accommodating with advance notice. Ask them to note it's a birthday too. Take your time.</div>
-    <div class="tags"><span class="tag t-food">afternoon tea</span><span class="tag t-treat">🎂 birthday</span><span class="tag t-gf">confirm GF ahead</span></div>
-    <div class="warn">⚠ Contact hotel in advance: request celiac-safe preparation specifically (not just "gluten-free" ingredients — ask about shared surfaces and dedicated prep).</div>
+    <div class="block-title">🥐 Fleur de Sarrasin — Birthday Lunch 🎂</div>
+    <div class="block-detail">A 10-min walk from Kappabashi into Nishi-Asakusa. Opens Friday lunch at 11:45am. Husband and wife team who lived in France — buckwheat ground fresh daily for the galettes (crepes). 100% GF. The duck galette and camembert + walnut + honey galette are standouts. Tiny, intimate, and genuinely exceptional — the perfect birthday setting. Tell them it's a birthday when you book.</div>
+    <div class="tags"><span class="tag t-food">birthday lunch 🎂</span><span class="tag t-gf">100% GF · buckwheat</span><span class="tag t-book">book ahead</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJpwKN9D-PGGARb4htuaAeXZA" target="_blank">📍 Map — 2-14-2 Nishiasakusa, Taito City</a>
+    <a class="map-link" href="tel:+81368761851">📞 +81-3-6876-1851</a>
+    <div class="note">Open Fri/Sat 11:45am–2pm + evenings (Mon/Tue evenings too). Closed Wed/Thu. Very small — book ahead and mention birthday + celiac.</div>
   </div>
 
   <div class="block">
@@ -689,6 +746,7 @@
     <div class="block-title">Head to Tokyo Dome</div>
     <div class="block-detail">Marunouchi Line from Ginza to Korakuen, or Mita Line to Suidobashi (~25 min). Arrive early to explore the concourse food options. Look for naturally GF: plain edamame, grilled corn, sashimi, yakitori (confirm no wheat tare), rice dishes. The Tokyo Dome City amusement park and ferris wheel outside are fun to walk through before gates open.</div>
     <div class="tags"><span class="tag t-move">Marunouchi Line</span><span class="tag t-food">stadium food</span></div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJ89TugkeMGGARDmSeJIiyWFA" target="_blank">📍 Tokyo Dome</a>
   </div>
 
   <div class="block">
@@ -712,6 +770,8 @@
     <div class="block-title">🐱 Kichijōji Petit Mura — Cat Café</div>
     <div class="block-detail">A beloved cat café right in Kichijoji — intimate, well-kept, and calm compared to some of the busier Tokyo cat cafés. Book a slot online in advance; typically 1-hour sessions. A lovely, unhurried way to start the last morning before heading to Where is a Dog? when it opens at 11am.</div>
     <div class="tags"><span class="tag t-act">cat café 🐱</span><span class="tag t-book">book ahead</span></div>
+    <a class="map-link" href="https://www.petitmura.com/" target="_blank">🎟 Petit Mura booking</a>
+    <a class="map-link" href="https://maps.google.com/?cid=1&q=Petit+Mura+cat+cafe+Kichijoji&ll=35.702,139.578" target="_blank">📍 Map — Kichijoji</a>
   </div>
 
   <div class="block">
@@ -719,7 +779,9 @@
     <div class="block-title">🐾 Where is a Dog? + Inokashira Park — Kichijoji</div>
     <div class="block-detail">Chuo Line from Shinjuku to Kichijoji (15 min — a classic Tokyo commuter rail experience). "Where is a Dog?" opens at 11am: a 100% GF café and bakery decorated entirely in cat imagery, with a single hidden dog to find somewhere in the decor. Rice bread, bagels, GF baguettes, sandwiches, pasta, pizza, cupcakes. Then stroll Inokashira Park next door — beautiful lake, swan paddle boats, possible late cherry blossoms. The park is also a short walk from the Ghibli Museum exterior.</div>
     <div class="tags"><span class="tag t-food">brunch</span><span class="tag t-gf">100% GF · celiac safe</span><span class="tag t-act">park · lake</span><span class="tag t-move">Chuo Line</span></div>
-    <div class="note">📍 2-24-9 Kichijoji Honcho, Musashino. Open Sat 11am–6pm. Closed Tuesdays. Phone: 0422-27-2812. The dog is hiding — find it!</div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJrZEKXh2NGGARd9_cAiwv3p0" target="_blank">📍 Where is a Dog?</a>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJLWaVdDXuGGART_Pg1R3CZ4A" target="_blank">📍 Inokashira Park</a>
+    <div class="note">Where is a Dog?: Open Sat 11am–6pm. Closed Tuesdays. Phone: 0422-27-2812. The dog is hiding among the cats — find it!</div>
   </div>
 
   <div class="block">
@@ -727,7 +789,8 @@
     <div class="block-title">Comme'N GF Bakery — Setagaya</div>
     <div class="block-detail">~20 min from Kichijoji by train. Their GF baguette is reportedly the best celiac baguette in Japan: genuinely crusty outside, pillowy inside. Small park across the street to sit and eat. Worth it if you're bread lovers — skip if you'd rather head back and relax before the airport run.</div>
     <div class="tags"><span class="tag t-treat">GF bakery</span><span class="tag t-gf">100% GF</span></div>
-    <div class="note">📍 7-19-12 Okusawa, Setagaya. Open daily 10am–5pm.</div>
+    <a class="map-link" href="https://maps.google.com/?q=ChIJ9Xy5zqr1GGARBnoV_Sg4ZPM" target="_blank">📍 Map — 7-19-12 Okusawa, Setagaya</a>
+    <div class="note">Open daily 10am–5pm.</div>
   </div>
 
   <div class="block">
