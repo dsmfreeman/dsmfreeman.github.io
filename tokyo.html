@@ -168,6 +168,859 @@
     transition: color 0.15s, border-color 0.15s;
     font-family: 'DM Sans', sans-serif;
     letter-spacing: 0.01em;
+    text-decoration: none;
+    display: inline-block;
+  }
+
+  .nav-tab:hover { color: var(--ink); }
+  .nav-tab.active { color: var(--ink); border-bottom-color: var(--red); font-weight: 500; }
+
+  .nav-tab .tab-date { display: block; font-size: 10px; color: var(--ink-light); margin-top: 1px; letter-spacing: 0.05em; }
+  .nav-tab.active .tab-date { color: var(--ink-light); }
+
+  /* MAIN LAYOUT */
+  main {
+    max-width: 780px;
+    margin: 0 auto;
+    padding: 2rem 1.25rem 4rem;
+  }
+
+  .day-panel { display: block; margin-bottom: 3.5rem; }
+  .day-panel:last-child { margin-bottom: 0; }
+
+  .day-anchor {
+    display: block;
+    height: 0;
+    visibility: hidden;
+    scroll-margin-top: 60px;
+  }
+
+  /* DAY HEADER */
+  .day-header {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+
+  .day-number {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--red);
+    margin-bottom: 0.35rem;
+  }
+
+  .day-title {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(1.5rem, 3.5vw, 2rem);
+    font-weight: 600;
+    line-height: 1.2;
+    color: var(--ink);
+  }
+
+  .day-subtitle {
+    font-size: 14px;
+    color: var(--ink-mid);
+    margin-top: 0.5rem;
+    line-height: 1.55;
+  }
+
+  /* BLOCKS */
+  .block {
+    background: var(--paper-card);
+    border: 1px solid #e8e4dc;
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 10px;
+    transition: box-shadow 0.15s;
+  }
+
+  .block:hover {
+    box-shadow: 0 2px 12px rgba(26,24,20,0.07);
+  }
+
+  .block-time {
+    font-size: 10.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    margin-bottom: 0.3rem;
+  }
+
+  .block-title {
+    font-size: 15px;
+    font-weight: 500;
+    color: var(--ink);
+    margin-bottom: 0.4rem;
+    line-height: 1.35;
+  }
+
+  .block-detail {
+    font-size: 13.5px;
+    color: var(--ink-mid);
+    line-height: 1.6;
+  }
+
+  /* TAGS */
+  .tags {
+    display: flex;
+    gap: 5px;
+    flex-wrap: wrap;
+    margin-top: 0.65rem;
+  }
+
+  .tag {
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 12px;
+    font-weight: 400;
+    letter-spacing: 0.02em;
+  }
+
+  .t-food { background: var(--green-light); color: var(--green); }
+  .t-move { background: var(--amber-light); color: var(--amber); }
+  .t-book { background: var(--red-light); color: var(--red); }
+  .t-treat { background: var(--purple-light); color: var(--purple); }
+  .t-act { background: var(--blue-light); color: var(--blue); }
+  .t-gf { background: var(--teal-light); color: var(--teal); }
+
+  /* CALLOUT BOXES */
+  .warn {
+    font-size: 12.5px;
+    color: var(--amber);
+    background: var(--amber-light);
+    border-left: 3px solid #d4a843;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-top: 0.65rem;
+    line-height: 1.5;
+  }
+
+  .note {
+    font-size: 12.5px;
+    color: var(--blue);
+    background: var(--blue-light);
+    border-left: 3px solid #6a9fcf;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-top: 0.65rem;
+    line-height: 1.5;
+  }
+
+  /* SECTION DIVIDERS */
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-faint);
+    margin: 1.5rem 0 0.6rem;
+  }
+
+  /* RESTAURANT LEGEND */
+  .legend {
+    background: var(--paper-warm);
+    border: 1px solid #e0dbd0;
+    border-radius: 10px;
+    padding: 1.25rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .legend h3 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-mid);
+    margin-bottom: 0.75rem;
+  }
+
+  .legend-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 6px 16px;
+  }
+
+  .legend-item {
+    font-size: 12.5px;
+    color: var(--ink-mid);
+    display: flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .legend-dot {
+    width: 7px;
+    height: 7px;
+    border-radius: 50%;
+    flex-shrink: 0;
+  }
+
+  /* MAP LINKS */
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--blue);
+    text-decoration: none;
+    border: 0.5px solid #93bce0;
+    border-radius: 10px;
+    padding: 2px 8px;
+    margin-top: 7px;
+    background: var(--blue-light);
+    transition: opacity 0.15s;
+  }
+  .map-link:hover { opacity: 0.75; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    color: var(--ink-faint);
+    border-top: 1px solid var(--ink-faint);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 600px) {
+    header { padding: 2rem 1.25rem 1.75rem; }
+    main { padding: 1.5rem 1rem 3rem; }
+    .block { padding: 0.9rem 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-jp">東京家族旅行 · Tokyo Family Trip</div>
+  <h1>Tokyo, <span>April 2026</span></h1>
+  <div class="header-meta">APRIL 5 – 11, 2026 &nbsp;·&nbsp; HYATT CENTRIC GINZA &nbsp;·&nbsp; 6 DAYS</div>
+  <div class="header-pills">
+    <span class="header-pill">100% Gluten-Free / Celiac Safe</span>
+    <span class="header-pill">Tweens + Teens</span>
+    <span class="header-pill">Baseball ⚾</span>
+    <span class="header-pill">TeamLab 🎨</span>
+    <span class="header-pill">Hakone Day Trip</span>
+  </div>
+</header>
+
+<div class="alerts-bar">
+  <h3>⚠ Key Reminders</h3>
+  <div class="alerts-list">
+    <div class="alert-item">🥞 Rizlabo closed Mondays — pancakes Monday = Uzna Omom</div>
+    <div class="alert-item">🌸 Fleur de Sarrasin lunch only Fri/Sat</div>
+    <div class="alert-item">🚄 Book Romancecar + Hakone Freepass in advance</div>
+    <div class="alert-item">🍱 Tempura Asakusa SAKURA — booked Wed 7pm ✅</div>
+    <div class="alert-item">🐾 Where is a Dog? closed Tuesdays</div>
+    <div class="alert-item">🏛 Showakan (WWII museum) closed Mondays — Wed visit is fine</div>
+    <div class="alert-item">🎮 Super Potato opens 11am daily</div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-tab active" href="#day-0">
+      Arrive
+      <span class="tab-date">Sun Apr 5</span>
+    </a>
+    <a class="nav-tab" href="#day-1">
+      Tsukiji + Akihabara + T's Kitchen
+      <span class="tab-date">Mon Apr 6</span>
+    </a>
+    <a class="nav-tab" href="#day-2">
+      Mochi + Shibuya
+      <span class="tab-date">Tue Apr 7</span>
+    </a>
+    <a class="nav-tab" href="#day-3">
+      Kichijoji + Pancakes + TeamLab
+      <span class="tab-date">Wed Apr 8</span>
+    </a>
+    <a class="nav-tab" href="#day-4">
+      Hakone Day Trip
+      <span class="tab-date">Thu Apr 9</span>
+    </a>
+    <a class="nav-tab" href="#day-5">
+      Kappabashi + 🎂 + ⚾
+      <span class="tab-date">Fri Apr 10</span>
+    </a>
+    <a class="nav-tab" href="#day-6">
+      WWII Museums + Depart
+      <span class="tab-date">Sat Apr 11</span>
+    </a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ===== DAY 0 ===== -->
+<span id="day-0" class="day-anchor"></span>
+<div class="day-panel" id="p0">
+  <div class="day-header">
+    <div class="day-number">Day 0 · Sunday, April 5</div>
+    <div class="day-title">Arrive & Settle In</div>
+    <div class="day-subtitle">Jet lag day. Get Suica cards, check in, eat something easy. Don't over-plan.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Airport → Hotel</div>
+    <div class="block-title">Narita Express (N'EX) to Tokyo</div>
+    <div class="block-detail">Load Suica cards at the airport — you'll tap in and out all week on trains, subway, and even convenience stores. The N'EX is a great first transport experience: reserved seats, luggage racks, scenic run into the city. From Tokyo Station, take the Ginza Line one stop to Ginza.</div>
+    <div class="tags"><span class="tag t-move">N'EX train</span><span class="tag t-act">Suica cards</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Afternoon</div>
+    <div class="block-title">Check in — Hyatt Centric Ginza</div>
+    <div class="block-detail">Drop bags, freshen up. Ginza is right outside — walk the main boulevard (closed to cars Sunday afternoons). Browse department store basement food halls (depachika) for safe GF snacks to keep in the room all week.</div>
+    <div class="tags"><span class="tag t-act">hotel</span><span class="tag t-act">walk</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Dinner</div>
+    <div class="block-title">🍽 Oh Nana! — 100% GF Japanese Café</div>
+    <div class="block-detail">A 15-min train ride to Kanda (Chiyoda, near Kanda station). Owner Nana is celiac herself — everything is made safely with no cross-contamination. Comfort Japanese food: rice dishes, soups, mains. Open Sundays 11:30am–10pm. A perfect low-effort first night.</div>
+    <div class="tags"><span class="tag t-food">dinner</span><span class="tag t-gf">100% GF · celiac safe</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Oh+Nana+Gluten+Free+Tokyo&ll=35.6922,139.7734" target="_blank">📍 Map</a>
+    <div class="note">Ginza Line to Nihonbashi, change to Sobu for Kanda. Or taxi ~15 min.</div>
+  </div>
+</div>
+
+<!-- ===== DAY 1 ===== -->
+<span id="day-1" class="day-anchor"></span>
+<div class="day-panel" id="p1">
+  <div class="day-header">
+    <div class="day-number">Day 1 · Monday, April 6</div>
+    <div class="day-title">Tsukiji + Pancakes + Akihabara + T's Kitchen</div>
+    <div class="day-subtitle">Street food morning, soufflé pancakes, retro gaming at Super Potato, GF fried food for dinner.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">9:00 – 11:30 am</div>
+    <div class="block-title">🦐 Tsukiji Outer Market</div>
+    <div class="block-detail">Most stalls close by 1pm so 9am is still plenty early. Graze your way through: fresh sushi, tamagoyaki egg rolls, grilled scallops, uni on rice, oysters, tuna skewers. Most fresh seafood is naturally GF. Easy walk (~15 min) or one stop on the Hibiya Line from Ginza.</div>
+    <div class="tags"><span class="tag t-food">street food</span><span class="tag t-act">market</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Tsukiji+Outer+Market&ll=35.6648,139.7703" target="_blank">📍 Map</a>
+    <div class="warn">⚠ Ask about soy sauce on any prepared or sauced items. Request グルテンフリー (gluten-free) or plain.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">12:00 – 1:30 pm</div>
+    <div class="block-title">🥞 Uzna Omom — GF Soufflé Pancakes</div>
+    <div class="block-detail">Head to Harajuku / Cat Street (30 min on the Hibiya Line to Meiji-Jingumae). Opens 11am so no rush — a lunchtime arrival works perfectly. Rice flour soufflé pancakes, famously jiggly. Also try the earl grey yogurt. Open daily including Mondays.</div>
+    <div class="tags"><span class="tag t-food">pancakes</span><span class="tag t-gf">GF rice flour</span><span class="tag t-treat">🥞</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Uzna+Omom+pancakes+Harajuku&ll=35.6659,139.7054" target="_blank">📍 Map</a>
+    <div class="note">5-17-8 Jingumae, Shibuya — hidden on a side street off Cat Street.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">2:00 – 5:30 pm</div>
+    <div class="block-title">🎮 Akihabara — Super Potato + GiGO Arcade</div>
+    <div class="block-detail">Take the Hibiya Line from Meiji-Jingumae to Akihabara (20 min direct). Head straight to Super Potato: three floors of retro games and consoles in a building painted in Mario motifs, plus a working retro arcade on the 5th floor with original 80s/90s cabinets — Street Fighter, Pac-Man, Donkey Kong. Japanese versions of familiar games, rare Famicom hardware, original Game Boy units. Even if you don't buy, it's a genuine museum of gaming history. Then explore GiGO Akihabara's RETRO:G on the 6th floor for more arcade action. The broader Akihabara street can be overwhelming — stick to these two anchors and browse organically.</div>
+    <div class="tags"><span class="tag t-act">gaming 🎮</span><span class="tag t-act">retro arcade</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Super+Potato+Akihabara&ll=35.6994,139.7707" target="_blank">📍 Super Potato</a>
+    <div class="note">Super Potato: 1-11-2 Sotokanda, Chiyoda (3F–5F). Open daily 11am–8pm. GiGO RETRO:G: same building area, 6F.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Evening</div>
+    <div class="block-title">🍱 T's Kitchen — GF Fried Food</div>
+    <div class="block-detail">Head to Roppongi from Akihabara (20 min on the Hibiya Line). T's Kitchen is 2F — look for the sign at street level. Chicken katsu, gyoza, takoyaki, orange chicken, spring rolls — all GF. Open Monday for both lunch and dinner.</div>
+    <div class="tags"><span class="tag t-food">dinner</span><span class="tag t-gf">GF · dedicated</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Gluten+Free+Ts+Kitchen+Roppongi&ll=35.6650,139.7296" target="_blank">📍 Map — 7-8-5-2F Roppongi, Minato City</a>
+    <div class="note">Closed Tuesdays. Opens 5:30pm for dinner.</div>
+  </div>
+</div>
+
+<!-- ===== DAY 2 ===== -->
+<span id="day-2" class="day-anchor"></span>
+<div class="day-panel" id="p2">
+  <div class="day-header">
+    <div class="day-number">Day 2 · Tuesday, April 7</div>
+    <div class="day-title">Mochi Class + Shibuya + Ramen</div>
+    <div class="day-subtitle">Morning activity booked, afternoon Shibuya + Nakameguro, GF ramen for dinner.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">10:00 am — BOOKED</div>
+    <div class="block-title">🍡 Mochi-Making Class — Simply Oishii Wagashi School</div>
+    <div class="block-detail">2-hour class at the Wagashi Promotion Association in Meguro. Allow 20–25 min travel from Ginza (Namboku Line or taxi). Mochi is naturally rice-based — confirm your booking is fully celiac-safe with no shared equipment or wheat in the space.</div>
+    <div class="tags"><span class="tag t-book">booked 10am · 2 hrs</span><span class="tag t-act">cooking class</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Simply+Oishii+Wagashi+School+Meguro&ll=35.6349,139.7135" target="_blank">📍 Map — 1-3-16 Meguro, Meguro City</a>
+    <div class="warn">⚠ Double-check with the organizer that the kitchen is celiac-safe — no shared surfaces or equipment with wheat.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Early afternoon</div>
+    <div class="block-title">Shibuya Crossing + Shibuya Sky</div>
+    <div class="block-detail">Walk the famous scramble crossing — best to be in the middle of the crowd, not just watching. The Starbucks above has a window view if you want to watch. Consider Shibuya Sky rooftop observation deck (book online) — one of the best panoramas in Tokyo, great for teens.</div>
+    <div class="tags"><span class="tag t-act">sightseeing</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Shibuya+Crossing&ll=35.6595,139.7006" target="_blank">📍 Shibuya Crossing</a>
+    <a class="map-link" href="https://shibuya-sky.jp/en/" target="_blank">🎟 Shibuya Sky tickets</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Mid-afternoon</div>
+    <div class="block-title">Nakameguro Canal Walk + I'm Donut?</div>
+    <div class="block-detail">10-min walk from Shibuya. The Meguro River canal is one of Tokyo's most beautiful walks — late cherry blossoms or petals on the water in early April. Then head to the dedicated GF I'm Donut? Shibuya location — a separate shop specifically for their gluten-free donuts, impossibly soft and mochi-like. No need to ask or confirm — this branch is entirely GF.</div>
+    <div class="tags"><span class="tag t-act">canal walk</span><span class="tag t-treat">donuts</span><span class="tag t-gf">dedicated GF location</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Im+Donut+Gluten+Free+Shibuya&ll=35.6609,139.7076" target="_blank">📍 I'm Donut? GF Shibuya — 2-9-1 Shibuya</a>
+    <div class="note">This is the dedicated GF branch — entirely gluten-free, no need to ask. Small shop, takeout only. Open 10am–8pm.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Dinner</div>
+    <div class="block-title">🍜 Shinbu Sakiya — GF Ramen</div>
+    <div class="block-detail">Dedicated GF ramen in Shibuya's Dogenzaka area. Order at the machine outside (English available), then head in. The double-meat ramen and GF fried chicken are the standouts. GF gyoza too. Open until 4:30am — no need to rush.</div>
+    <div class="tags"><span class="tag t-food">dinner</span><span class="tag t-gf">GF · dedicated</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Shinbu+Sakiya+Ramen+Shibuya&ll=35.6579,139.6966" target="_blank">📍 Map — 2-10-3 Dogenzaka, Shibuya</a>
+  </div>
+</div>
+
+<!-- ===== DAY 3 ===== -->
+<span id="day-3" class="day-anchor"></span>
+<div class="day-panel" id="p3">
+  <div class="day-header">
+    <div class="day-number">Day 3 · Wednesday, April 8</div>
+    <div class="day-title">Kichijoji Morning + Pancakes + Takeshita + TeamLab</div>
+    <div class="day-subtitle">Cat café and GF bakery in Kichijoji, noon pancakes at Rizlabo, Takeshita Street, tempura dinner in Asakusa, TeamLab by monorail.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">9:30 – 11:00 am</div>
+    <div class="block-title">🐱 Kichijōji Petit Mura — Cat Café</div>
+    <div class="block-detail">A beloved cat café right in Kichijoji — intimate, well-kept, and calm compared to some of the busier Tokyo cat cafés. Book a slot online in advance; typically 1-hour sessions. A lovely, unhurried way to start the morning before heading to Where is a Dog? when it opens at 11am.</div>
+    <div class="tags"><span class="tag t-act">cat café 🐱</span><span class="tag t-book">book ahead</span></div>
+    <a class="map-link" href="https://www.petitmura.com/" target="_blank">🎟 Petit Mura booking</a>
+    <a class="map-link" href="https://maps.apple.com/?q=Petit+Mura+Cat+Cafe+Kichijoji&ll=35.7020,139.5780" target="_blank">📍 Map — Kichijoji</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">11:00 am – 12:00 pm</div>
+    <div class="block-title">🐾 Where is a Dog? — Kichijoji</div>
+    <div class="block-detail">A 100% GF café and bakery decorated entirely in cat imagery, with a single hidden dog to find somewhere in the decor. Rice bread, bagels, GF baguettes, sandwiches, pasta, pizza, cupcakes. A quick browse and snack before heading back east for noon pancakes — or grab something for the train.</div>
+    <div class="tags"><span class="tag t-food">snack / browse</span><span class="tag t-gf">100% GF · celiac safe</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Where+is+a+Dog+Kichijoji&ll=35.7039,139.5749" target="_blank">📍 Where is a Dog?</a>
+    <div class="note">Open Wed 11am–6pm. Closed Tuesdays. The dog is hiding among the cats — find it! Take the Chuo Line from Kichijoji back to Shinjuku (~15 min), then Yamanote to Harajuku.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">12:00 noon sharp</div>
+    <div class="block-title">🥞 Rizlabo Kitchen — GF Soufflé Pancakes</div>
+    <div class="block-detail">Opens at noon. Rizlabo is a 5-min walk from Harajuku Station and literally 2 min from Takeshita Street. All GF, beautiful rice flour soufflés. Budget 20 min wait for pancakes to cook. Also serves savory dishes and drinks.</div>
+    <div class="tags"><span class="tag t-food">pancakes</span><span class="tag t-gf">100% GF</span><span class="tag t-treat">🥞</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Rizlabo+Kitchen+Harajuku&ll=35.6686,139.7108" target="_blank">📍 Map — 4-15-2 Jingumae, Shibuya</a>
+    <div class="note">Closed Mondays.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">1:30 – 4:30 pm</div>
+    <div class="block-title">Takeshita Street</div>
+    <div class="block-detail">Takeshita is maximalist, colorful, chaotic Tokyo — the teens will love it or love to hate it. Crepe stalls, costume shops, everything pastel and oversized. Short and intense: 45 minutes is probably enough, then you can spill out into the calmer streets around Harajuku Station.</div>
+    <div class="tags"><span class="tag t-act">shopping</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Takeshita+Street+Harajuku&ll=35.6710,139.7052" target="_blank">📍 Takeshita Street</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Afternoon — TBD</div>
+    <div class="block-title">Afternoon TBD</div>
+    <div class="block-detail">Time to fill in. Some ideas: Omotesando for architecture and window shopping (the Prada building and Tadao Ando's Omotesando Hills are worth a look), Meiji Shrine for a peaceful forest walk, or just a slow coffee and browse before heading to Roppongi for dinner.</div>
+    <div class="tags"><span class="tag t-act">TBD</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">7:00 pm — BOOKED</div>
+    <div class="block-title">🍱 Tempura Asakusa SAKURA — Splurge Dinner</div>
+    <div class="block-detail">100% dedicated GF tempura restaurant on the 7th floor above Kaminarimon Gate. Omakase courses with seafood and wagyu options, all fried in GF batter with GF soy sauce. Bar-style seating watching the chefs work. Head to Asakusa from Harajuku/Roppongi area (~20 min on the Ginza Line or taxi). After dinner, continue to Toyosu for TeamLab via the Yurikamome monorail from Shimbashi (~30 min).</div>
+    <div class="tags"><span class="tag t-food">splurge dinner</span><span class="tag t-gf">100% GF · celiac safe</span><span class="tag t-book">booked 7pm</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Tempura+Asakusa+Sakura&ll=35.7102,139.7967" target="_blank">📍 Map — 2-18-16 Kaminarimon, THE CITY 浅草 7F</a>
+    <a class="map-link" href="tel:+81362847307">📞 +81-3-6284-7307</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">7:30 pm — BOOKED</div>
+    <div class="block-title">🎨 TeamLab Planets — Toyosu</div>
+    <div class="block-detail">From Roppongi take the Oedo Line to Tsukiji-shijo, then catch the Yurikamome automated monorail over Tokyo Bay to Shijo-mae. The monorail ride itself is a spectacular transport experience — driverless, elevated, views of Rainbow Bridge and the bay at night. Arrive 15 min early. Wear clothes you can get wet. Socks off for most of the experience.</div>
+    <div class="tags"><span class="tag t-book">booked 7:30pm</span><span class="tag t-move">Yurikamome monorail 🚝</span><span class="tag t-act">immersive art</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=TeamLab+Planets+Toyosu&ll=35.6491,139.7898" target="_blank">📍 Map — 6-1-16 Toyosu, Koto City</a>
+    <div class="note">🚝 The Yurikamome is driverless and elevated over Tokyo Bay — a genuinely memorable transport experience to end the night.</div>
+  </div>
+</div>
+
+<!-- ===== DAY 4 ===== -->
+<span id="day-4" class="day-anchor"></span>
+<div class="day-panel" id="p4">
+  <div class="day-header">
+    <div class="day-number">Day 4 · Thursday, April 9</div>
+    <div class="day-title">Hakone Day Trip</div>
+    <div class="day-subtitle">Romancecar → switchback train → ropeway → Owakudani → back for 6pm tempura dinner in Asakusa.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">9:00 am — Shinjuku</div>
+    <div class="block-title">🚄 Odakyu Romancecar to Hakone</div>
+    <div class="block-detail">Take the Ginza Line from Ginza to Shinjuku (8 min). Board the Romancecar — book reserved seats in advance at odakyu.jp, ideally panoramic front seats. ~90 min scenic journey to Hakone-Yumoto. No changes needed. Arriving ~10:30am.</div>
+    <div class="tags"><span class="tag t-move">Romancecar 🚄</span><span class="tag t-book">book in advance</span></div>
+    <a class="map-link" href="https://www.odakyu-global.com/passes/hakone-freepass/" target="_blank">🎟 Hakone Freepass + Romancecar booking</a>
+    <a class="map-link" href="https://maps.apple.com/?q=Odakyu+Shinjuku+Station&ll=35.6905,139.6995" target="_blank">📍 Shinjuku Station (Odakyu)</a>
+    <div class="note">Buy the Hakone Freepass at Shinjuku — covers Romancecar (upgrade fee), Tozan train, ropeway, and buses. Note: skipping the lake cruise today to make the 6pm dinner — Freepass still good value.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">10:30 am</div>
+    <div class="block-title">🚞 Hakone Tozan Switchback Train</div>
+    <div class="block-detail">The steepest mountain railway in Japan. Three switchbacks to climb the mountain — the driver physically walks between ends at each switch. Forested mountain scenery all the way up to Gora (~50 min). Arrive Gora ~11:20am.</div>
+    <div class="tags"><span class="tag t-move">switchback train 🚞</span><span class="tag t-act">scenic</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">11:30 am – 1:00 pm</div>
+    <div class="block-title">Hakone Open-Air Museum</div>
+    <div class="block-detail">One stop from Gora on the funicular to Chokoku-no-Mori. Outdoor sculpture park — Picasso pavilion, a stained-glass tower you can climb, a natural hot spring foot bath. Keep to 1–1.5 hours today to stay on schedule.</div>
+    <div class="tags"><span class="tag t-act">museum · outdoor</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Hakone+Open+Air+Museum&ll=35.2452,139.0507" target="_blank">📍 Hakone Open-Air Museum</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">1:00 pm</div>
+    <div class="block-title">Lunch — Pack Ahead</div>
+    <div class="block-detail">Hakone restaurants are not GF-aware. Pack GF onigiri and snacks from a Tokyo convenience store before you leave. On the mountain, plain grilled corn or fresh fruit are safe bets if you need something extra.</div>
+    <div class="tags"><span class="tag t-food">packed lunch</span></div>
+    <div class="warn">⚠ Do not rely on Hakone restaurants for celiac-safe food. Pack from Tokyo.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">1:30 pm</div>
+    <div class="block-title">🚡 Hakone Ropeway → Owakudani</div>
+    <div class="block-detail">Gondola ride over active volcanic valleys. Stop at Owakudani — sulfur steam vents, volcanic landscape, and the famous black eggs (kurotamago) boiled in the sulfur springs. Naturally GF, and supposedly add 7 years to your life. Allow ~45 min here.</div>
+    <div class="tags"><span class="tag t-move">ropeway 🚡</span><span class="tag t-act">volcanic landscape</span><span class="tag t-food">black eggs</span><span class="tag t-gf">GF</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Owakudani&ll=35.2436,139.0197" target="_blank">📍 Owakudani</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~3:00 pm — Head back</div>
+    <div class="block-title">Bus → Hakone-Yumoto → Romancecar to Shinjuku</div>
+    <div class="block-detail">Take the ropeway back to Sounzan, then cable car to Gora, then Tozan train back to Hakone-Yumoto (~1 hr total). Board the Romancecar by ~3:30pm, arriving Shinjuku ~5pm. Ginza Line to Asakusa for dinner — should arrive comfortably by 5:45pm.</div>
+    <div class="tags"><span class="tag t-move">Romancecar back 🚄</span></div>
+    <div class="note">Skipping the lake cruise today — saves ~1.5 hours and makes the 6pm dinner very comfortable. The cruise is spectacular but the ropeway + Owakudani are the unmissable parts.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">6:00 pm — BOOKED</div>
+    <div class="block-title">🍱 Tempura Asakusa SAKURA — Splurge Dinner</div>
+    <div class="block-detail">100% dedicated GF tempura restaurant on the 7th floor above Kaminarimon Gate. Omakase courses with seafood and wagyu options, all fried in GF batter with GF soy sauce. Bar-style seating watching the chefs work. One of Tokyo's most celebrated celiac-safe dining experiences.</div>
+    <div class="tags"><span class="tag t-food">splurge dinner</span><span class="tag t-gf">100% GF · celiac safe</span><span class="tag t-book">booked 6pm</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Tempura+Asakusa+Sakura&ll=35.7102,139.7967" target="_blank">📍 2-18-16 Kaminarimon, THE CITY 浅草 7F</a>
+    <a class="map-link" href="tel:+81362847307">📞 +81-3-6284-7307</a>
+  </div>
+</div>
+
+<!-- ===== DAY 5 ===== -->
+<span id="day-5" class="day-anchor"></span>
+<div class="day-panel" id="p5">
+  <div class="day-header">
+    <div class="day-number">Day 5 · Friday, April 10</div>
+    <div class="day-title">Kappabashi + 🎂 Birthday Lunch + ⚾ Baseball</div>
+    <div class="day-subtitle">Happy birthday Phoebe! Kitchen Street in the morning, birthday lunch at Fleur de Sarrasin, evening at Tokyo Dome.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Morning — TBD</div>
+    <div class="block-title">Morning TBD</div>
+    <div class="block-detail">Time to fill in — or just a relaxed hotel breakfast before heading to Kappabashi. One option: Ueno Park is a 15-min walk from Kappabashi if you want a peaceful morning stroll through cherry blossom remnants before the kitchen street opens at 10am.</div>
+    <div class="tags"><span class="tag t-act">TBD</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">10:00 – 11:30 am</div>
+    <div class="block-title">🔪 Kappabashi Kitchen Street</div>
+    <div class="block-detail">Tokyo's legendary restaurant supply district — ~170 shops along an 800-metre street between Ueno and Asakusa. Browse: professional Japanese knives (Kama-Asa is the standout shop), beautiful ceramics at bargain prices, baking molds, bamboo steamers, and the hyper-realistic plastic food samples (sampuru) that you see in restaurant windows all over Japan. Affordable keychain and magnet versions make great souvenirs. Most shops open from 10am. Note: most are closed Sundays — Friday is ideal.</div>
+    <div class="tags"><span class="tag t-act">shopping · kitchen supplies</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Kappabashi+Kitchen+Street+Tokyo&ll=35.7106,139.7880" target="_blank">📍 Kappabashi Kitchen Street</a>
+    <div class="note">Start at the giant chef's head statue (Niimi shop corner) and walk north. Side streets are worth exploring. Most shops close by 5–6pm.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">11:45 am — BOOK AHEAD</div>
+    <div class="block-title">🥐 Fleur de Sarrasin — Birthday Lunch 🎂</div>
+    <div class="block-detail">A 10-min walk from Kappabashi into Nishi-Asakusa. Opens Friday lunch at 11:45am. Husband and wife team who lived in France — buckwheat ground fresh daily for the galettes (crepes). 100% GF. The duck galette and camembert + walnut + honey galette are standouts. Tiny, intimate, and genuinely exceptional — the perfect birthday setting. Tell them it's a birthday when you book.</div>
+    <div class="tags"><span class="tag t-food">birthday lunch 🎂</span><span class="tag t-gf">100% GF · buckwheat</span><span class="tag t-book">book ahead</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Fleur+de+Sarrasin+Asakusa&ll=35.7128,139.7918" target="_blank">📍 Map — 2-14-2 Nishiasakusa, Taito City</a>
+    <a class="map-link" href="tel:+81368761851">📞 +81-3-6876-1851</a>
+    <div class="note">Open Fri/Sat 11:45am–2pm + evenings (Mon/Tue evenings too). Closed Wed/Thu. Very small — book ahead and mention birthday + celiac.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">4:30 pm — Leave for the Dome</div>
+    <div class="block-title">Head to Tokyo Dome</div>
+    <div class="block-detail">Marunouchi Line from Ginza to Korakuen, or Mita Line to Suidobashi (~25 min). Arrive early to explore the concourse food options. Look for naturally GF: plain edamame, grilled corn, sashimi, yakitori (confirm no wheat tare), rice dishes. The Tokyo Dome City amusement park and ferris wheel outside are fun to walk through before gates open.</div>
+    <div class="tags"><span class="tag t-move">Marunouchi Line</span><span class="tag t-food">stadium food</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Tokyo+Dome&ll=35.7056,139.7519" target="_blank">📍 Tokyo Dome</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">6:00 pm — BOOKED</div>
+    <div class="block-title">⚾ Yomiuri Giants at Tokyo Dome</div>
+    <div class="block-detail">Japanese baseball culture is unlike anything in the US: synchronized fan chants section by section, umbrella dances in the 7th inning, mid-game fireworks, beer keg ladies who pour at your seat, and bento boxes everywhere. The Giants are Japan's most famous team. Don't worry about not knowing the chants — it's infectious, you'll pick them up.</div>
+    <div class="tags"><span class="tag t-act">baseball ⚾</span><span class="tag t-book">booked 6pm start</span></div>
+  </div>
+</div>
+
+<!-- ===== DAY 6 ===== -->
+<span id="day-6" class="day-anchor"></span>
+<div class="day-panel" id="p6">
+  <div class="day-header">
+    <div class="day-number">Day 6 · Saturday, April 11</div>
+    <div class="day-title">WWII Museums + Depart</div>
+    <div class="day-subtitle">History morning near Kudanshita, farewell dinner in Ginza, Keikyu to Haneda for the 10:55pm flight.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">9:30 – 12:00 pm</div>
+    <div class="block-title">🏛 WWII Museums — Japanese Perspective</div>
+    <div class="block-detail">Two museums near Kudanshita Station, 20 min from Ginza. Start at the <strong>National Showa Memorial Museum (Showakan)</strong> — focuses on the daily lives of ordinary Japanese civilians during and after the war: rationing, air raids, personal letters, rebuilt lives. Fascinating and human. ¥300 entry. Download the <em>Pocket Curator</em> app for English translations. Then walk 5 min to <strong>Yushukan</strong> inside Yasukuni Shrine — Japan's oldest military museum with a Zero fighter aircraft, kamikaze pilot letters, and a naval locomotive from the Death Railway. The narrative frames Japan as reluctant and defensive, which is controversial but illuminating to experience having just been at Pearl Harbor. ¥1,000 entry. Together allow 2–2.5 hours.</div>
+    <div class="tags"><span class="tag t-act">history · WWII</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=National+Showa+Memorial+Museum+Tokyo&ll=35.6951,139.7507" target="_blank">📍 Showakan (National Showa Memorial Museum)</a>
+    <a class="map-link" href="https://maps.apple.com/?q=Yushukan+Museum+Yasukuni+Shrine&ll=35.6950,139.7436" target="_blank">📍 Yushukan (Yasukuni Shrine)</a>
+    <div class="note">Showakan: 10am–5:30pm, open Saturdays. Yushukan: 9am–4pm, open Saturdays. Both walkable from Kudanshita Station (Hanzomon/Tozai/Toei Shinjuku lines). Download the Pocket Curator app before visiting Showakan for English translations.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Optional detour</div>
+    <div class="block-title">Comme'N GF Bakery — Setagaya</div>
+    <div class="block-detail">~20 min from Kichijoji by train. Their GF baguette is reportedly the best celiac baguette in Japan: genuinely crusty outside, pillowy inside. Small park across the street to sit and eat. Worth it if you're bread lovers — skip if you'd rather head back and relax before the airport run.</div>
+    <div class="tags"><span class="tag t-treat">GF bakery</span><span class="tag t-gf">100% GF</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Comme+N+Gluten+Free+Bakery+Setagaya&ll=35.6056,139.6619" target="_blank">📍 Map — 7-19-12 Okusawa, Setagaya</a>
+    <div class="note">Open daily 10am–5pm.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">12:30 – 2:00 pm</div>
+    <div class="block-title">Return to Hotel + Pack</div>
+    <div class="block-detail">Back to Ginza from Kudanshita — direct on the Hanzomon Line to Ginza-itchome, or Toei Shinjuku Line to Shinjuku then Marunouchi Line (~25 min). Collect luggage, check out. Store bags at the hotel if you want free hands for the afternoon. Last convenience store run: GF rice crackers, mochi, onigiri for the flight.</div>
+    <div class="tags"><span class="tag t-move">Hanzomon Line → Ginza</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">6:00 – 7:30 pm</div>
+    <div class="block-title">🍽 Farewell Dinner — Gonpachi Asakusa</div>
+    <div class="block-detail">A casual izakaya with a dedicated GF menu — GF tempura, yakitori skewers off the charcoal grill, sashimi, karaage chicken. The kind of lively, smoky, order-everything Japanese pub dinner that's a perfect last meal. English menu and GF menu both available. Sits along the Sumida River with a nice view. About 25 min from the hotel by train (Toei Asakusa Line from Higashi-Ginza to Asakusa, 2 stops), or taxi. Conveniently, the same Toei Asakusa Line continues directly to the Keikyu Line for Haneda — so you can go Ginza → Gonpachi → airport without backtracking.</div>
+    <div class="tags"><span class="tag t-food">farewell dinner</span><span class="tag t-gf">GF menu available</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Gonpachi+Asakusa&ll=35.7103,139.7980" target="_blank">📍 Map — 2-1-15 Kaminarimon, Taito City</a>
+    <div class="warn">⚠ Not a dedicated GF kitchen — ask for the gluten-free menu on arrival and confirm with staff. Well-reviewed for celiac awareness.</div>
+    <div class="note">Open until 11pm. After dinner: take the Toei Asakusa Line from Asakusa Station straight through to Keikyu for Haneda — no extra transfers needed.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">8:30 pm — Leave for airport</div>
+    <div class="block-title">✈ Toei Asakusa Line → Keikyu to Haneda — 10:55pm flight</div>
+    <div class="block-detail">From Asakusa Station, the Toei Asakusa Line runs directly through to the Keikyu Line for Haneda International Terminal — about 40 minutes, no transfers. Aim to be at the airport by 9:15–9:30pm. Check in online beforehand to save time. さようなら、東京！</div>
+    <div class="tags"><span class="tag t-move">Toei Asakusa → Keikyu → Haneda</span></div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  Tokyo Family Trip · April 5–11, 2026 · All restaurants verified gluten-free / celiac-safe at time of planning. Always confirm with staff on arrival.
+</footer>
+
+<script>
+const tabs = document.querySelectorAll('.nav-tab');
+const anchors = ['day-0','day-1','day-2','day-3','day-4','day-5','day-6'];
+
+function setActive(id) {
+  tabs.forEach((t, i) => t.classList.toggle('active', anchors[i] === id));
+}
+
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) setActive(e.target.id);
+  });
+}, { rootMargin: '-10% 0px -80% 0px', threshold: 0 });
+
+anchors.forEach(id => {
+  const el = document.getElementById(id);
+  if (el) observer.observe(el);
+});
+
+tabs.forEach((tab, i) => {
+  tab.addEventListener('click', () => setActive(anchors[i]));
+});
+</script>
+</body>
+</html><!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Tokyo Family Trip — April 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@400;500;600&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1814;
+    --ink-mid: #4a4640;
+    --ink-light: #8a8480;
+    --ink-faint: #c8c4be;
+    --paper: #faf8f4;
+    --paper-warm: #f2ede4;
+    --paper-card: #ffffff;
+    --red: #c0392b;
+    --red-light: #fdf0ee;
+    --green: #2d6a4f;
+    --green-light: #eaf4ee;
+    --blue: #1a4a7a;
+    --blue-light: #eaf1f8;
+    --amber: #8b5e0a;
+    --amber-light: #fdf3e3;
+    --purple: #5b3d8c;
+    --purple-light: #f0eaf8;
+    --teal: #1a6b6b;
+    --teal-light: #e8f5f5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 30% 50%, rgba(192,57,43,0.18) 0%, transparent 60%),
+                radial-gradient(ellipse at 70% 20%, rgba(90,60,140,0.12) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .header-jp {
+    font-family: 'Shippori Mincho', serif;
+    font-size: 13px;
+    letter-spacing: 0.25em;
+    color: var(--ink-faint);
+    margin-bottom: 0.75rem;
+    text-transform: uppercase;
+  }
+
+  header h1 {
+    font-family: 'Shippori Mincho', serif;
+    font-size: clamp(2rem, 5vw, 3.2rem);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  header h1 span {
+    color: #e85c4a;
+  }
+
+  .header-meta {
+    font-size: 14px;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    margin-top: 1rem;
+  }
+
+  .header-pills {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+  }
+
+  .header-pill {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.75);
+    letter-spacing: 0.05em;
+  }
+
+  /* ALERTS BAR */
+  .alerts-bar {
+    background: var(--amber-light);
+    border-bottom: 1px solid #e8d5a8;
+    padding: 0.75rem 1.5rem;
+  }
+
+  .alerts-bar h3 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    margin-bottom: 0.4rem;
+  }
+
+  .alerts-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px 16px;
+  }
+
+  .alert-item {
+    font-size: 12.5px;
+    color: var(--amber);
+    display: flex;
+    align-items: flex-start;
+    gap: 5px;
+  }
+
+  /* NAV TABS */
+  nav {
+    background: var(--paper-card);
+    border-bottom: 1px solid var(--ink-faint);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  nav::-webkit-scrollbar { display: none; }
+
+  .nav-inner {
+    display: flex;
+    min-width: max-content;
+    padding: 0 1rem;
+  }
+
+  .nav-tab {
+    padding: 1rem 1.25rem;
+    font-size: 13px;
+    font-weight: 400;
+    color: var(--ink-light);
+    cursor: pointer;
+    border: none;
+    background: none;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+    font-family: 'DM Sans', sans-serif;
+    letter-spacing: 0.01em;
   }
 
   .nav-tab:hover { color: var(--ink); }
