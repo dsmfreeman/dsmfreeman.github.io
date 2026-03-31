@@ -173,10 +173,11 @@
   }
 
   .nav-tab:hover { color: var(--ink); }
-  .nav-tab.active { color: var(--ink); border-bottom-color: var(--red); font-weight: 500; }
-
-  .nav-tab .tab-date { display: block; font-size: 10px; color: var(--ink-light); margin-top: 1px; letter-spacing: 0.05em; }
-  .nav-tab.active .tab-date { color: var(--ink-light); }
+  .nav-tab.active { color: var(--ink); border-bottom-color: var(--red); }
+  .nav-tab .tab-date { display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .nav-tab.active .tab-date { color: var(--ink); }
+  .nav-tab .tab-label { display: block; font-size: 10px; color: var(--ink-light); letter-spacing: 0.03em; }
+  .nav-tab.active .tab-label { color: var(--ink-mid); }
 
   /* MAIN LAYOUT */
   main {
@@ -408,47 +409,55 @@
 </header>
 
 <div class="alerts-bar">
-  <h3>⚠ Key Reminders</h3>
+  <h3>📋 Reservations</h3>
   <div class="alerts-list">
-    <div class="alert-item">🥞 Rizlabo closed Mondays — pancakes Monday = Uzna Omom</div>
-    <div class="alert-item">🌸 Fleur de Sarrasin lunch only Fri/Sat</div>
-    <div class="alert-item">🚄 Book Romancecar + Hakone Freepass in advance</div>
+    <div class="alert-item">🍡 Mochi class — booked Tue 10am ✅</div>
+    <div class="alert-item">🎨 TeamLab Planets — booked Wed 7:30pm ✅</div>
     <div class="alert-item">🍱 Tempura Asakusa SAKURA — booked Thu 6pm ✅</div>
-    <div class="alert-item">🐾 Where is a Dog? closed Tuesdays</div>
-    <div class="alert-item">🏛 Showakan (WWII museum) closed Mondays — Wed visit is fine</div>
-    <div class="alert-item">🎮 Super Potato opens 11am daily</div>
+    <div class="alert-item">⚾ Yomiuri Giants baseball — booked Fri 6pm ✅</div>
+    <div class="alert-item">🐱 Petit Mura cat café — book ahead at petitmura.com</div>
+    <div class="alert-item">🥐 Fleur de Sarrasin — book ahead, mention birthday + celiac · +81-3-6876-1851</div>
+    <div class="alert-item">🍽 Gonpachi Asakusa — recommended to book for Sat dinner</div>
+  </div>
+  <h3 style="margin-top:0.75rem;">🗒 Not yet placed</h3>
+  <div class="alerts-list">
+    <div class="alert-item">🥞 Benizuru — 3rd pancake spot (Shibuya area)</div>
+    <div class="alert-item">🍡 Avan churros — inside Ueno Station (JR paid area), no reservation needed</div>
+    <div class="alert-item">🍮 Nanan — GF sweets + bagels, Azabudai (near Roppongi)</div>
+    <div class="alert-item">🐟 Taiyaki — grab anywhere, no planning needed</div>
+    <div class="alert-item">🍞 Jiyugaoka Bakery — GF bakery, Jiyugaoka (same line as Kichijoji/Gōtokuji area)</div>
   </div>
 </div>
 
 <nav>
   <div class="nav-inner">
     <a class="nav-tab active" href="#day-0">
-      Arrive
       <span class="tab-date">Sun Apr 5</span>
+      <span class="tab-label">Arrive</span>
     </a>
     <a class="nav-tab" href="#day-1">
-      Tsukiji + Akihabara + T's Kitchen
       <span class="tab-date">Mon Apr 6</span>
+      <span class="tab-label">Tsukiji + Akihabara + T's Kitchen</span>
     </a>
     <a class="nav-tab" href="#day-2">
-      Mochi + Shibuya
       <span class="tab-date">Tue Apr 7</span>
+      <span class="tab-label">Mochi + Shibuya</span>
     </a>
     <a class="nav-tab" href="#day-3">
-      Kichijoji + Pancakes + TeamLab
       <span class="tab-date">Wed Apr 8</span>
+      <span class="tab-label">Kichijoji + Takeshita + TeamLab</span>
     </a>
     <a class="nav-tab" href="#day-4">
-      Hakone Day Trip
       <span class="tab-date">Thu Apr 9</span>
+      <span class="tab-label">Cat Temple + Rizlabo + Tempura</span>
     </a>
     <a class="nav-tab" href="#day-5">
-      Kappabashi + 🎂 + ⚾
       <span class="tab-date">Fri Apr 10</span>
+      <span class="tab-label">Kappabashi + 🎂 + ⚾</span>
     </a>
     <a class="nav-tab" href="#day-6">
-      WWII Museums + Depart
       <span class="tab-date">Sat Apr 11</span>
+      <span class="tab-label">WWII Museums + Depart</span>
     </a>
   </div>
 </nav>
@@ -585,34 +594,26 @@
   <div class="day-header">
     <div class="day-number">Day 3 · Wednesday, April 8</div>
     <div class="day-title">Kichijoji Morning + Pancakes + Takeshita + TeamLab</div>
-    <div class="day-subtitle">Cat café and GF bakery in Kichijoji, noon pancakes at Rizlabo, Takeshita Street, dinner TBD, TeamLab by monorail.</div>
+    <div class="day-subtitle">Cat café + Where is a Dog? in Kichijoji, Takeshita Street, dinner TBD, TeamLab by monorail.</div>
   </div>
 
   <div class="block">
     <div class="block-time">9:30 – 11:00 am</div>
     <div class="block-title">🐱 Kichijōji Petit Mura — Cat Café</div>
-    <div class="block-detail">A beloved cat café right in Kichijoji — intimate, well-kept, and calm compared to some of the busier Tokyo cat cafés. Book a slot online in advance; typically 1-hour sessions. A lovely, unhurried way to start the morning before heading to Where is a Dog? when it opens at 11am.</div>
+    <div class="block-detail">A beloved cat café right in Kichijoji — intimate, well-kept, and calm. Book a slot online in advance; typically 1-hour sessions. After the café, head straight back to Harajuku: Chuo Line from Kichijoji to Shinjuku (~15 min), then Yamanote Line to Harajuku (~5 min).</div>
     <div class="tags"><span class="tag t-act">cat café 🐱</span><span class="tag t-book">book ahead</span></div>
     <a class="map-link" href="https://www.petitmura.com/" target="_blank">🎟 Petit Mura booking</a>
     <a class="map-link" href="https://maps.apple.com/?q=Petit+Mura+Cat+Cafe+Kichijoji&ll=35.7020,139.5780" target="_blank">📍 Map — Kichijoji</a>
   </div>
 
   <div class="block">
-    <div class="block-time">11:00 am – 12:00 pm</div>
+    <div class="block-time">11:00 am – 12:30 pm</div>
     <div class="block-title">🐾 Where is a Dog? — Kichijoji</div>
-    <div class="block-detail">A 100% GF café and bakery decorated entirely in cat imagery, with a single hidden dog to find somewhere in the decor. Rice bread, bagels, GF baguettes, sandwiches, pasta, pizza, cupcakes. A quick browse and snack before heading back east for noon pancakes — or grab something for the train.</div>
-    <div class="tags"><span class="tag t-food">snack / browse</span><span class="tag t-gf">100% GF · celiac safe</span></div>
+    <div class="block-detail">A 100% GF café and bakery decorated entirely in cat imagery, with a single hidden dog to find somewhere in the decor. Rice bread, bagels, GF baguettes, sandwiches, pasta, pizza, cupcakes. A proper brunch stop right after the cat café — both are in Kichijoji so no travel needed.</div>
+    <div class="tags"><span class="tag t-food">brunch</span><span class="tag t-gf">100% GF · celiac safe</span></div>
     <a class="map-link" href="https://maps.apple.com/?q=Where+is+a+Dog+Kichijoji&ll=35.7039,139.5749" target="_blank">📍 Where is a Dog?</a>
-    <div class="note">Open Wed 11am–6pm. Closed Tuesdays. The dog is hiding among the cats — find it! Take the Chuo Line from Kichijoji back to Shinjuku (~15 min), then Yamanote to Harajuku.</div>
+    <div class="note">Open Wed 11am–6pm. Closed Tuesdays. The dog is hiding among the cats — find it! After brunch, take the Chuo Line back to Shinjuku (~15 min), then Yamanote to Harajuku for Takeshita.</div>
   </div>
-
-  <div class="block">
-    <div class="block-time">12:00 noon sharp</div>
-    <div class="block-title">🥞 Rizlabo Kitchen — GF Soufflé Pancakes</div>
-    <div class="block-detail">Opens at noon. Rizlabo is a 5-min walk from Harajuku Station and literally 2 min from Takeshita Street. All GF, beautiful rice flour soufflés. Budget 20 min wait for pancakes to cook. Also serves savory dishes and drinks.</div>
-    <div class="tags"><span class="tag t-food">pancakes</span><span class="tag t-gf">100% GF</span><span class="tag t-treat">🥞</span></div>
-    <a class="map-link" href="https://maps.apple.com/?q=Rizlabo+Kitchen+Harajuku&ll=35.6686,139.7108" target="_blank">📍 Map — 4-15-2 Jingumae, Shibuya</a>
-    <div class="note">Closed Mondays.</div>
   </div>
 
   <div class="block">
@@ -645,57 +646,34 @@
 <div class="day-panel" id="p4">
   <div class="day-header">
     <div class="day-number">Day 4 · Thursday, April 9</div>
-    <div class="day-title">Hakone Day Trip</div>
-    <div class="day-subtitle">Romancecar → switchback train → ropeway → Owakudani → back for 6pm tempura dinner in Asakusa.</div>
+    <div class="day-title">Cat Train + Cat Temple + Rizlabo + Tempura</div>
+    <div class="day-subtitle">Ride the Setagaya Line tram to Tokyo's lucky cat temple, late lunch at Rizlabo, then splurge dinner in Asakusa.</div>
   </div>
 
   <div class="block">
-    <div class="block-time">9:00 am — Shinjuku</div>
-    <div class="block-title">🚄 Odakyu Romancecar to Hakone</div>
-    <div class="block-detail">Take the Ginza Line from Ginza to Shinjuku (8 min). Board the Romancecar — book reserved seats in advance at odakyu.jp, ideally panoramic front seats. ~90 min scenic journey to Hakone-Yumoto. No changes needed. Arriving ~10:30am.</div>
-    <div class="tags"><span class="tag t-move">Romancecar 🚄</span><span class="tag t-book">book in advance</span></div>
-    <a class="map-link" href="https://www.odakyu-global.com/passes/hakone-freepass/" target="_blank">🎟 Hakone Freepass + Romancecar booking</a>
-    <a class="map-link" href="https://maps.apple.com/?q=Odakyu+Shinjuku+Station&ll=35.6905,139.6995" target="_blank">📍 Shinjuku Station (Odakyu)</a>
-    <div class="note">Buy the Hakone Freepass at Shinjuku — covers Romancecar (upgrade fee), Tozan train, ropeway, and buses. Note: skipping the lake cruise today to make the 6pm dinner — Freepass still good value.</div>
+    <div class="block-time">After breakfast</div>
+    <div class="block-title">🐱 Setagaya Line — The Cat Train</div>
+    <div class="block-detail">From Ginza take the Denentoshi Line to Sangenjaya (~25 min), then transfer to the Setagaya Line — a tiny two-car street tram that trundles through residential Tokyo. Ride to Miyanosaka Station, then walk ~15 min to Gōtokuji Temple. The Setagaya Line sometimes runs a special cat-themed livery; even when it doesn't, the tram itself is a charming transport experience through an unhurried part of the city.</div>
+    <div class="tags"><span class="tag t-move">Setagaya Line tram 🚋</span><span class="tag t-act">transport experience</span></div>
+    <div class="note">Denentoshi Line from Shibuya to Sangenjaya (2 stops), then Setagaya Line to Miyanosaka. ~40 min total from Ginza.</div>
   </div>
 
   <div class="block">
-    <div class="block-time">10:30 am</div>
-    <div class="block-title">🚞 Hakone Tozan Switchback Train</div>
-    <div class="block-detail">The steepest mountain railway in Japan. Three switchbacks to climb the mountain — the driver physically walks between ends at each switch. Forested mountain scenery all the way up to Gora (~50 min). Arrive Gora ~11:20am.</div>
-    <div class="tags"><span class="tag t-move">switchback train 🚞</span><span class="tag t-act">scenic</span></div>
+    <div class="block-time">Morning</div>
+    <div class="block-title">🐱 Gōtokuji Temple — The Lucky Cat Temple</div>
+    <div class="block-detail">The birthplace of the Maneki-neko (beckoning cat) — hundreds of white ceramic lucky cats line the temple shelves, left by visitors whose wishes were fulfilled. Free entry, open from 6am. Peaceful, un-touristy, and unlike anywhere else in Tokyo. You can buy a small lucky cat to leave or take home. A 15-min walk from Miyanosaka Station through quiet residential streets with small shops along the way.</div>
+    <div class="tags"><span class="tag t-act">temple 🐱</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Gotokuji+Temple+Tokyo&ll=35.6488,139.6475" target="_blank">📍 Gōtokuji Temple — 2-24-7 Gōtokuji, Setagaya</a>
+    <div class="note">Free entry. Open daily 6am–5pm. Quiet on weekday mornings — ideal timing. Allow 45–60 min.</div>
   </div>
 
   <div class="block">
-    <div class="block-time">11:30 am – 1:00 pm</div>
-    <div class="block-title">Hakone Open-Air Museum</div>
-    <div class="block-detail">One stop from Gora on the funicular to Chokoku-no-Mori. Outdoor sculpture park — Picasso pavilion, a stained-glass tower you can climb, a natural hot spring foot bath. Keep to 1–1.5 hours today to stay on schedule.</div>
-    <div class="tags"><span class="tag t-act">museum · outdoor</span></div>
-    <a class="map-link" href="https://maps.apple.com/?q=Hakone+Open+Air+Museum&ll=35.2452,139.0507" target="_blank">📍 Hakone Open-Air Museum</a>
-  </div>
-
-  <div class="block">
-    <div class="block-time">1:00 pm</div>
-    <div class="block-title">Lunch — Pack Ahead</div>
-    <div class="block-detail">Hakone restaurants are not GF-aware. Pack GF onigiri and snacks from a Tokyo convenience store before you leave. On the mountain, plain grilled corn or fresh fruit are safe bets if you need something extra.</div>
-    <div class="tags"><span class="tag t-food">packed lunch</span></div>
-    <div class="warn">⚠ Do not rely on Hakone restaurants for celiac-safe food. Pack from Tokyo.</div>
-  </div>
-
-  <div class="block">
-    <div class="block-time">1:30 pm</div>
-    <div class="block-title">🚡 Hakone Ropeway → Owakudani</div>
-    <div class="block-detail">Gondola ride over active volcanic valleys. Stop at Owakudani — sulfur steam vents, volcanic landscape, and the famous black eggs (kurotamago) boiled in the sulfur springs. Naturally GF, and supposedly add 7 years to your life. Allow ~45 min here.</div>
-    <div class="tags"><span class="tag t-move">ropeway 🚡</span><span class="tag t-act">volcanic landscape</span><span class="tag t-food">black eggs</span><span class="tag t-gf">GF</span></div>
-    <a class="map-link" href="https://maps.apple.com/?q=Owakudani&ll=35.2436,139.0197" target="_blank">📍 Owakudani</a>
-  </div>
-
-  <div class="block">
-    <div class="block-time">~3:00 pm — Head back</div>
-    <div class="block-title">Bus → Hakone-Yumoto → Romancecar to Shinjuku</div>
-    <div class="block-detail">Take the ropeway back to Sounzan, then cable car to Gora, then Tozan train back to Hakone-Yumoto (~1 hr total). Board the Romancecar by ~3:30pm, arriving Shinjuku ~5pm. Ginza Line to Asakusa for dinner — should arrive comfortably by 5:45pm.</div>
-    <div class="tags"><span class="tag t-move">Romancecar back 🚄</span></div>
-    <div class="note">Skipping the lake cruise today — saves ~1.5 hours and makes the 6pm dinner very comfortable. The cruise is spectacular but the ropeway + Owakudani are the unmissable parts.</div>
+    <div class="block-time">Late lunch — ~12:30 pm</div>
+    <div class="block-title">🥞 Rizlabo Kitchen — GF Soufflé Pancakes</div>
+    <div class="block-detail">From Gōtokuji head back on the Setagaya Line to Sangenjaya, then Denentoshi Line to Shibuya, and walk to Harajuku (~35 min total). Rizlabo opens at noon — arrive for a late lunch slot. Rice flour soufflé pancakes, all GF. Budget 20 min wait for pancakes to cook.</div>
+    <div class="tags"><span class="tag t-food">late lunch</span><span class="tag t-gf">100% GF</span><span class="tag t-treat">🥞</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Rizlabo+Kitchen+Harajuku&ll=35.6686,139.7108" target="_blank">📍 Map — 4-15-2 Jingumae, Shibuya</a>
+    <div class="note">Closed Mondays. Opens noon.</div>
   </div>
 
   <div class="block">
