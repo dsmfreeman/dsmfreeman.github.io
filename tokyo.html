@@ -179,6 +179,26 @@
   .nav-tab .tab-label { display: block; font-size: 10px; color: var(--ink-light); letter-spacing: 0.03em; }
   .nav-tab.active .tab-label { color: var(--ink-mid); }
 
+
+  /* PHOTO GALLERIES */
+  .photo-gallery {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 4px;
+    margin: 0.75rem 0 0;
+    border-radius: 6px;
+    overflow: hidden;
+  }
+  .photo-gallery:has(.gal-thumb:nth-child(1):last-child) { grid-template-columns: 1fr; max-width: 320px; }
+  .photo-gallery:has(.gal-thumb:nth-child(2):last-child) { grid-template-columns: repeat(2, 1fr); }
+  .photo-gallery:has(.gal-thumb:nth-child(3):last-child) { grid-template-columns: repeat(3, 1fr); }
+  .gal-thumb { display: block; aspect-ratio: 1; overflow: hidden; background: var(--ink-faint); }
+  .gal-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; transition: opacity 0.15s; }
+  .gal-thumb img:hover { opacity: 0.88; }
+  @media (max-width: 600px) {
+    .photo-gallery { grid-template-columns: repeat(2, 1fr) !important; max-width: none !important; }
+  }
+
   /* MAIN LAYOUT */
   main {
     max-width: 780px;
@@ -463,6 +483,7 @@
     <div class="block-detail">Load Suica cards at the airport — you'll tap in and out all week on trains, subway, and even convenience stores. The N'EX is a great first transport experience: reserved seats, luggage racks, scenic run into the city. From Tokyo Station, take the Ginza Line one stop to Ginza.</div>
     <div class="tags"><span class="tag t-move">N'EX train</span><span class="tag t-act">Suica cards</span></div>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1605.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1605.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">Afternoon</div>
@@ -496,6 +517,7 @@
     <a class="map-link" href="https://maps.apple.com/?q=Tsukiji+Outer+Market&ll=35.6648,139.7703" target="_blank">📍 Map</a>
     <div class="warn">⚠ Ask about soy sauce on any prepared or sauced items. Request グルテンフリー (gluten-free) or plain.</div>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1642.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1642.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2094.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2094.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1648.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1648.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2102.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2102.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">Lunch ✅</div>
@@ -511,6 +533,7 @@
     <div class="block-detail">Relax, explore Ginza, or revisit something from the not-yet-placed list before heading to Akihabara at 4pm.</div>
     <div class="tags"><span class="tag t-act">TBD</span></div>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1670.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1670.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2107.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2107.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1686.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1686.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">4:00 – 8:00 pm</div>
@@ -529,6 +552,7 @@
     <div class="tags"><span class="tag t-food">dinner</span><span class="tag t-gf">GF · dedicated</span><span class="tag t-book">booked ~6pm</span></div>
     <a class="map-link" href="https://maps.app.goo.gl/oTqTzGruTRzM76p58" target="_blank">📍 Map — T's Kitchen Ueno Hirokoji</a>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2111.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2111.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1699.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1699.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1705.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1705.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1713.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1713.jpeg" loading="lazy" alt=""></a></div>
 </div>
 
 <!-- ===== DAY 2 ===== -->
@@ -539,6 +563,7 @@
     <div class="day-title">Mochi + Shibuya + Roppongi</div>
     <div class="day-subtitle">Mochi class in Meguro, straight to Shibuya (McDonald's + Tokyu Hands), Indian food in Roppongi.</div>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1769.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1769.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2122.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2122.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1803.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1803.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">10:00 am — BOOKED ✅</div>
@@ -547,6 +572,7 @@
     <div class="tags"><span class="tag t-book">done ✅</span><span class="tag t-act">cooking class</span></div>
     <a class="map-link" href="https://maps.apple.com/?q=Simply+Oishii+Wagashi+School+Meguro&ll=35.6349,139.7135" target="_blank">📍 Map — 1-3-16 Meguro, Meguro City</a>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1738.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1738.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1755.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1755.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">Midday</div>
@@ -561,6 +587,7 @@
     <div class="block-detail">Late lunch / early dinner at an Indian restaurant in Roppongi. Hit the spot.</div>
     <div class="tags"><span class="tag t-food">lunch · done ✅</span></div>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1808.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1808.jpeg" loading="lazy" alt=""></a></div>
 </div>
 
 <!-- ===== DAY 3 ===== -->
@@ -579,6 +606,7 @@
     <div class="tags"><span class="tag t-act">zoo 🦊 ✅</span></div>
     <a class="map-link" href="https://maps.app.goo.gl/q8eqd4tkYXVRC6Ld9" target="_blank">📍 Inokashira Park</a>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1823.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1823.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1828.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1828.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1834.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1834.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1864.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1864.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">Midday</div>
@@ -587,6 +615,7 @@
     <div class="tags"><span class="tag t-food">lunch · done ✅</span><span class="tag t-gf">100% GF</span></div>
     <a class="map-link" href="https://maps.apple.com/?q=Where+is+a+Dog+Kichijoji&ll=35.7039,139.5749" target="_blank">📍 Where is a Dog?</a>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1881.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1881.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1922.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1922.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_6359.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_6359.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1949.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1949.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">2:00 pm</div>
@@ -602,6 +631,7 @@
     <div class="block-detail">Early dinner with friends at the classic Ginza yakitori spot, just around the corner from the hotel. Salt-grilled skewers and kamameshi rice before TeamLab.</div>
     <div class="tags"><span class="tag t-food">dinner · done ✅</span></div>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1979.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1979.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1982.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1982.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1983.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1983.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">7:30 pm</div>
@@ -610,6 +640,7 @@
     <div class="tags"><span class="tag t-act">immersive art ✅</span><span class="tag t-move">Yurikamome monorail 🚝</span></div>
     <a class="map-link" href="https://maps.apple.com/?q=TeamLab+Planets+Toyosu&ll=35.6491,139.7898" target="_blank">📍 Map — 6-1-16 Toyosu, Koto City</a>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_1999.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_1999.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2004.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2004.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2008.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2008.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2053.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2053.jpeg" loading="lazy" alt=""></a></div>
 </div>
 
 <!-- ===== DAY 4 ===== -->
@@ -628,6 +659,7 @@
     <div class="tags"><span class="tag t-move">Setagaya Line tram 🚋 ✅</span><span class="tag t-act">lucky cat temple 🐱</span></div>
     <a class="map-link" href="https://maps.apple.com/?q=Gotokuji+Temple+Tokyo&ll=35.6488,139.6475" target="_blank">📍 Gōtokuji Temple</a>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2179.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2179.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2114.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2114.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2118.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2118.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2125.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2125.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">Afternoon</div>
@@ -635,6 +667,7 @@
     <div class="block-detail">From Rizlabo pancakes, walked through Omotesando to Shibuya via: McDonald's, I'm Donut? (visited two locations), Freeman Café, a hedgehog café (wait too long, skipped), Café Kitsuné, and the Shibuya mall rooftop. Then home to rest before dinner.</div>
     <div class="tags"><span class="tag t-food">food crawl ✅</span><span class="tag t-treat">pancakes · donuts · coffee</span></div>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2141.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2141.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2142.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2142.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2159.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2159.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2163.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2163.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">6:00 pm</div>
@@ -643,6 +676,7 @@
     <div class="tags"><span class="tag t-food">splurge dinner ✅</span><span class="tag t-gf">100% GF · celiac safe</span></div>
     <a class="map-link" href="https://maps.apple.com/?q=Tempura+Asakusa+Sakura&ll=35.7102,139.7967" target="_blank">📍 2-18-16 Kaminarimon, THE CITY 浅草 7F</a>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2207.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2207.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2209.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2209.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2212.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2212.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2185.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2185.jpeg" loading="lazy" alt=""></a></div>
 </div>
 
 <!-- ===== DAY 5 ===== -->
@@ -660,6 +694,7 @@
     <div class="block-detail">Early to the Uniqlo Ginza flagship for Phoebe's birthday shopping spree. 12 floors of the good stuff.</div>
     <div class="tags"><span class="tag t-act">shopping ✅</span></div>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2199.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2199.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2200.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2200.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">Midday — Asakusa in reverse</div>
@@ -668,6 +703,8 @@
     <div class="tags"><span class="tag t-food">crepes + cake ✅</span><span class="tag t-act">Kappabashi ✅</span></div>
     <a class="map-link" href="https://maps.apple.com/?q=Kappabashi+Kitchen+Street+Tokyo&ll=35.7106,139.7880" target="_blank">📍 Kappabashi Kitchen Street</a>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2225.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2225.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2230.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2230.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2231_1.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2231_1.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2248.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2248.jpeg" loading="lazy" alt=""></a></div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2214.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2214.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">12:30 pm</div>
@@ -676,6 +713,7 @@
     <div class="tags"><span class="tag t-food">birthday lunch 🎂 ✅</span><span class="tag t-gf">100% GF · buckwheat</span></div>
     <a class="map-link" href="https://maps.apple.com/?q=Fleur+de+Sarrasin+Asakusa&ll=35.7128,139.7918" target="_blank">📍 Map — 2-14-2 Nishiasakusa</a>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2209_1.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2209_1.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">Evening</div>
@@ -684,6 +722,7 @@
     <div class="tags"><span class="tag t-act">baseball ⚾ ✅</span></div>
     <a class="map-link" href="https://maps.apple.com/?q=Tokyo+Dome&ll=35.7056,139.7519" target="_blank">📍 Tokyo Dome</a>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2253.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2253.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2263.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2263.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2293.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2293.jpeg" loading="lazy" alt=""></a></div>
 </div>
 
 <!-- ===== DAY 6 ===== -->
@@ -702,6 +741,7 @@
     <div class="tags"><span class="tag t-act">history 🏯 ✅</span></div>
     <a class="map-link" href="https://maps.apple.com/?q=Imperial+Palace+East+Gardens+Tokyo&ll=35.6863,139.7544" target="_blank">📍 Imperial Palace East Gardens</a>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2305.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2305.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2312.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2312.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2287.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2287.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">Midday</div>
@@ -724,6 +764,7 @@
     <div class="block-detail">Quick stop in Harajuku for rainbow cotton candy, then met friends for a final hour in Shinjuku.</div>
     <div class="tags"><span class="tag t-treat">cotton candy ✅</span><span class="tag t-act">Shinjuku with friends ✅</span></div>
   </div>
+  <div class="photo-gallery"><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2349.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2349.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2350.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2350.jpeg" loading="lazy" alt=""></a><a href="https://dsmfreeman.github.io/tokyo-photos/IMG_2353.jpeg" target="_blank" class="gal-thumb"><img src="https://dsmfreeman.github.io/tokyo-photos/IMG_2353.jpeg" loading="lazy" alt=""></a></div>
 
   <div class="block">
     <div class="block-time">Farewell dinner</div>
