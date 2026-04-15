@@ -1,0 +1,229 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<!-- saved from url=(0056)http://crypto.stanford.edu/~dabo/courses/cs255_winter11/ -->
+<html xmlns="http://www.w3.org/1999/xhtml"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8"> 
+<!--<base href="http://crypto.stanford.edu/~dabo/cs255/index.html">--><base href=".">
+
+ 
+<link rel="stylesheet" type="text/css" href="./seclab.css"> 
+<title>CS 259C/Math 250: Elliptic Curves in Cryptography</title> 
+ 
+<style type="text/css"> 
+  .course-title, .quarter { margin: 0; }
+  .deadline { color: #D00; font-weight: bold; }
+  .homeworks td { padding-bottom: 1em; }
+  .admin-category, .main-link, .homework { font-weight: bold; font-size: larger; }
+  .admin-category { width: 10em; }
+  table#admin-items { margin-top: 1em; border-collapse: collapse; }
+  img.icon {height:50px; width:50px;filter:none;}
+
+  div.c1 {margin-bottom:.4em;}
+</style> 
+
+
+</head> 
+
+
+<body> 
+<div id="outer-wrapper"> 
+<div id="inner-wrapper"> 
+ 
+<h1 id="header"><a href="./index.html">
+	CS 259C/Math 250: Elliptic Curves in Cryptography</a></h1> 
+<div id="content" class="full course"> 
+<div class="logo"><img src="./seclab-128.png" alt="Logo"></div> 
+<h1 class="course-title">Elliptic Curves in Cryptography</h1> 
+<h3 class="quarter">Fall 2011</h3> 
+
+
+<p>
+	Elliptic curves play a fundamental role in modern cryptography.  They can be used to implement encryption and signature schemes more efficiently than "traditional" methods such as RSA, and they can be used to construct cryptographic schemes with special properties that we don't know how to construct using "traditional" methods.
+	</p>
+	
+	<p>
+	In this course we will discuss the mathematics of elliptic curves and their applications in cryptography.  We will study cryptosystems based on elliptic curves and discuss their security, and we will study algorithmic aspects of elliptic curves related to cryptosystem construction and security.  </p>
+
+<h2>Administrative</h2> 
+<div class="c1"><a class="main-link" href="./syllabus.html">Course
+syllabus</a> (and readings)</div> 
+<div class="c1"><a class="main-link" href="./overview.html">Course
+overview</a> (grading, textbooks, coursework, exams)</div> 
+<div class="c1"><a class="main-link" href="./staff.html">Course staff
+and office hours</a></div> 
+
+<table id="admin-items"> 
+<tbody>
+	<tr><td class="admin-category">Instructor:</td>
+		<td class="admin-details"><a href="http://cs.stanford.edu/~dfreeman">David Mandell Freeman</a>, dfreeman at cs.stanford.edu</td>
+		</tr>
+	<tr> 
+		<tr><td class="admin-category">Course Assistant:</td>
+			<td class="admin-details">Mark Zhandry, zhandry at cs.stanford.edu</td>
+			</tr>
+<td class="admin-category">Lectures:</td> 
+<td class="admin-details">Monday, Wednesday, 4:15-5:30pm, Building 380, Room 380-D.</td> 
+</tr> 
+<!--
+<tr> 
+<td class="admin-category">Sections:</td> 
+<td class="admin-details">Friday, 3:15pm-4:05pm, Gates B01.</td>
+</tr> 
+-->
+<tr> 
+<td class="admin-category">Website:</td> 
+<td class="admin-details"><a href="http://cs259c.stanford.edu">http://cs259c.stanford.edu</a></td> 
+</tr> 
+<tr> 
+<td class="admin-category">Questions for Staff:</td> 
+<td class="admin-details">cs259c-aut1112-staff@lists.stanford.edu</td> 
+</tr> 
+<tr> 
+<td class="admin-category">Discussion Group:</td> 
+<td class="admin-details"><a href="http://www.piazza.com/class/cs259c">Piazza</a> (for discussion with CAs and other students). <a href="http://www.piazza.com/stanford/fall2011/cs259c">Sign up</a> for a Piazza account.
+<br>Please use Piazza for questions about homework assignments.</td> 
+</tr> 
+</tbody></table>
+
+
+
+<!--------------------------------------------------------------- -->
+<h2>Homework</h2>
+
+<table class="homeworks">
+
+<tbody>
+<tr>
+<td><img src="./hw.jpg" class="icon" alt="--"></td>
+<td valign="top">
+<div class="homework">
+<a href="./hw/hw1.pdf">Homework #1</a>.
+	     &nbsp;&nbsp;&nbsp; <a href="hw/hw1-sol.pdf">Solutions</a>.
+</div>
+<div>Due: Oct. 10, in class</div>
+<div>Please take the <a href="http://www.surveymonkey.com/s/JKPS8MY">online survey</a> by Monday, October 3.</div>
+<div>Update 9/27: Fixed typo in #3(d).</div>
+<div>Update 9/30: Clarified statement of #5 (the operation was not defined when one of the inputs is <i>O</i>); clarified #5(a).</div>
+<div>Update 10/04: Fixed due date of #1 (Monday, not Sunday).  Clarified #3(c), #3(e), and #10(b).
+<div>Update 10/07: Clarified #7 (<i>d</i> should be nonzero).
+</td>
+</tr>
+
+<tr>
+<td><img src="./hw.jpg" class="icon" alt="--"></td>
+<td valign="top">
+<div class="homework">
+<a href="hw/hw2.pdf">Homework #2</a>.
+	     &nbsp;&nbsp;&nbsp; <a href="hw/Homework2.sws">SAGE Worksheet for problem #8</a>.
+	     &nbsp;&nbsp;&nbsp; <a href="hw/hw2-sol.pdf">Solutions</a>.
+</div>
+<div>Due: Oct. 26, in class.  <br>
+Your solution to #8 must be saved as a SAGE worksheet and emailed to Mark.</div>
+<div>Update 10/14: Modified notation in #6.<br>
+	Update 10/17: Removed trivial problem in #3 and reordered parts.<br>
+	Update 10/19: Changed notation in #9 to agree with lecture notes.<br>
+	Update 10/25: Clarified #7 and #9.<br>
+	</div>
+</td>
+</tr>
+
+<tr>
+<td><img src="./hw.jpg" class="icon" alt="--"></td>
+<td valign="top">
+<div class="homework">
+<a href="hw/hw3.pdf">Homework #3</a>.
+	     &nbsp;&nbsp;&nbsp;
+	     <a href="hw/homework3.sws">SAGE Worksheet for problems 4 and 6</a>.
+	     	     &nbsp;&nbsp;&nbsp; <a href="hw/hw3-sol.pdf">Solutions</a>.
+</div>
+<div>Due: Nov. 9, in class</div>
+<div>Update 10/28: Problems 8 and 9 added, fixed typo in 7b.
+<br>Update 11/02: Clarified #8.
+<br>Update 11/05: <i>n</i> should be prime in #8.
+<br>Update 11/08: Clarified #7a.  (R is any point in E(F_p).)
+</div>
+
+</td>
+</tr>
+
+<tr>
+<td><img src="./hw.jpg" class="icon" alt="--"></td>
+<td valign="top">
+<div class="homework">
+<a href="hw/hw4.pdf">Homework #4.</a>
+	     &nbsp;&nbsp;&nbsp; <a href="hw/hw4-sol.pdf">Solutions</a>.
+
+</div>
+<div>Due: Nov. 30, in class</div>
+<div>Update 11/11: Fixed typos in #2, #4d.
+</td>
+</tr>
+</tbody></table>
+
+
+
+
+<!--------------------------------------------------------------- -->
+<h2>Final Project</h2>
+
+<p>The final project for the course is an expository paper on some aspect of elliptic curve cryptography.</p>
+
+ 
+<table class="homeworks">
+
+<tbody><tr>
+<td><img src="./proj.gif" class="icon" alt="--"></td>
+<td valign="top">
+<div class="homework">
+<a href="hw/finalproject.pdf">Final paper assignment.</a>
+&nbsp; 
+</div>
+<div>
+Project proposal: due November 18, by email<br>
+Full paper: due Dec. 15
+</div>
+</td>
+</tr>
+<tr><td colspan=2>
+	<p>Here are some of the best final papers from the course:</p>
+	<ul>
+		<li><a href="finalpapers/primalityproving.pdf">An Overview of Elliptic Curve Primality Proving</a></li>
+		<li><a href="finalpapers/dlp-cdh.pdf">The Equivalence of the Computational Diffie–Hellman and Discrete Logarithm Problems in Certain Groups</a></li>
+		<li><a href="finalpapers/vrf.pdf">Bilinear Maps in Verifiable Random Functions</a></li>
+		<li><a href="finalpapers/sidechannel.pdf">Pertinent Side Channel Attacks on Elliptic Curve Cryptographic Systems</a></li>
+		<li><a href="finalpapers/CDHandDLP.pdf">Evidence that the Diffie-Hellman Problem is as Hard as Computing Discrete Logs</a></li>
+		<li><a href="finalpapers/aggregatesigs.pdf">Aggregate Signatures Using Bilinear Maps</a></li>
+		<li><a href="finalpapers/genericgroups.pdf">Provable Security Properties in Generic Groups</a></li>
+		<li><a href="finalpapers/biometrics.pdf">Biometrics and Fuzzy Identity-Based Encryption</a></li>
+		<li><a href="finalpapers/DL-CDH-DDH.pdf">Discrete Log, CDH, and DDH</a></li>
+		<li><a href="finalpapers/pollardrho.pdf">On the Use of the Negation Map in Pollard-Rho Method</a></li>
+	</ul>
+	</td></tr>
+
+</tbody></table>
+
+
+
+
+<!--------------------------------------------------------------- -->
+
+<!--
+<h2>Handouts</h2>
+
+<ul class="handouts">
+
+<li>Basic number theory fact sheet I, primes: &nbsp;
+    [<a href="http://crypto.stanford.edu/~dabo/cs255/handouts/numth1.pdf">pdf</a>]  </li>
+
+<li>Basic number theory fact sheet II, composites: &nbsp;
+    [<a href="http://crypto.stanford.edu/~dabo/cs255/handouts/numth2.pdf">pdf</a>]  </li>
+
+<li>A Primer on number theory for computer scientists:
+    [<a href="http://cs.nyu.edu/courses/fall02/G22.3033-010/notes.pdf">pdf</a>]
+    </li>
+
+
+
+</ul>
+
+-->
+
+</div></div></div></body></html>

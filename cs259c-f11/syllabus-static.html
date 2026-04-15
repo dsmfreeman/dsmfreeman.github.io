@@ -1,0 +1,90 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0052)http://crypto.stanford.edu/~dabo/cs255/syllabus.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="./seclab.css"> 
+<title>CS 259C/Math 250: Elliptic Curves in Cryptography; Course Syllabus</title> 
+<style type="text/css">
+  .course-title, .quarter { margin: 0; }
+  .lecture { margin-right: 2em; white-space: nowrap;}
+  .lec-title {font-weight: bold; font-size: larger;}
+  .books { margin-left: 2em;  padding: 2pt; }
+  td.topic { padding-top: 2em; }
+  p.book-list { margin: 0; padding-top: 2em; }
+  p.desc { margin: 0; padding: 0; }
+  ul.book-list { margin: 0; padding: 0; display: inline; }
+</style>
+</head>
+
+<body> 
+<div id="outer-wrapper"> 
+<div id="inner-wrapper"> 
+ 
+<h1 id="header"><a href="./index.html">
+	CS 259C/Math 250: Elliptic Curves in Cryptography</a></h1> 
+<div id="content" class="full course"> 
+<div class="logo"><img src="./seclab-128.png" alt="Logo"></div> 
+<h1 class="course-title">Elliptic Curves in Cryptography</h1> 
+<h3 class="quarter">Fall 2011</h3> 
+
+
+<h2>Textbook</h2>
+
+<ul class="book-list">
+<li class="books"> 
+Required: <i><a href="http://www.amazon.com/Elliptic-Curves-Cryptography-Mathematics-Applications/dp/1420071467/ref=nosim/clacdgui-20">
+Elliptic Curves: Number Theory and Cryptography, 2nd edition</a></i>
+by L. Washington.  
+</li>
+
+<li class="books">
+	<a href="http://www.crcnetbase.com/isbn/9781420071474">Online edition of Washington</a> (available from on-campus computers; <a href="https://library.stanford.edu/apcproxy/index.html">click here</a> to set up proxies for off-campus access).
+	</li>
+	
+<li class="books">
+	There is a problem with the Chapter 2 PDF in the online edition of Washington: most of the lemmas and theorems don't display correctly.  We are working with Stanford Libraries and the publisher to make a correct version available.  In the meantime, here is a <a href="lectures/ch2theorems.pdf">PDF file with the missing content</a>.
+	</li>
+</ul>
+
+
+
+<h2> Course Topics</h2>
+
+
+<ol class="lec-topics">
+	<li> Introduction to elliptic curves (Washington Chapters 1-2).</li>
+
+			<ul><li> Definition of elliptic curves.  Group law.  Endomorphisms and isomorphisms.  <i>j</i>-invariant.    Elliptic curves in SAGE.</li></ul>
+
+	<li>Elliptic curves over finite fields (Ch. 3-4).</li>
+			<ul><li>Torsion points.  Frobenius morphism.  Group structure and group order.  Hasse's theorem. Supersingular curves.  Discrete logarithm problem.</li></ul>
+
+	<li>Elliptic curve cryptosystems (Ch. 6).</li>
+		<ul><li> Diffie-Hellman key exchange.  ElGamal encryption.  Schnorr identification.  ECDSA.  Security definitions and proofs.</li></ul>
+
+	<li>Discrete logarithm attacks (Ch. 5).</li>
+		<ul><li>Baby step-giant step.  Pollard rho.  Menezes-Okamoto-Vanstone and Frey-R&uuml;ck reductions.  Anomalous curves.  </li></ul>
+
+	<li> Pairing-based cryptography.</li>
+		<ul><li>Abstract properties of pairings.  Pairing-friendly elliptic curves.  Boneh-Franklin identity-based encryption.  Boneh-Lynn-Shacham signatures.  Boneh-Goh-Nissim homomorphic encryption.</li></ul>
+
+	<li>Generating elliptic curves for cryptography (Ch. 4,10).</li>
+		<ul><li>Schoof's algorithm.  Complex multiplication.  Generating pairing-friendly curves.</li></ul>
+
+	<li> Advanced topics, to be chosen from the following:</li>
+		<ul>
+			<li> Mathematics of pairings (Ch. 11).</li>
+			<li> Elliptic curve factoring and primality testing (Ch. 7).</li>
+			<li> Hyperelliptic curves (Ch. 13).</li>
+			<li> Weil restriction and index calculus.
+			<li> More pairing-based cryptosystems.</li>
+			<li> Fast implementations.</li>
+		</ul>
+</ol>	
+
+</div> <!-- end content -->
+</div> <!-- end inner_wrapper -->
+</div> <!-- end outer_wrapper -->
+
+
+</body></html>

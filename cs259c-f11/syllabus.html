@@ -1,0 +1,510 @@
+
+<!--
+
+    DO  NOT  EDIT  THIS  FILE
+
+    EDIT  syllabus.data  instead  and then run  "make"
+
+
+-->
+
+
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!-- saved from url=(0052)http://crypto.stanford.edu/~dabo/cs255/syllabus.html -->
+<html><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+<link rel="stylesheet" type="text/css" href="./seclab.css"> 
+<title>CS 259C/Math 250: Elliptic Curves in Cryptography; Course Syllabus</title> 
+<style type="text/css">
+  .course-title, .quarter { margin: 0; }
+  .lecture { margin-right: 2em; white-space: nowrap;}
+  .lec-title {font-weight: bold; font-size: larger;}
+  .books { margin-left: 2em;  padding: 2pt; }
+  td.topic { padding-top: 2em; }
+  p.book-list { margin: 0; padding-top: 2em; }
+  p.desc { margin: 0; padding: 0; }
+  ul.book-list { margin: 0; padding: 0; display: inline; }
+</style>
+</head>
+
+<body> 
+<div id="outer-wrapper"> 
+<div id="inner-wrapper"> 
+ 
+<h1 id="header"><a href="./index.html">
+	CS 259C/Math 250: Elliptic Curves in Cryptography</a></h1> 
+<div id="content" class="full course"> 
+<div class="logo"><img src="./seclab-128.png" alt="Logo"></div> 
+<h1 class="course-title">Elliptic Curves in Cryptography</h1> 
+<h3 class="quarter">Fall 2011</h3> 
+
+
+<h2>Textbook</h2>
+
+<ul class="book-list">
+<li class="books"> 
+Required: <i><a href="http://www.amazon.com/Elliptic-Curves-Cryptography-Mathematics-Applications/dp/1420071467/ref=nosim/clacdgui-20">
+Elliptic Curves: Number Theory and Cryptography, 2nd edition</a></i>
+by L. Washington.  
+</li>
+
+<li class="books">
+	<a href="http://www.crcnetbase.com/isbn/9781420071474">Online edition of Washington</a> (available from on-campus computers; <a href="https://library.stanford.edu/apcproxy/index.html">click here</a> to set up proxies for off-campus access).
+	</li>
+
+	<li class="books">
+		There is a problem with the Chapter 2 PDF in the online edition of Washington: most of the lemmas and theorems don't display correctly.  We are working with Stanford Libraries and the publisher to make a correct version available.  In the meantime, here is a <a href="lectures/ch2theorems.pdf">PDF file with the missing content</a>.
+		</li>
+</ul>
+
+<h2> Lecture Notes </h2>
+
+<p>Lucas Garron has graciously agreed to share his <a href="http://stanford.garron.us/class/math250/">lecture notes</a> with the class.  These notes are intended to serve as a guide to the topics covered and not as an authoritative source.  Neither Lucas nor the course staff shall be held responsible for any errors or omissions.</p>
+
+<h2> Syllabus </h2>
+
+The syllabus below will be updated periodically throughout the course to indicate the topics and readings for each lecture.  <a href="syllabus-static.html">Click here</a> for an overview of the topics to be covered.
+
+<table border="0">
+
+
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 1:  </div>
+<div> 9/26/11 </div>
+</td>
+<td valign="top">
+<div id="lecture1" class="lec-title"> Introduction to ECC
+ 
+</div><div class="lec-topics"> 
+  What is cryptography? <br />
+  What is an elliptic curve? <br />
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington Appendices B and C
+
+</p></td> </tr>
+<tr> <td colspan="2"> </td> </tr>
+<tr> <td class="topic" colspan="2"> 
+     <font color="#000080" size=+1> Fundamentals of elliptic curves
+ </font>
+</td> </tr>
+
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 2:  </div>
+<div> 9/28/11 </div>
+</td>
+<td valign="top">
+<div id="lecture2" class="lec-title"> Computing on elliptic curves
+ 
+&nbsp;&nbsp;[<A HREF=lectures/elliptic_curve_basics.sws
+>SAGE worksheet</A>]
+</div><div class="lec-topics"> 
+  Why do we use elliptic curves in crypto? <br />
+  Group law and the point at infinity. <br />
+  Elliptic curves in SAGE. <br />
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 2.1-2.4.
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 3:  </div>
+<div>10/ 3/11 </div>
+</td>
+<td valign="top">
+<div id="lecture3" class="lec-title"> Isomorphisms of elliptic curves
+ 
+</div><div class="lec-topics"> 
+  Singular curves. <br />  
+  Definition and examples of isomorphisms.<br />
+  <i>j</i>-invariant. <br />
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 2.7, 2.8, 2.10.
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 4:  </div>
+<div>10/ 5/11 </div>
+</td>
+<td valign="top">
+<div id="lecture4" class="lec-title"> Endomorphisms and torsion
+ 
+</div><div class="lec-topics"> 
+  Endomorphisms, degree, separability. <br />
+  Examples: multiplication by <i>n</i>, Frobenius. <br />
+  Torsion points.  <br>
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 2.9, 3.1, 3.2.
+
+</p></td> </tr>
+<tr> <td colspan="2"> </td> </tr>
+<tr> <td class="topic" colspan="2"> 
+     <font color="#000080" size=+1> Elliptic curves over finite fields
+ </font>
+</td> </tr>
+
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 5:  </div>
+<div>10/10/11 </div>
+</td>
+<td valign="top">
+<div id="lecture5" class="lec-title"> Size and structure of <i>E</i>(<b>F</b><sub><i>q</i></sub>)
+ 
+&nbsp;&nbsp;[<A HREF=lectures/point_counting.sws
+>SAGE worksheet</A>]
+</div><div class="lec-topics"> 
+  Structure of <i>n</i>-torsion. <br />
+  Legendre symbols and point counting. <br>
+  Hasse's theorem
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 4.1, 4.2. <br>
+<a href="lectures/finitefields.pdf">Basic facts about finite fields.</a>
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 6:  </div>
+<div>10/12/11 </div>
+</td>
+<td valign="top">
+<div id="lecture6" class="lec-title"> Determining the group order and structure
+ 
+</div><div class="lec-topics"> 
+  Characteristic polynomial of Frobenius <br>
+  Subfield curves <br>
+  Supersingular curves 
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 4.3, 4.6.
+
+</p></td> </tr>
+<tr> <td colspan="2"> </td> </tr>
+<tr> <td class="topic" colspan="2"> 
+     <font color="#000080" size=+1> Elliptic curve cryptosystems
+ </font>
+</td> </tr>
+
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 7:  </div>
+<div>10/17/11 </div>
+</td>
+<td valign="top">
+<div id="lecture7" class="lec-title"> Encryption
+ 
+</div><div class="lec-topics"> 
+  Definition of secure encryption<br>
+  Equivalence of semantic security and real-or-random security <br>
+  ElGamal encryption <br>
+  Attacks on ElGamal <br>
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 6.1, 6.2, 6.4. <br>
+<a href="lectures/boneh-shoup-pke.pdf">Definition of public key encryption</a> (by Dan Boneh and Victor Shoup).
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 8:  </div>
+<div>10/19/11 </div>
+</td>
+<td valign="top">
+<div id="lecture8" class="lec-title"> Encryption and Signatures
+ 
+</div><div class="lec-topics"> 
+  Security of ElGamal encryption <br>
+  Hybrid encryption <br>
+  Definition of secure signatures <br>
+  Schnorr identification and signatures <br>
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+<a href="lectures/boneh-shoup-digsigs.pdf">Definition of digital signatures</a> (by Dan Boneh and Victor Shoup).<br>
+<a href="lectures/schnorr.pdf">Notes on Schnorr identification and signatures.</a> (Complete version posted 10/20.)
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 9:  </div>
+<div>10/24/11 </div>
+</td>
+<td valign="top">
+<div id="lecture9" class="lec-title"> Signatures
+ 
+</div><div class="lec-topics"> 
+  Security of Schnorr signatures <br>
+  ECDSA <br>
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 6.5, 6.6.
+
+</p></td> </tr>
+<tr> <td colspan="2"> </td> </tr>
+<tr> <td class="topic" colspan="2"> 
+     <font color="#000080" size=+1> Discrete logarithm attacks
+ </font>
+</td> </tr>
+
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 10:  </div>
+<div>10/26/11 </div>
+</td>
+<td valign="top">
+<div id="lecture10" class="lec-title"> General attacks on the DLP
+ 
+</div><div class="lec-topics"> 
+  Pohlig-Hellman <br>
+  Baby step-giant step <br>
+  Pollard rho and lambda <br>
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 5.2.
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 11:  </div>
+<div>10/31/11 </div>
+</td>
+<td valign="top">
+<div id="lecture11" class="lec-title"> The Menezes-Okamoto-Vanstone attack
+ 
+</div><div class="lec-topics"> 
+  Index calculus in finite fields <br>
+  Weil pairing <br>
+  MOV attack <br>
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 3.3, 5.1, 5.3.
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 12:  </div>
+<div>11/ 2/11 </div>
+</td>
+<td valign="top">
+<div id="lecture12" class="lec-title"> Weak elliptic curves
+ 
+&nbsp;&nbsp;[<A HREF=lectures/anomalous.sws
+>SAGE worksheet</A>]
+</div><div class="lec-topics"> 
+   Embedding degree <br>
+   Supersingular curves <br>
+   Anomalous curves <br>
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 5.4. <br>
+<a href="http://www.springerlink.com/content/wgvr0dpw0txe3b7u/">Smart's paper</a> on the anomalous attack.
+
+</p></td> </tr>
+<tr> <td colspan="2"> </td> </tr>
+<tr> <td class="topic" colspan="2"> 
+     <font color="#000080" size=+1> Pairing-based cryptography
+ </font>
+</td> </tr>
+
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 13:  </div>
+<div>11/ 7/11 </div>
+</td>
+<td valign="top">
+<div id="lecture13" class="lec-title"> Key exchange and identity-based encryption
+ 
+&nbsp;&nbsp;[<A HREF=lectures/pairingcrypto
+>pdf</A>]
+</div><div class="lec-topics"> 
+  Joux 3-party key exchange <br>
+  IBE definitions <br>
+  Boneh-Franklin IBE scheme <br>
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 6.9 <br>
+<a href="http://crypto.stanford.edu/~dabo/pubs/papers/bfibe.pdf">Boneh-Franklin paper</a>, sections 1-4.1.  You can skip the discussions of "chosen-ciphertext security."
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 14:  </div>
+<div>11/ 9/11 </div>
+</td>
+<td valign="top">
+<div id="lecture14" class="lec-title"> IBE and Signatures
+ 
+</div><div class="lec-topics"> 
+  Security of Boneh-Franklin variant <br>
+  Boneh-Lynn-Shacham signature scheme <br>
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+<a href="http://crypto.stanford.edu/~dabo/pubs/papers/weilsigs.ps">Boneh-Lynn-Shacham paper</a>. <br>
+<a href="lectures/short-sigs.pdf">Ordinary pairing-friendly elliptic curves </a>
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 15:  </div>
+<div>11/14/11 </div>
+</td>
+<td valign="top">
+<div id="lecture15" class="lec-title"> Homomorphic Encryption
+ 
+&nbsp;&nbsp;[<A HREF=lectures/bgn
+>pdf</A>]
+</div><div class="lec-topics"> 
+  Homomorphic ElGamal </br>
+  Boneh-Goh-Nissim encryption
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+<a href="http://crypto.stanford.edu/~dabo/pubs/papers/2dnf.pdf">Boneh-Goh-Nissim paper</a>, sections 1-3.
+
+</p></td> </tr>
+<tr> <td colspan="2"> </td> </tr>
+<tr> <td class="topic" colspan="2"> 
+     <font color="#000080" size=+1> Algorithms for ECC
+ </font>
+</td> </tr>
+
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 16:  </div>
+<div>11/16/11 </div>
+</td>
+<td valign="top">
+<div id="lecture16" class="lec-title"> Computing the Weil and Tate pairings
+ 
+</div><div class="lec-topics"> 
+  Divisors and functions <br>
+  Defining the pairings <br>
+  Properties of the pairings <br>
+  Miller's algorithm <br>
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 11.1, 11.3, 11.4.
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+Holiday: &nbsp;&nbsp;<br />
+11/21/11 
+</td>
+<td valign="top">
+Thanksgiving break
+
+</td>
+</tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+Holiday: &nbsp;&nbsp;<br />
+11/23/11 
+</td>
+<td valign="top">
+Thanksgiving break
+
+</td>
+</tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 17:  </div>
+<div>11/28/11 </div>
+</td>
+<td valign="top">
+<div id="lecture17" class="lec-title"> The CM Method of curve construction
+ 
+</div><div class="lec-topics"> 
+  Elliptic curves over <b>C</b> <br>
+  Complex multiplication <br>
+  Computing Hilbert class polynomials <br>
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 9.2, 9.3, 10.1-10.4.
+
+</p></td> </tr>
+<tr> <td colspan="2"> </td> </tr>
+<tr> <td class="topic" colspan="2"> 
+     <font color="#000080" size=+1> Advanced topics
+ </font>
+</td> </tr>
+
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 18:  </div>
+<div>11/30/11 </div>
+</td>
+<td valign="top">
+<div id="lecture18" class="lec-title"> Fast factoring and discrete log algorithms on a quantum computer
+ 
+</div><div class="lec-topics"> 
+  Guest lecture by Mark Zhandry
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+<a href="http://arxiv.org/abs/quant-ph/9508027">Shor's paper</a>
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 19:  </div>
+<div>12/ 5/11 </div>
+</td>
+<td valign="top">
+<div id="lecture19" class="lec-title"> Factoring and primality proving using elliptic curves
+ 
+</div><div class="lec-topics"> 
+  Guest lecture by Dan Boneh
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 7.1, 7.2.
+
+</p></td> </tr>
+<tr> <td colspan="2">&nbsp;</td> </tr>
+<tr> <td valign="top">
+<div class="lecture">Lecture 20:  </div>
+<div>12/ 7/11 </div>
+</td>
+<td valign="top">
+<div id="lecture20" class="lec-title"> Weil descent: Attacking elliptic curves over extension fields
+ 
+</div><div class="lec-topics"> 
+  Guest lecture by Ed Schaefer
+ 
+</div>
+<font color="#808000"><p>Reading:</font>
+Washington 13.1-13.4
+
+</p></td> </tr>
+
+</table>
+
+</div> <!-- end content -->
+</div> <!-- end inner_wrapper -->
+</div> <!-- end outer_wrapper -->
+</body>
+</html>

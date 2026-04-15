@@ -1,0 +1,175 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html>
+<HEAD>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" >
+<link href="style.css" rel="stylesheet" type="text/css" >
+</HEAD>
+<body>
+<div id=container>
+<div id=header>
+<font style="font-size: 23pt " >Public Key Cryptography and the Geometry of Numbers</font><br>
+<font style="font-size: 16pt" >Amsterdam, Netherlands
+<br>May 6 and 7, 2010</font>
+</div>
+<title>Public Key Cryptography and the Geometry of Numbers - May 6-7, 2010</title>
+<base target="_top">
+<style> <!-- A { color: #003366} A:hover { color: #003366} --> </style></head>
+
+<table border="0" cellspacing="0" cellpadding="0" width="100%" style="border-left: 1px solid #003366; border-right:1px solid #003366; border-bottom: 1px solid #003366;">
+
+   <td colspan=2 style="padding-right: 10px; padding-left: 5px;"  width="617" valign="top" align="left">
+           <!--  begin document -->
+
+<script type='text/javascript'>
+var fade = false;
+function showFull(id) {
+	var post = document.getElementById(id);
+        var spans = post.getElementsByTagName('span');
+        for (var i = 0; i < spans.length; i++) {
+             if (spans[i].id == "fullpost") {
+                 if (fade) {
+                    spans[i].style.background = peekaboo_bgcolor;
+                    Effect.Appear(spans[i]);
+                } else spans[i].style.display = 'inline';
+             }
+             if (spans[i].id == "showlink")
+                 spans[i].style.display = 'none';
+             if (spans[i].id == "hidelink")
+                 spans[i].style.display = 'inline';
+        }
+}
+
+
+function hideFull(id) {
+	var post = document.getElementById(id);
+        var spans = post.getElementsByTagName('span');
+        for (var i = 0; i < spans.length; i++) {
+             if (spans[i].id == "fullpost") {
+                 if (fade) {
+                   spans[i].style.background = peekaboo_bgcolor;
+                   Effect.Fade(spans[i]);
+                 } else spans[i].style.display = 'none';
+             }
+             if (spans[i].id == "showlink")
+                 spans[i].style.display = 'inline';
+             if (spans[i].id == "hidelink")
+                 spans[i].style.display = 'none';
+        }
+        post.scrollIntoView(true);
+}
+
+function checkFull(id) {
+	var post = document.getElementById(id);
+        var spans = post.getElementsByTagName('span');
+        var found = 0;
+        for (var i = 0; i < spans.length; i++) {
+             if (spans[i].id == "fullpost") {
+                 spans[i].style.display = 'none';
+                 found = 1;
+             }
+             if ((spans[i].id == "showlink") && (found == 0))
+                 spans[i].style.display = 'none';
+        }
+}
+</script>
+
+</head>
+<table BORDER=0 WIDTH='100%' CELLSPACING=0 CELLPADDING=0>
+<tr height=2><td  colspan=3>&nbsp;</td></tr>
+</table><table border=0 width=720px><tr><td width='100%'><p align='left'><ul>
+
+<li><font style="font-size: 12pt; font-weight: bold" >Description:</font>
+
+<div id='desc'>
+<style>#fullpost {display:none;}</style>
+<p>
+<span id="fullpost">
+Beginning in the late 1990s it was shown that public-key cryptographic primitives can be built from hard computational problems related to lattices.  
+Research in this area has taken off in recent years and has focused on extending lattice-based functionalities, understanding the relationships between various hard lattice problems, and placing lattice-based cryptosystems in a provable-security framework.  As a result, our lattice-based toolbox now includes (among others) chosen-ciphertext secure encryption, hierarchical identity-based encryption, and fully homomorphic encryption. 
+
+<br>&nbsp;<br>This two-day workshop will feature lectures by leading experts on lattices and public-key cryptography.  The talks on the first day are intended for an audience familiar with lattices or cryptography, but not necessarily the interaction between the two.  The talks on the second day will focus on important recent research results.
+
+<br>&nbsp;<br>The immediate goal of the workshop is for a graduate student or researcher in the field who has a background in public-key cryptography, but not lattices in particular, to be able to understand the important current problems in lattice-based cryptography and the tools used to solve them.  The long term goal is to inspire interest and collaboration that leads to further progress in the field.
+
+<br>&nbsp;<br>The lectures on May 7 are part of the <a href="http://www.math.leidenuniv.nl/~desmit/ic/current.html">Intercity Number Theory Seminar</a>.
+
+
+
+</span>
+<div style='float:right; margin-left:10px;'></div>
+<span id='showlink'>
+<p> A two-day workshop on the use of lattices in the construction of public-key cryptographic protocols.  The first day will provide an introduction to the subject, and the second day will focus on recent research results.<br>&nbsp;<br><a href='javascript:void(0);' onclick='javascript:showFull("desc");'>Full description.</a>
+</p>
+</span>
+<span id='hidelink' style='display:none'>
+<p></p>
+<p><a href='javascript:void(0);' onclick='javascript:hideFull("desc");'>Short description.</a></p>
+</span>
+<script type='text/javascript'>
+          checkFull("post-" + "7519106609000041097");
+        </script>
+</div>
+
+
+<p>&nbsp;
+
+
+
+
+<li><font style="font-size: 12pt; font-weight: bold" >Organizers:</font>
+<table>
+<tr><td width = 150><a href="mailto:ronald.cramer (at) cwi.nl">Ronald Cramer</a></td><td>
+(CWI and Universiteit Leiden, Netherlands)</td></tr>
+<tr><td><a href="mailto:dfreeman (at) cs.stanford.edu">David Mandell Freeman</a>  </td><td>(Stanford University, USA)</td></tr>
+</table>
+<br>&nbsp;  
+  
+<li><font style="font-size: 12pt; font-weight: bold" >Confirmed Speakers:</font>
+<table>
+<tr><td width=150><a href="http://homepages.cwi.nl/~kiltz/">Eike Kiltz</a> </td><td>(CWI, Netherlands) </td></tr>
+<tr><td><a href="http://www.math.leidenuniv.nl/~hwl/">Hendrik Lenstra</a>  </td><td>(Universiteit Leiden, Netherlands) </td></tr>
+<tr><td><a href="http://www.cc.gatech.edu/~cpeikert/">Chris Peikert</a> </td><td>
+(Georgia Institute of Technology, USA) </td></tr>
+<tr><td><a href="http://www.cs.tau.ac.il/~odedr/">Oded Regev</a> </td><td>
+(Tel-Aviv University, Israel) </td></tr>
+</table>
+
+<br>&nbsp;
+<li><font style="font-size: 12pt; font-weight: bold" ><a href="registration.html">Registration:</a></font>
+<p>There is no registration fee.  Lunch on Friday will be provided free for registered particpants.  You can register using <a href="registration.html">this form</a>.
+
+
+<br>&nbsp;
+<li><font style="font-size: 12pt; font-weight: bold" >Venue: </font>
+<p>Lectures will take place in the <a href="http://www.knaw.nl/organisation/tinbergen.html">Tinbergenzaal</a> of the <a href="http://www.knaw.nl/organisation/history.html">Trippenhuis</a>, home of the <a href="http://www.knaw.nl/english/index.html">Royal Netherlands Academy of Arts and Sciences</a>.  The venue is conveniently located in the heart of <a href="http://www.iamsterdam.com">Amsterdam</a>, less than 1 km from Central Station.
+<p>
+<a href="http://maps.google.com/maps?f=q&source=s_q&hl=en&geocode=&q=trippenhuis&sll=52.371931,4.900482&sspn=0.009694,0.015171&dirflg=w&ie=UTF8&hq=trippenhuis&hnear=&ll=52.373032,4.897842&spn=0.019388,0.030341&z=15&iwloc=" target = new>Map of venue location</a>.
+
+<p>There will be a cocktail reception on Thursday evening, at a location to be determined.
+
+
+<p>&nbsp;
+<li><font style="font-size: 12pt; font-weight: bold" >Program:</font>
+<table>
+<tr><td colspan=2 align = center>Thursday, May 6</td></tr>
+<tr><td>13.30-17.30: </td><td>Introductory/Background talks</td></tr>
+<tr><td>18.00-19.00:</td><td> Cocktail reception</td></tr>
+<tr><td colspan=2 align = center>Friday, May 7</td></tr>
+<tr><td>09.30-12.00: </td><td>Research talks</td></tr>
+<tr><td>12.00-13.30: </td><td>Lunch (free for registered participants)</td></tr>
+<tr><td>13.30-17.30: </td><td>Research talks</td></tr>
+</table>
+
+
+<br>&nbsp;
+<li><font style="font-size: 12pt; font-weight: bold" ><a href="participants.html">Participants:</a></font>
+<p><a href="participants.html">Click here</a> for full list.
+
+
+
+<br clear=all></ul><table width=100%>
+</table></tr>
+
+</table>
+</div></body>
+</html>
