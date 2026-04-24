@@ -11,14 +11,14 @@
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --navy:   #0f1b2d;
-      --navy2:  #16263d;
-      --cream:  #f5f0e8;
-      --cream2: #ede8df;
-      --gold:   #c9a84c;
-      --gold2:  #e8c97a;
-      --muted:  #8a9ab5;
-      --link:   #7bafd4;
+      --navy:   #f7f5f2;
+      --navy2:  #edeae5;
+      --cream:  #1a1a1a;
+      --cream2: #333333;
+      --gold:   #7a5c1e;
+      --gold2:  #5a420f;
+      --muted:  #666666;
+      --link:   #1a4f8a;
       --serif:  'Cormorant Garamond', Georgia, serif;
       --sans:   'DM Sans', system-ui, sans-serif;
     }
@@ -35,17 +35,35 @@
       min-height: 100vh;
     }
 
-    /* HEADER */
+    /* ── HEADER ── */
     header {
       background: var(--navy2);
-      border-bottom: 1px solid rgba(201,168,76,0.25);
-      padding: 3rem 2rem 2.5rem;
+      border-bottom: 1px solid rgba(0,0,0,0.12);
+      padding: 2.5rem 2rem;
     }
 
     .header-inner {
       max-width: 900px;
       margin: 0 auto;
+      display: flex;
+      gap: 2rem;
+      align-items: flex-start;
     }
+
+    .header-photo {
+      flex-shrink: 0;
+      width: 130px;
+    }
+    .header-photo img {
+      width: 130px;
+      height: 160px;
+      object-fit: cover;
+      object-position: top;
+      border: 1px solid rgba(0,0,0,0.15);
+      display: block;
+    }
+
+    .header-text { flex: 1; }
 
     h1 {
       font-family: var(--serif);
@@ -59,23 +77,23 @@
     .subtitle {
       font-family: var(--serif);
       font-style: italic;
-      font-size: 1.1rem;
+      font-size: 1.05rem;
       color: var(--gold);
       margin-top: 0.35rem;
       letter-spacing: 0.02em;
     }
 
     .contact-grid {
-      margin-top: 1.25rem;
+      margin-top: 1rem;
       display: flex;
       flex-wrap: wrap;
-      gap: 0.4rem 2rem;
-      font-size: 0.85rem;
+      gap: 0.3rem 2rem;
+      font-size: 0.84rem;
       color: var(--muted);
     }
 
     .header-links {
-      margin-top: 1.25rem;
+      margin-top: 1rem;
       display: flex;
       flex-wrap: wrap;
       gap: 0.5rem;
@@ -84,7 +102,7 @@
     .pill {
       display: inline-block;
       padding: 0.25rem 0.85rem;
-      border: 1px solid rgba(201,168,76,0.4);
+      border: 1px solid rgba(0,0,0,0.25);
       border-radius: 2rem;
       font-size: 0.8rem;
       color: var(--gold2);
@@ -92,12 +110,12 @@
       letter-spacing: 0.04em;
       transition: background 0.2s, border-color 0.2s;
     }
-    .pill:hover { background: rgba(201,168,76,0.12); border-color: var(--gold); }
+    .pill:hover { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.4); text-decoration: none; }
 
-    /* TABS */
+    /* ── TABS ── */
     nav.tabs {
       background: var(--navy2);
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(0,0,0,0.12);
       position: sticky;
       top: 0;
       z-index: 50;
@@ -128,11 +146,10 @@
       white-space: nowrap;
       transition: color 0.2s, border-color 0.2s;
     }
-
     .tab-btn:hover { color: var(--cream2); }
     .tab-btn.active { color: var(--gold); border-bottom-color: var(--gold); }
 
-    /* CONTENT */
+    /* ── CONTENT ── */
     main {
       max-width: 900px;
       margin: 0 auto;
@@ -142,7 +159,7 @@
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
-    /* TYPOGRAPHY */
+    /* ── TYPOGRAPHY ── */
     h2 {
       font-family: var(--serif);
       font-size: 1.9rem;
@@ -150,15 +167,17 @@
       color: var(--gold2);
       margin-bottom: 1.5rem;
       padding-bottom: 0.6rem;
-      border-bottom: 1px solid rgba(201,168,76,0.2);
+      border-bottom: 1px solid rgba(0,0,0,0.12);
     }
 
     h3 {
       font-family: var(--serif);
-      font-size: 1.2rem;
+      font-size: 1.25rem;
       font-weight: 600;
       color: var(--cream);
-      margin: 2rem 0 0.6rem;
+      margin: 2.5rem 0 0.75rem;
+      padding-bottom: 0.4rem;
+      border-bottom: 1px solid rgba(0,0,0,0.1);
     }
 
     p { margin-bottom: 0.9rem; }
@@ -170,31 +189,12 @@
     ul { padding-left: 1.3rem; margin-bottom: 0.9rem; }
     li { margin-bottom: 0.35rem; }
 
-    /* ABOUT */
+    /* ── ABOUT ── */
     .about-body { max-width: 680px; }
-
-    .topic-list {
-      list-style: none;
-      padding: 0;
-      display: flex;
-      flex-wrap: wrap;
-      gap: 0.5rem;
-      margin: 1rem 0;
-    }
-    .topic-list li {
-      background: rgba(201,168,76,0.1);
-      border: 1px solid rgba(201,168,76,0.25);
-      border-radius: 0.25rem;
-      padding: 0.2rem 0.75rem;
-      font-size: 0.82rem;
-      color: var(--cream2);
-      margin: 0;
-    }
-
     .overview-talks { margin: 0.75rem 0 0; }
     .overview-talks li { margin-bottom: 0.5rem; }
 
-    /* PUBLICATIONS */
+    /* ── PUBLICATIONS ── */
     .pub-section { margin-bottom: 2.5rem; }
 
     .pub-list { list-style: none; padding: 0; }
@@ -203,28 +203,34 @@
       gap: 1.1rem;
       margin-bottom: 1.5rem;
       padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(0,0,0,0.09);
     }
     .pub-list li:last-child { border-bottom: none; }
 
+    /* Use DM Sans for numbers — lining figures, no short oldstyle digits */
     .pub-num {
       flex-shrink: 0;
       width: 1.8rem;
-      font-family: var(--serif);
-      font-size: 0.9rem;
+      font-family: var(--sans);
+      font-weight: 400;
+      font-size: 0.88rem;
       color: var(--gold);
-      padding-top: 0.1rem;
+      padding-top: 0.15rem;
       text-align: right;
     }
 
-    .pub-title {
+    /* Publication title as link — keep white, underline on hover */
+    a.pub-title {
       font-family: var(--serif);
       font-size: 1.05rem;
       font-weight: 600;
       color: var(--cream);
       display: block;
       margin-bottom: 0.15rem;
+      text-decoration: none;
     }
+    a.pub-title:hover { color: var(--cream); text-decoration: underline; }
+
     .pub-authors {
       font-size: 0.83rem;
       color: var(--muted);
@@ -243,40 +249,43 @@
       font-size: 0.76rem;
       color: var(--link);
       text-decoration: none;
-      border: 1px solid rgba(123,175,212,0.3);
+      border: 1px solid rgba(26,79,138,0.3);
       padding: 0.1rem 0.55rem;
       border-radius: 0.2rem;
       transition: background 0.15s;
     }
-    .pub-link:hover { background: rgba(123,175,212,0.1); text-decoration: none; color: var(--gold2); }
+    .pub-link:hover { background: rgba(26,79,138,0.07); text-decoration: none; color: var(--gold2); }
 
-    .pub-list-other { list-style: none; padding: 0; }
-    .pub-list-other li {
-      display: flex;
-      gap: 1.1rem;
-      margin-bottom: 1.5rem;
-      padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+    .errata {
+      background: rgba(0,0,0,0.04);
+      border-left: 3px solid rgba(90,66,15,0.35);
+      padding: 0.6rem 1rem;
+      font-size: 0.83rem;
+      color: var(--muted);
+      border-radius: 0 0.25rem 0.25rem 0;
+      margin-top: 0.5rem;
     }
-    .pub-list-other li:last-child { border-bottom: none; }
-    .pub-bullet { flex-shrink: 0; width: 1.8rem; color: var(--gold); padding-top: 0.25rem; text-align: right; font-size: 1rem; }
 
-    /* PRESENTATIONS */
+    /* ── PRESENTATIONS ── */
     .pres-list { list-style: none; padding: 0; }
     .pres-list li {
       margin-bottom: 1.5rem;
       padding-bottom: 1.5rem;
-      border-bottom: 1px solid rgba(255,255,255,0.07);
+      border-bottom: 1px solid rgba(0,0,0,0.09);
     }
     .pres-list li:last-child { border-bottom: none; }
-    .pres-title {
+
+    a.pres-title {
       font-family: var(--serif);
       font-size: 1.05rem;
       font-weight: 600;
       color: var(--cream);
       display: block;
       margin-bottom: 0.1rem;
+      text-decoration: none;
     }
+    a.pres-title:hover { color: var(--cream); text-decoration: underline; }
+
     .pres-venue {
       font-size: 0.83rem;
       color: var(--muted);
@@ -284,25 +293,18 @@
       margin-bottom: 0.3rem;
     }
 
-    /* SERVICE */
+    /* ── SERVICE ── */
     .service-list { list-style: none; padding: 0; }
     .service-list li {
       display: flex;
       gap: 1rem;
       padding: 0.65rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       font-size: 0.9rem;
       align-items: baseline;
     }
     .service-list li:last-child { border-bottom: none; }
-    .service-year {
-      flex-shrink: 0;
-      width: 3.2rem;
-      color: var(--gold);
-      font-family: var(--serif);
-      font-size: 0.9rem;
-      text-align: right;
-    }
+
     .service-role {
       color: var(--gold2);
       font-weight: 500;
@@ -312,28 +314,19 @@
       flex-shrink: 0;
       width: 8.5rem;
     }
-    .service-conf { color: var(--cream2); }
+    .service-conf { color: var(--cream2); flex: 1; }
+    .service-date { color: var(--muted); font-size: 0.82rem; flex-shrink: 0; white-space: nowrap; }
 
-    /* OTHER */
+    /* ── OTHER ── */
     .other-section { margin-bottom: 2rem; }
     .other-list { list-style: none; padding: 0; }
     .other-list li {
       padding: 0.45rem 0;
-      border-bottom: 1px solid rgba(255,255,255,0.06);
+      border-bottom: 1px solid rgba(0,0,0,0.08);
       font-size: 0.9rem;
       color: var(--cream2);
     }
     .other-list li:last-child { border-bottom: none; }
-
-    .errata {
-      background: rgba(255,255,255,0.04);
-      border-left: 3px solid rgba(201,168,76,0.4);
-      padding: 0.6rem 1rem;
-      font-size: 0.83rem;
-      color: var(--muted);
-      border-radius: 0 0.25rem 0.25rem 0;
-      margin-top: 0.5rem;
-    }
 
     .last-updated {
       margin-top: 4rem;
@@ -345,7 +338,11 @@
 
     @media (max-width: 600px) {
       h1 { font-size: 2.2rem; }
+      .header-inner { flex-direction: column; }
+      .header-photo { width: 100px; }
+      .header-photo img { width: 100px; height: 125px; }
       .service-role { display: none; }
+      .service-date { display: none; }
     }
   </style>
 </head>
@@ -353,17 +350,21 @@
 
 <header>
   <div class="header-inner">
-    <h1>David Freeman</h1>
-    <div class="subtitle">Anti-Abuse Research Scientist &amp; Engineer · Meta Platforms</div>
-    <div class="contact-grid">
-      <span>dfreeman [at] cs [dot] stanford [dot] edu</span>
-      <span>1 Hacker Way, Menlo Park, CA 94025</span>
+    <div class="header-photo">
+      <img src="headshot-2018-small.jpg" alt="David Freeman">
     </div>
-    <div class="header-links">
-      <a class="pill" href="http://www.linkedin.com/in/dsmfreeman" target="_blank">LinkedIn</a>
-      <a class="pill" href="https://dsmfreeman.github.io/freeman-cv.pdf" target="_blank">CV (PDF)</a>
-      <a class="pill" href="http://mlsec.net" target="_blank">ML &amp; Security Book</a>
-      <a class="pill" href="https://dsmfreeman.github.io/travel.html" target="_blank">Travel Schedule</a>
+    <div class="header-text">
+      <h1>David Freeman</h1>
+      <div class="subtitle">Anti-Abuse Research Scientist &amp; Engineer · Meta Platforms, Inc.</div>
+      <div class="contact-grid">
+        <span>dfreeman [at] cs [dot] stanford [dot] edu</span>
+        <span>1 Hacker Way · Menlo Park, CA 94025</span>
+      </div>
+      <div class="header-links">
+        <a class="pill" href="http://www.linkedin.com/in/dsmfreeman" target="_blank">LinkedIn Profile</a>
+        <a class="pill" href="https://dsmfreeman.github.io/freeman-cv.pdf" target="_blank">CV (PDF)</a>
+        <a class="pill" href="https://dsmfreeman.github.io/travel.html" target="_blank">Travel Schedule</a>
+      </div>
     </div>
   </div>
 </header>
@@ -373,63 +374,67 @@
     <button class="tab-btn active" data-tab="about">About</button>
     <button class="tab-btn" data-tab="publications">Publications</button>
     <button class="tab-btn" data-tab="presentations">Presentations</button>
-    <button class="tab-btn" data-tab="service">Service</button>
-    <button class="tab-btn" data-tab="teaching">Teaching &amp; Other</button>
+    <button class="tab-btn" data-tab="service">Service &amp; Teaching</button>
+    <button class="tab-btn" data-tab="other">Other</button>
   </div>
 </nav>
 
 <main>
 
-  <!-- ABOUT -->
+  <!-- ══ ABOUT ══ -->
   <section id="about" class="tab-panel active">
     <div class="about-body">
       <h2>Current Position</h2>
       <p>I am a research scientist/engineer at Meta (formerly Facebook), focusing on abuse problems. I'm currently a Tech Lead on the Verification team in the Central Integrity organization. At Meta I have also worked on fake engagement, anti-scraping, and compliance. Prior to Meta I led various anti-abuse engineering and data science teams at <a href="http://www.linkedin.com" target="_blank">LinkedIn</a>.</p>
 
-      <p>Topics I care about from both a practical and research standpoint:</p>
-      <ul class="topic-list">
-        <li>Fake &amp; compromised accounts</li>
-        <li>Fake engagement</li>
-        <li>Authentication &amp; identity verification</li>
-        <li>Scraping &amp; bot detection</li>
+      <p>Topics I care about from both a practical and research standpoint include:</p>
+      <ul>
+        <li>Social network abuse (fake and compromised accounts; fake engagement; spam)</li>
+        <li>Authentication and identity verification</li>
+        <li>Scraping and bot detection</li>
         <li>Adversarial machine learning</li>
-        <li>Spam</li>
-        <li>Measurement &amp; experimentation for abuse</li>
+        <li>Measurement and experimentation for abuse problems</li>
       </ul>
 
-      <p>My book on <a href="http://mlsec.net" target="_blank">Machine Learning and Security</a> contains everything I knew about the topic as of late 2017. Some representative overview talks:</p>
+      <p>My book on <a href="http://mlsec.net" target="_blank">Machine Learning and Security</a> contains everything I knew about the topic as of late 2017.</p>
+
+      <p>If you want to learn more, you can look at some of my overview talks:</p>
       <ul class="overview-talks">
-        <li><a href="https://www.usenix.org/conference/enigma2020/presentation/freeman" target="_blank">Enigma 2020</a> — Good and bad approaches to measuring abuse on the internet.</li>
-        <li><a href="https://www.slideshare.net/DavidFreeman14/you-cant-just-turn-the-crank-machine-learning-for-fighting-abuse-on-the-consumer-web" target="_blank">ScAINet 2018</a> — Challenges of ML for security in the real world.</li>
-        <li><a href="http://www.slideshare.net/DavidFreeman14/serverside-second-factors-approaches-to-measuring-user-authenticity" target="_blank">Enigma 2016</a> — Approaches to protecting accounts from takeover.</li>
-        <li><a href="http://www.slideshare.net/DavidFreeman14/data-science-vs-the-bad-guys-defending-linkedin-from-fraud-and-abuse" target="_blank">Strata 2015</a> — Overview of the kinds of anti-abuse systems I work on.</li>
+        <li>My <a href="https://www.usenix.org/conference/enigma2020/presentation/freeman" target="_blank">Enigma 2020 talk</a> describes good and bad approaches to measuring abuse on the internet.</li>
+        <li>My <a href="https://www.slideshare.net/DavidFreeman14/you-cant-just-turn-the-crank-machine-learning-for-fighting-abuse-on-the-consumer-web" target="_blank">ScAINet 2018 talk</a> presents some of the challenges in using machine learning for security in the real world.</li>
+        <li>My <a href="http://www.slideshare.net/DavidFreeman14/serverside-second-factors-approaches-to-measuring-user-authenticity" target="_blank">Enigma 2016 talk</a> shows some approaches to protecting accounts from being taken over.</li>
+        <li>My <a href="http://www.slideshare.net/DavidFreeman14/data-science-vs-the-bad-guys-defending-linkedin-from-fraud-and-abuse" target="_blank">Strata 2015 talk</a> gives an overview of the kinds of anti-abuse systems I work on.</li>
       </ul>
 
       <h3>Academic Background</h3>
-      <p>I was previously a postdoctoral scholar in the <a href="http://crypto.stanford.edu" target="_blank">Applied Cryptography Group</a> at <a href="http://www.stanford.edu" target="_blank">Stanford University</a>, under the supervision of <a href="http://crypto.stanford.edu" target="_blank">Dan Boneh</a>. My research focused on cryptographic applications of number theory and arithmetic geometry — elliptic and hyperelliptic curve cryptography, pairing-based systems, and lattice-based cryptography.</p>
-      <p>I received my Ph.D. in <a href="http://math.berkeley.edu" target="_blank">Mathematics</a> from UC Berkeley, advised by <a href="http://math.berkeley.edu/~ribet" target="_blank">Ken Ribet</a> and <a href="http://math.scu.edu/~eschaefe" target="_blank">Ed Schaefer</a>. In 2009 I was an NSF postdoctoral fellow at <a href="http://www.cwi.nl" target="_blank">CWI, Amsterdam</a> and <a href="http://www.math.leidenuniv.nl/en/home/" target="_blank">Universiteit Leiden</a> under <a href="http://homepages.cwi.nl/~cramer/" target="_blank">Ronald Cramer</a>.</p>
+      <p>I was previously a postdoctoral scholar in the <a href="http://crypto.stanford.edu" target="_blank">Applied Cryptography Group</a> at <a href="http://www.stanford.edu" target="_blank">Stanford University</a>, under the supervision of <a href="http://crypto.stanford.edu" target="_blank">Dan Boneh</a>. My thesis and postdoctoral research focused on cryptographic applications of number theory and arithmetic geometry. Projects included elliptic and hyperelliptic curve cryptography, pairing-based systems, and lattice-based cryptography.</p>
+
+      <p>I received my Ph.D. in <a href="http://math.berkeley.edu" target="_blank">Mathematics</a> from the <a href="http://www.berkeley.edu" target="_blank">University of California, Berkeley</a>. My Ph.D. advisors were <a href="http://math.berkeley.edu/~ribet" target="_blank">Ken Ribet</a> (UC Berkeley) and <a href="https://www.scu.edu/cas/mathcs/faculty-and-staff/edward-schaefer/" target="_blank">Ed Schaefer</a> (Santa Clara University). In 2009 I was an NSF postdoctoral fellow at <a href="http://www.cwi.nl" target="_blank">CWI, Amsterdam</a> and <a href="http://www.math.leidenuniv.nl/en/home/" target="_blank">Universiteit Leiden</a> under the supervision of <a href="http://homepages.cwi.nl/~cramer/" target="_blank">Ronald Cramer</a>.</p>
+
       <p>Other <a href="http://elodieandphoebe.blogspot.com" target="_blank">works in progress</a> (v1.0 released December 26, 2010; v2.0 released April 10, 2014).</p>
     </div>
   </section>
 
-  <!-- PUBLICATIONS -->
+  <!-- ══ PUBLICATIONS ══ -->
   <section id="publications" class="tab-panel">
+
     <div class="pub-section">
       <h2>Research at Meta</h2>
-      <ol class="pub-list">
+      <!-- 7 papers total; numbered oldest=1 → newest=7, displayed newest first -->
+      <ul class="pub-list">
         <li>
-          <div class="pub-num">1</div>
+          <div class="pub-num">7</div>
           <div>
-            <span class="pub-title">Predictive Response Optimization: Using Reinforcement Learning to Fight Online Social Network Abuse</span>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/pro.pdf">Predictive Response Optimization: Using Reinforcement Learning to Fight Online Social Network Abuse</a>
             <span class="pub-authors">Garrett Wilson, Geoffrey Goh, Yan Jiang, Ajay Gupta, Jiaxuan Wang, David Freeman, and Francesco Dinuzzo</span>
             <span class="pub-venue">Usenix Security 2025 · Seattle, USA</span>
             <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/pro.pdf">PDF</a></div>
           </div>
         </li>
         <li>
-          <div class="pub-num">2</div>
+          <div class="pub-num">6</div>
           <div>
-            <span class="pub-title">Real Attackers Don't Compute Gradients: Bridging the Gap Between Adversarial ML Research and Practice</span>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/real_attackers.pdf">Real Attackers Don't Compute Gradients: Bridging the Gap Between Adversarial ML Research and Practice</a>
             <span class="pub-authors">Giovanni Apruzzese, Hyrum S. Anderson, Savino Dambra, David Freeman, Fabio Pierazzi, and Kevin Roundy</span>
             <span class="pub-venue">SaTML 2023 · Raleigh, USA</span>
             <div class="pub-links">
@@ -439,9 +444,9 @@
           </div>
         </li>
         <li>
-          <div class="pub-num">3</div>
+          <div class="pub-num">5</div>
           <div>
-            <span class="pub-title">Deep Entity Classification: Abusive Account Detection for Online Social Networks</span>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/dec.pdf">Deep Entity Classification: Abusive Account Detection for Online Social Networks</a>
             <span class="pub-authors">Teng Xu, Gerard Goossen, Huseyin Kerem Cevahir, Sara Khodeir, Yingyezhe Jin, Frank Li, Shawn Shan, Sagar Patel, David Freeman, and Paul Pearce</span>
             <span class="pub-venue">Usenix Security 2021 · virtual</span>
             <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/dec.pdf">PDF</a></div>
@@ -450,54 +455,55 @@
         <li>
           <div class="pub-num">4</div>
           <div>
-            <span class="pub-title">Towards a User-Level Understanding of IPv6 Behavior</span>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/ipv6.pdf">Towards a User-Level Understanding of IPv6 Behavior</a>
             <span class="pub-authors">Frank Li and David Freeman</span>
             <span class="pub-venue">IMC 2020 · virtual</span>
             <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/ipv6.pdf">PDF</a></div>
           </div>
         </li>
         <li>
-          <div class="pub-num">5</div>
+          <div class="pub-num">3</div>
           <div>
-            <span class="pub-title">Evaluating Changes to Fake Account Verification Systems</span>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/ufac.pdf">Evaluating Changes to Fake Account Verification Systems</a>
             <span class="pub-authors">Fedor Kozlov, Isabella Yuen, Jakub Kowalczyk, Daniel Bernhardt, David Freeman, Paul Pearce, and Ivan Ivanov</span>
             <span class="pub-venue">RAID 2020 · virtual</span>
             <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/ufac.pdf">PDF</a></div>
           </div>
         </li>
         <li>
-          <div class="pub-num">6</div>
+          <div class="pub-num">2</div>
           <div>
-            <span class="pub-title">Shim Shimmeny: Evaluating the Security and Privacy Contributions of Link Shimming in the Modern Web</span>
+            <a class="pub-title" href="https://www.usenix.org/conference/usenixsecurity20/presentation/li-frank">Shim Shimmeny: Evaluating the Security and Privacy Contributions of Link Shimming in the Modern Web</a>
             <span class="pub-venue">Usenix Security 2020 · virtual</span>
             <div class="pub-links"><a class="pub-link" href="https://www.usenix.org/conference/usenixsecurity20/presentation/li-frank" target="_blank">Link</a></div>
           </div>
         </li>
         <li>
-          <div class="pub-num">7</div>
+          <div class="pub-num">1</div>
           <div>
-            <span class="pub-title">DELF: Safeguarding Deletion Correctness in Online Social Networks</span>
+            <a class="pub-title" href="https://www.usenix.org/conference/usenixsecurity20/presentation/cohn-gordon">DELF: Safeguarding Deletion Correctness in Online Social Networks</a>
             <span class="pub-venue">Usenix Security 2020 · virtual</span>
             <div class="pub-links"><a class="pub-link" href="https://www.usenix.org/conference/usenixsecurity20/presentation/cohn-gordon" target="_blank">Link</a></div>
           </div>
         </li>
-      </ol>
+      </ul>
     </div>
 
     <div class="pub-section">
       <h2>Research at LinkedIn</h2>
-      <ol class="pub-list">
+      <!-- 5 papers total; numbered oldest=1 → newest=5, displayed newest first -->
+      <ul class="pub-list">
         <li>
-          <div class="pub-num">1</div>
+          <div class="pub-num">5</div>
           <div>
-            <span class="pub-title">Protecting Social Network Users from Impersonation</span>
+            <a class="pub-title" href="#">Protecting Social Network Users from Impersonation</a>
             <span class="pub-venue">WWW 2018 · Lyon, France</span>
           </div>
         </li>
         <li>
-          <div class="pub-num">2</div>
+          <div class="pub-num">4</div>
           <div>
-            <span class="pub-title">Can You Spot the Fakes? On the Limitations of User Feedback in Online Social Networks</span>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/reporter-reputation.pdf">Can You Spot the Fakes? On the Limitations of User Feedback in Online Social Networks</a>
             <span class="pub-authors">David Mandell Freeman</span>
             <span class="pub-venue">WWW 2017 · Perth, Australia</span>
             <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/reporter-reputation.pdf">PDF</a></div>
@@ -506,189 +512,267 @@
         <li>
           <div class="pub-num">3</div>
           <div>
-            <span class="pub-title">Who Are You? A Statistical Approach to Measuring User Authenticity</span>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/ato-model.pdf">Who Are You? A Statistical Approach to Measuring User Authenticity</a>
             <span class="pub-authors">David Mandell Freeman, Sakshi Jain, Markus Dürmuth, Battista Biggio, and Giorgio Giacinto</span>
             <span class="pub-venue">NDSS 2016 · San Diego, USA</span>
             <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/ato-model.pdf">PDF</a></div>
           </div>
         </li>
         <li>
-          <div class="pub-num">4</div>
+          <div class="pub-num">2</div>
           <div>
-            <span class="pub-title">Detecting Clusters of Fake Accounts in Online Social Networks</span>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/clustering.pdf">Detecting Clusters of Fake Accounts in Online Social Networks</a>
             <span class="pub-authors">Cao Xiao, David Mandell Freeman, and Theodore Hwa</span>
             <span class="pub-venue">AISec 2015 · Denver, USA</span>
             <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/clustering.pdf">PDF</a></div>
           </div>
         </li>
         <li>
-          <div class="pub-num">5</div>
+          <div class="pub-num">1</div>
           <div>
-            <span class="pub-title">Using Naive Bayes to Detect Spammy Names in Social Networks</span>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/namespam.pdf">Using Naive Bayes to Detect Spammy Names in Social Networks</a>
             <span class="pub-authors">David Mandell Freeman</span>
             <span class="pub-venue">AISec 2013 · Berlin, Germany</span>
             <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/namespam.pdf">PDF</a></div>
           </div>
         </li>
-      </ol>
+      </ul>
     </div>
 
     <div class="pub-section">
       <h2>Cryptography &amp; Academic Work</h2>
-      <ul class="pub-list-other">
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Improved Security for Linearly Homomorphic Signatures: A Generic Framework</span>
-          <span class="pub-venue">PKC 2012 · Darmstadt, Germany</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/homsigs-pkc12.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Functional Encryption for Inner Product Predicates from Learning with Errors</span>
-          <span class="pub-authors">Shweta Agrawal, David Mandell Freeman, and Vinod Vaikuntanathan</span>
-          <span class="pub-venue">Asiacrypt 2011 · Seoul, Korea</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/FuncEnc.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Homomorphic Signatures for Polynomial Functions</span>
-          <span class="pub-authors">Dan Boneh and David Mandell Freeman</span>
-          <span class="pub-venue">Eurocrypt 2011 · Tallinn, Estonia</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/homsigs.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Deniable Encryption with Negligible Detection Probability</span>
-          <span class="pub-authors">Markus Dürmuth and David Mandell Freeman</span>
-          <span class="pub-venue">Eurocrypt 2011 · Tallinn, Estonia</span>
-          <div class="pub-links"><a class="pub-link" href="http://eprint.iacr.org/2011/066" target="_blank">PDF</a></div>
-          <div class="errata">Note: Subsequent to publication, an error was found in the main theorem. A description appears in the Foreword to the full version.</div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Constructing Pairing-Friendly Hyperelliptic Curves Using Weil Restriction</span>
-          <span class="pub-authors">David Mandell Freeman and Takakazu Satoh</span>
-          <span class="pub-venue">Journal of Number Theory 131:5 · May 2011</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/weil.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Homomorphic Signatures over Binary Fields and New Tools for Lattice-Based Signatures</span>
-          <span class="pub-authors">Dan Boneh and David Mandell Freeman</span>
-          <span class="pub-venue">PKC 2011 · Taormina, Italy</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/binary-homsigs.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Limitations on Transformations from Composite-Order to Prime-Order Groups</span>
-          <span class="pub-authors">Sarah Meiklejohn, Hovav Shacham, and David Mandell Freeman</span>
-          <span class="pub-venue">Asiacrypt 2010 · Singapore</span>
-          <div class="pub-links"><a class="pub-link" href="http://eprint.iacr.org/2010/474.pdf" target="_blank">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Converting Pairing-Based Cryptosystems from Composite-Order to Prime-Order Groups</span>
-          <span class="pub-venue">Eurocrypt 2010 · French Riviera</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/subgroups.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Preventing Pollution Attacks in Multi-Source Network Coding</span>
-          <span class="pub-authors">Shweta Agrawal, Dan Boneh, Xavier Boyen, and David Mandell Freeman</span>
-          <span class="pub-venue">PKC 2010 · Paris, France</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/multinetcode.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">More Constructions of Lossy and Correlation-Secure Trapdoor Functions</span>
-          <span class="pub-authors">David Mandell Freeman, Oded Goldreich, Eike Kiltz, Alon Rosen, and Gil Segev</span>
-          <span class="pub-venue">PKC 2010 · Paris, France</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/LTDFs.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">A Taxonomy of Pairing-Friendly Elliptic Curves</span>
-          <span class="pub-authors">David Freeman, Michael Scott, and Edlyn Teske</span>
-          <span class="pub-venue">Journal of Cryptology 23 · 2010</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/taxonomy.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Signing a Subspace: Signatures for Network Coding</span>
-          <span class="pub-authors">Dan Boneh, David Freeman, Jonathan Katz, and Brent Waters</span>
-          <span class="pub-venue">PKC 2009 · Irvine, CA</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/netcode.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">On the Security of Pairing-Friendly Abelian Varieties over Non-Prime Fields</span>
-          <span class="pub-authors">Naomi Benger, Manuel Charlemagne, and David Mandell Freeman</span>
-          <span class="pub-venue">Pairing 2009 · Palo Alto, CA</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/embedding.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">A Generalized Brezing-Weng Method for Constructing Pairing-Friendly Ordinary Abelian Varieties</span>
-          <span class="pub-venue">Pairing 2008 · Egham, UK</span>
-          <div class="pub-links">
-            <a class="pub-link" href="https://dsmfreeman.github.io/papers/generalized-bw.pdf">PDF</a>
-            <a class="pub-link" href="https://dsmfreeman.github.io/papers/gen-bw-examples.pdf">Examples</a>
+      <!-- 20 papers total; numbered oldest=1 → newest=20, displayed newest first -->
+      <ul class="pub-list">
+        <li>
+          <div class="pub-num">20</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/homsigs-pkc12.pdf">Improved Security for Linearly Homomorphic Signatures: A Generic Framework</a>
+            <span class="pub-venue">PKC 2012 · Darmstadt, Germany</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/homsigs-pkc12.pdf">PDF</a></div>
           </div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Abelian Varieties with Prescribed Embedding Degree</span>
-          <span class="pub-authors">David Freeman, Peter Stevenhagen and Marco Streng</span>
-          <span class="pub-venue">ANTS-VIII 2008 · Banff, Canada</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/ants-viii.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Constructing Pairing-Friendly Genus 2 Curves with Ordinary Jacobians</span>
-          <span class="pub-venue">Pairing 2007 · Tokyo, Japan</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/pairing-friendly-genus2.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Computing Endomorphism Rings of Jacobians of Genus 2 Curves over Finite Fields</span>
-          <span class="pub-authors">David Freeman and Kristin Lauter</span>
-          <span class="pub-venue">SAGA 2007 · Papeete, Tahiti</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/endomorphisms.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Constructing Pairing-Friendly Elliptic Curves with Embedding Degree 10</span>
-          <span class="pub-venue">ANTS-VII 2006 · Berlin, Germany</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/ants-embedding.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">The Isoperimetric Problem on Singular Surfaces</span>
-          <span class="pub-authors">Andrew Cotton, David Freeman, Andrei Gnepp, Ting Ng, John Spivack, and Cara Yoder</span>
-          <span class="pub-venue">Journal of the Australian Mathematical Society 78:2 · April 2005</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/isop.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">The Double Bubble Problem in Spherical and Hyperbolic Space</span>
-          <span class="pub-authors">Andrew Cotton and David Freeman</span>
-          <span class="pub-venue">Int'l Journal of Mathematics and Mathematical Sciences 32:11 · Dec 2002</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/bubble.pdf">PDF</a></div>
-        </div></li>
+        </li>
+        <li>
+          <div class="pub-num">19</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/FuncEnc.pdf">Functional Encryption for Inner Product Predicates from Learning with Errors</a>
+            <span class="pub-authors">Shweta Agrawal, David Mandell Freeman, and Vinod Vaikuntanathan</span>
+            <span class="pub-venue">Asiacrypt 2011 · Seoul, Korea</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/FuncEnc.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">18</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/homsigs.pdf">Homomorphic Signatures for Polynomial Functions</a>
+            <span class="pub-authors">Dan Boneh and David Mandell Freeman</span>
+            <span class="pub-venue">Eurocrypt 2011 · Tallinn, Estonia</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/homsigs.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">17</div>
+          <div>
+            <a class="pub-title" href="http://eprint.iacr.org/2011/066">Deniable Encryption with Negligible Detection Probability: An Interactive Construction</a>
+            <span class="pub-authors">Markus Dürmuth and David Mandell Freeman</span>
+            <span class="pub-venue">Eurocrypt 2011 · Tallinn, Estonia</span>
+            <div class="pub-links"><a class="pub-link" href="http://eprint.iacr.org/2011/066" target="_blank">PDF</a></div>
+            <div class="errata">Note: Subsequent to publication, it was shown that the main theorem is incorrect. A description appears in the Foreword to the full version.</div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">16</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/weil.pdf">Constructing Pairing-Friendly Hyperelliptic Curves Using Weil Restriction</a>
+            <span class="pub-authors">David Mandell Freeman and Takakazu Satoh</span>
+            <span class="pub-venue">Journal of Number Theory 131:5 · May 2011</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/weil.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">15</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/binary-homsigs.pdf">Homomorphic Signatures over Binary Fields and New Tools for Lattice-Based Signatures</a>
+            <span class="pub-authors">Dan Boneh and David Mandell Freeman</span>
+            <span class="pub-venue">PKC 2011 · Taormina, Italy</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/binary-homsigs.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">14</div>
+          <div>
+            <a class="pub-title" href="http://eprint.iacr.org/2010/474.pdf">Limitations on Transformations from Composite-Order to Prime-Order Groups: The Case of Round-Optimal Blind Signatures</a>
+            <span class="pub-authors">Sarah Meiklejohn, Hovav Shacham, and David Mandell Freeman</span>
+            <span class="pub-venue">Asiacrypt 2010 · Singapore</span>
+            <div class="pub-links"><a class="pub-link" href="http://eprint.iacr.org/2010/474.pdf" target="_blank">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">13</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/subgroups.pdf">Converting Pairing-Based Cryptosystems from Composite-Order Groups to Prime-Order Groups</a>
+            <span class="pub-authors">David Mandell Freeman</span>
+            <span class="pub-venue">Eurocrypt 2010 · French Riviera</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/subgroups.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">12</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/multinetcode.pdf">Preventing Pollution Attacks in Multi-Source Network Coding</a>
+            <span class="pub-authors">Shweta Agrawal, Dan Boneh, Xavier Boyen, and David Mandell Freeman</span>
+            <span class="pub-venue">PKC 2010 · Paris, France</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/multinetcode.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">11</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/LTDFs.pdf">More Constructions of Lossy and Correlation-Secure Trapdoor Functions</a>
+            <span class="pub-authors">David Mandell Freeman, Oded Goldreich, Eike Kiltz, Alon Rosen, and Gil Segev</span>
+            <span class="pub-venue">PKC 2010 · Paris, France</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/LTDFs.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">10</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/taxonomy.pdf">A Taxonomy of Pairing-Friendly Elliptic Curves</a>
+            <span class="pub-authors">David Freeman, Michael Scott, and Edlyn Teske</span>
+            <span class="pub-venue">Journal of Cryptology 23 · 2010</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/taxonomy.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">9</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/netcode.pdf">Signing a Subspace: Signatures for Network Coding</a>
+            <span class="pub-authors">Dan Boneh, David Freeman, Jonathan Katz, and Brent Waters</span>
+            <span class="pub-venue">PKC 2009 · Irvine, CA</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/netcode.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">8</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/embedding.pdf">On the Security of Pairing-Friendly Abelian Varieties over Non-Prime Fields</a>
+            <span class="pub-authors">Naomi Benger, Manuel Charlemagne, and David Mandell Freeman</span>
+            <span class="pub-venue">Pairing 2009 · Palo Alto, CA</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/embedding.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">7</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/generalized-bw.pdf">A Generalized Brezing-Weng Method for Constructing Pairing-Friendly Ordinary Abelian Varieties</a>
+            <span class="pub-authors">David Freeman</span>
+            <span class="pub-venue">Pairing 2008 · Egham, UK</span>
+            <div class="pub-links">
+              <a class="pub-link" href="https://dsmfreeman.github.io/papers/generalized-bw.pdf">PDF</a>
+              <a class="pub-link" href="https://dsmfreeman.github.io/papers/gen-bw-examples.pdf">Examples</a>
+            </div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">6</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/ants-viii.pdf">Abelian Varieties with Prescribed Embedding Degree</a>
+            <span class="pub-authors">David Freeman, Peter Stevenhagen, and Marco Streng</span>
+            <span class="pub-venue">ANTS-VIII 2008 · Banff, Canada</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/ants-viii.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">5</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/pairing-friendly-genus2.pdf">Constructing Pairing-Friendly Genus 2 Curves with Ordinary Jacobians</a>
+            <span class="pub-authors">David Freeman</span>
+            <span class="pub-venue">Pairing 2007 · Tokyo, Japan</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/pairing-friendly-genus2.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">4</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/endomorphisms.pdf">Computing Endomorphism Rings of Jacobians of Genus 2 Curves over Finite Fields</a>
+            <span class="pub-authors">David Freeman and Kristin Lauter</span>
+            <span class="pub-venue">SAGA 2007 · Papeete, Tahiti</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/endomorphisms.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">3</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/ants-embedding.pdf">Constructing Pairing-Friendly Elliptic Curves with Embedding Degree 10</a>
+            <span class="pub-authors">David Freeman</span>
+            <span class="pub-venue">ANTS-VII 2006 · Berlin, Germany</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/ants-embedding.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">2</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/isop.pdf">The Isoperimetric Problem on Singular Surfaces</a>
+            <span class="pub-authors">Andrew Cotton, David Freeman, Andrei Gnepp, Ting Ng, John Spivack, and Cara Yoder</span>
+            <span class="pub-venue">Journal of the Australian Mathematical Society 78:2 · April 2005</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/isop.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">1</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/bubble.pdf">The Double Bubble Problem in Spherical and Hyperbolic Space</a>
+            <span class="pub-authors">Andrew Cotton and David Freeman</span>
+            <span class="pub-venue">International Journal of Mathematics and Mathematical Sciences 32:11 · December 2002</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/bubble.pdf">PDF</a></div>
+          </div>
+        </li>
       </ul>
 
       <h3>Other Papers</h3>
-      <ul class="pub-list-other">
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Constructing Abelian Varieties for Pairing-Based Cryptography</span>
-          <span class="pub-venue">Ph.D. Dissertation, UC Berkeley · May 2008</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/thesis.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Pairing-Based Identification Schemes</span>
-          <span class="pub-venue">HP Labs Technical Report HPL-2005-154 · August 2005</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/HPL-2005-154.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Fast Arithmetic and Pairing Evaluation on Genus 2 Curves</span>
-          <span class="pub-venue">Preprint · March 2005</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/genus2-speedup.pdf">PDF</a></div>
-        </div></li>
-        <li><div class="pub-bullet">·</div><div>
-          <span class="pub-title">Applications of Modular Forms</span>
-          <span class="pub-venue">Cambridge University Part III Essay · May 2003</span>
-          <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/modforms.pdf">PDF</a></div>
-        </div></li>
+      <ul class="pub-list">
+        <li>
+          <div class="pub-num">·</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/thesis.pdf">Constructing Abelian Varieties for Pairing-Based Cryptography</a>
+            <span class="pub-venue">Ph.D. Dissertation, University of California, Berkeley · May 2008</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/thesis.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">·</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/HPL-2005-154.pdf">Pairing-Based Identification Schemes</a>
+            <span class="pub-venue">HP Labs Technical Report HPL-2005-154 · August 2005</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/HPL-2005-154.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">·</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/genus2-speedup.pdf">Fast Arithmetic and Pairing Evaluation on Genus 2 Curves</a>
+            <span class="pub-venue">Preprint · March 2005</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/genus2-speedup.pdf">PDF</a></div>
+          </div>
+        </li>
+        <li>
+          <div class="pub-num">·</div>
+          <div>
+            <a class="pub-title" href="https://dsmfreeman.github.io/papers/modforms.pdf">Applications of Modular Forms</a>
+            <span class="pub-venue">Cambridge University Part III Essay · May 2003</span>
+            <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/papers/modforms.pdf">PDF</a></div>
+          </div>
+        </li>
       </ul>
     </div>
+
   </section>
 
-  <!-- PRESENTATIONS -->
+  <!-- ══ PRESENTATIONS ══ -->
   <section id="presentations" class="tab-panel">
-    <h2>Selected Presentations</h2>
+    <h2>Presentations</h2>
     <ul class="pres-list">
       <li>
-        <span class="pres-title">The Abuse Uncertainty Principle, and Other Lessons Learned from Measuring Abuse on the Internet</span>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/enigma-2020.pdf">The Abuse Uncertainty Principle, and Other Lessons Learned from Measuring Abuse on the Internet</a>
         <span class="pres-venue">Enigma 2020 · San Francisco, CA · January 2020</span>
         <div class="pub-links">
           <a class="pub-link" href="https://dsmfreeman.github.io/talks/enigma-2020.pdf">Slides</a>
@@ -696,22 +780,22 @@
         </div>
       </li>
       <li>
-        <span class="pres-title">Adversarial ML in Real Life: Examples, Lessons, and Challenges</span>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/adversarial-ml-2020.pdf">Adversarial ML in Real Life: Examples, Lessons, and Challenges</a>
         <span class="pres-venue">Invited talk · King's College London · January 2020</span>
         <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/adversarial-ml-2020.pdf">Slides</a></div>
       </li>
       <li>
-        <span class="pres-title">"You Can't Just Turn the Crank": Machine Learning for Fighting Abuse on the Consumer Web</span>
+        <a class="pres-title" href="https://www.slideshare.net/DavidFreeman14/you-cant-just-turn-the-crank-machine-learning-for-fighting-abuse-on-the-consumer-web">"You Can't Just Turn the Crank": Machine Learning for Fighting Abuse on the Consumer Web</a>
         <span class="pres-venue">ScAINet 2018 · Atlanta, GA · May 2018</span>
         <div class="pub-links"><a class="pub-link" href="https://www.slideshare.net/DavidFreeman14/you-cant-just-turn-the-crank-machine-learning-for-fighting-abuse-on-the-consumer-web" target="_blank">Slides</a></div>
       </li>
       <li>
-        <span class="pres-title">Can You Spot the Fakes? On the Limitations of User Feedback in Online Social Networks</span>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/reporter-reputation-www17.pdf">Can You Spot the Fakes? On the Limitations of User Feedback in Online Social Networks</a>
         <span class="pres-venue">WWW 2017 · Perth, Australia · April 2017</span>
         <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/reporter-reputation-www17.pdf">Slides</a></div>
       </li>
       <li>
-        <span class="pres-title">Server-Side Second Factors: Approaches to Measuring User Authenticity</span>
+        <a class="pres-title" href="http://www.slideshare.net/DavidFreeman14/serverside-second-factors-approaches-to-measuring-user-authenticity">Server-Side Second Factors: Approaches to Measuring User Authenticity</a>
         <span class="pres-venue">Enigma 2016 · San Francisco, CA · January 2016</span>
         <div class="pub-links">
           <a class="pub-link" href="http://www.slideshare.net/DavidFreeman14/serverside-second-factors-approaches-to-measuring-user-authenticity" target="_blank">Slides</a>
@@ -719,88 +803,153 @@
         </div>
       </li>
       <li>
-        <span class="pres-title">Data Science vs. the Bad Guys: Using Data to Defend LinkedIn From Fraud and Abuse</span>
+        <a class="pres-title" href="http://www.slideshare.net/DavidFreeman14/data-science-vs-the-bad-guys-defending-linkedin-from-fraud-and-abuse">Data Science vs. the Bad Guys: Using Data to Defend LinkedIn From Fraud and Abuse</a>
         <span class="pres-venue">Strata 2015 · San Jose, CA · February 2015</span>
         <div class="pub-links"><a class="pub-link" href="http://www.slideshare.net/DavidFreeman14/data-science-vs-the-bad-guys-defending-linkedin-from-fraud-and-abuse" target="_blank">Slides</a></div>
       </li>
       <li>
-        <span class="pres-title">Using Naive Bayes to Detect Spammy Names in Social Networks</span>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/namespam-aisec.pdf">Using Naive Bayes to Detect Spammy Names in Social Networks</a>
         <span class="pres-venue">AISec 2013 · Berlin, Germany · November 2013</span>
         <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/namespam-aisec.pdf">Slides</a></div>
       </li>
       <li>
-        <span class="pres-title">Homomorphic Signatures for Polynomial Functions</span>
-        <span class="pres-venue">IBM Research · UC San Diego · Microsoft Research · Eurocrypt 2011 · and others</span>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/homsigs-pkc12.pdf">Improved Security for Linearly Homomorphic Signatures: A Generic Framework</a>
+        <span class="pres-venue">PKC 2012 · Darmstadt, Germany · May 2012</span>
+        <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/homsigs-pkc12.pdf">Slides</a></div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/predicate-asiacrypt.pdf">Functional Encryption for Inner Product Predicates from Learning with Errors</a>
+        <span class="pres-venue">Asiacrypt 2011 · Seoul, Korea · December 2011</span>
+        <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/predicate-asiacrypt.pdf">Slides</a></div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/homsigs-online.pdf">Homomorphic Signatures for Polynomial Functions</a>
+        <span class="pres-venue">IBM Research · UC San Diego · Microsoft Research · Eurocrypt 2011 · and others, 2010–2011</span>
         <div class="pub-links">
           <a class="pub-link" href="https://dsmfreeman.github.io/talks/homsigs-online.pdf">Slides (long)</a>
           <a class="pub-link" href="https://dsmfreeman.github.io/talks/homsigs-eurocrypt.pdf">Slides (short)</a>
         </div>
       </li>
       <li>
-        <span class="pres-title">Converting Pairing-Based Cryptosystems from Composite-Order to Prime-Order Groups</span>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/binary-homsigs-talk.pdf">Homomorphic Signatures over Binary Fields and New Tools for Lattice-Based Signatures</a>
+        <span class="pres-venue">PKC 2011 · Taormina, Italy · March 2011</span>
+        <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/binary-homsigs-talk.pdf">Slides</a></div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/eurocrypt10.pdf">Converting Pairing-Based Cryptosystems from Composite-Order to Prime-Order Groups</a>
         <span class="pres-venue">Eurocrypt 2010 · Monaco · May 2010</span>
         <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/eurocrypt10.pdf">Slides</a></div>
       </li>
       <li>
-        <span class="pres-title">Constructing Abelian Varieties for Pairing-Based Cryptography</span>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/pkc2010.pdf">More Constructions of Lossy and Correlation-Secure Trapdoor Functions</a>
+        <span class="pres-venue">PKC 2010 · Paris, France · May 2010</span>
+        <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/pkc2010.pdf">Slides</a></div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/weil-intercity.pdf">Pairing-Friendly Hyperelliptic Curves and Weil Restriction</a>
+        <span class="pres-venue">Workshop on Discovery and Experimentation in Number Theory, Toronto · September 2009; Poster at ANTS-IX · July 2010</span>
+        <div class="pub-links">
+          <a class="pub-link" href="https://dsmfreeman.github.io/talks/weil-intercity.pdf">Slides</a>
+          <a class="pub-link" href="https://dsmfreeman.github.io/talks/ants-poster.pdf">Poster</a>
+        </div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/netcode-slides.pdf">Signing a Linear Subspace: Signatures for Network Coding</a>
+        <span class="pres-venue">IPAM Securing Cyberspace Reunion Conference · Lake Arrowhead, CA · June 2009</span>
+        <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/netcode-slides.pdf">Slides</a></div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/essen.pdf">Constructing Abelian Varieties for Pairing-Based Cryptography</a>
+        <span class="pres-venue">Workshop on Pairings in Arithmetic Geometry and Cryptography · Essen, Germany · May 2009</span>
+        <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/essen.pdf">Slides</a></div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/pairing08-slides.pdf">A Generalized Brezing-Weng Method for Constructing Pairing-Friendly Ordinary Abelian Varieties</a>
+        <span class="pres-venue">Pairing 2008 · Egham, UK · September 2008</span>
+        <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/pairing08-slides.pdf">Slides</a></div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/focm.pdf">Constructing Abelian Varieties for Pairing-Based Cryptography</a>
         <span class="pres-venue">Foundations of Computational Mathematics 2008 · Hong Kong · June 2008</span>
         <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/focm.pdf">Slides</a></div>
       </li>
       <li>
-        <span class="pres-title">Constructing Pairing-Friendly Genus 2 Curves with Ordinary Jacobians</span>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/ams-freeman.pdf">Implementing the Genus 2 CM Method</a>
+        <span class="pres-venue">AMS Special Session on Low Genus Curves and Applications · San Diego, CA · January 2008</span>
+        <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/ams-freeman.pdf">Slides</a></div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/pairing-slides.pdf">Constructing Pairing-Friendly Genus 2 Curves with Ordinary Jacobians</a>
         <span class="pres-venue">Pairing 2007 · Tokyo, Japan · July 2007</span>
         <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/pairing-slides.pdf">Slides</a></div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/kias1.pdf">Constructing Pairing-Friendly Elliptic Curves for Cryptography</a>
+        <span class="pres-venue">2nd KIAS-KMS Summer Workshop on Cryptography · Seoul, Korea · June 2007</span>
+        <div class="pub-links">
+          <a class="pub-link" href="https://dsmfreeman.github.io/talks/kias1.pdf">Slides Part 1</a>
+          <a class="pub-link" href="https://dsmfreeman.github.io/talks/kias2.pdf">Slides Part 2</a>
+        </div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/ecc.pdf">Methods for Constructing Pairing-Friendly Elliptic Curves</a>
+        <span class="pres-venue">10th Workshop on Elliptic Curves in Cryptography (ECC 2006) · Toronto, Canada · September 2006</span>
+        <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/ecc.pdf">Slides</a></div>
+      </li>
+      <li>
+        <a class="pres-title" href="https://dsmfreeman.github.io/talks/ants.pdf">Constructing Pairing-Friendly Elliptic Curves with Embedding Degree 10</a>
+        <span class="pres-venue">ANTS-VII · Berlin, Germany · July 2006</span>
+        <div class="pub-links"><a class="pub-link" href="https://dsmfreeman.github.io/talks/ants.pdf">Slides</a></div>
       </li>
     </ul>
   </section>
 
-  <!-- SERVICE -->
+  <!-- ══ SERVICE & TEACHING ══ -->
   <section id="service" class="tab-panel">
+
     <h2>Program Committee &amp; Conference Service</h2>
     <ul class="service-list">
-      <li><span class="service-year">2026</span><span class="service-role">Program Chair</span><span class="service-conf"><strong>Enigma 2026 Track</strong> at <a href="https://www.usenix.org/conference/usenixsecurity26" target="_blank">Usenix Security 2026</a> · Baltimore, USA · August</span></li>
-      <li><span class="service-year">2026</span><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.sigsac.org/ccs/CCS2026/" target="_blank">CCS 2026</a> (ML Track) · Den Haag, Netherlands · November</span></li>
-      <li><span class="service-year">2022</span><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.sigsac.org/ccs/CCS2022/" target="_blank">CCS 2022</a> · Los Angeles, USA · November</span></li>
-      <li><span class="service-year">2022</span><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/usenixsecurity22" target="_blank">Usenix Security 2022</a> · Boston, USA · August</span></li>
-      <li><span class="service-year">2021</span><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/usenixsecurity21" target="_blank">Usenix Security 2021</a> · virtual · August</span></li>
-      <li><span class="service-year">2020</span><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/usenixsecurity20" target="_blank">Usenix Security 2020</a> · virtual · August</span></li>
-      <li><span class="service-year">2019</span><span class="service-role">Organizer</span><span class="service-conf"><a href="https://atscaleconference.com/events/fighting-abuse-scale-2/" target="_blank">Fighting Abuse @Scale</a> · Menlo Park, USA · November</span></li>
-      <li><span class="service-year">2019</span><span class="service-role">PC Member</span><span class="service-conf"><a href="http://aisec.cc" target="_blank">AISec 2019</a> · London, UK · November</span></li>
-      <li><span class="service-year">2019</span><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/scainet19" target="_blank">ScAINet 2019</a> · Santa Clara, USA · August</span></li>
-      <li><span class="service-year">2019</span><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/usenixsecurity19" target="_blank">Usenix Security 2019</a> · Santa Clara, USA · August</span></li>
-      <li><span class="service-year">2019</span><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.ieee-security.org/TC/SPW2019/DLS/" target="_blank">Deep Learning and Security 2019</a> · San Francisco, USA · May</span></li>
-      <li><span class="service-year">2019</span><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/enigma2019" target="_blank">Enigma 2019</a> · Burlingame, USA · January</span></li>
-      <li><span class="service-year">2018</span><span class="service-role">Program Co-Chair</span><span class="service-conf"><a href="http://ai-sec.net/AISec2018/index.html" target="_blank">AISec 2018</a> · Toronto, Canada · October</span></li>
-      <li><span class="service-year">2018</span><span class="service-role">Organizer</span><span class="service-conf"><a href="https://atscaleconference.com/events/fighting-abuse-scale/" target="_blank">Fighting Abuse @Scale</a> · San Francisco, USA · April</span></li>
-      <li><span class="service-year">2017</span><span class="service-role">Program Co-Chair</span><span class="service-conf"><a href="http://ai-sec.net/AISec2017/index.html" target="_blank">AISec 2017</a> · Dallas, USA · November</span></li>
-      <li><span class="service-year">2016</span><span class="service-role">Program Co-Chair</span><span class="service-conf"><a href="http://www-personal.umich.edu/~arunesh/AISec2016.html" target="_blank">AISec 2016</a> · Vienna, Austria · October</span></li>
-      <li><span class="service-year">2016</span><span class="service-role">PC Member</span><span class="service-conf"><a href="http://apwg.org/apwg-events/ecrime2016/" target="_blank">eCrime 2016</a> · Toronto, Canada · June</span></li>
-      <li><span class="service-year">2016</span><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/enigma2016" target="_blank">Enigma 2016</a> · San Francisco, USA · January</span></li>
-      <li><span class="service-year">2015</span><span class="service-role">PC Member</span><span class="service-conf"><a href="http://www-bcf.usc.edu/~aruneshs/AISec2015.html" target="_blank">AISec 2015</a> · Denver, USA · October</span></li>
-      <li><span class="service-year">2012</span><span class="service-role">PC Member</span><span class="service-conf"><a href="http://2012.pairing-conference.org/" target="_blank">Pairing 2012</a> · Cologne, Germany · May</span></li>
-      <li><span class="service-year">2012</span><span class="service-role">PC Member</span><span class="service-conf"><a href="http://fc12.ifca.ai/cfp.html" target="_blank">Financial Cryptography 2012</a> · Bonaire · February–March</span></li>
-      <li><span class="service-year">2011</span><span class="service-role">Scientific Comm.</span><span class="service-conf"><a href="http://ecc2011.loria.fr/" target="_blank">ECC 2011</a> · Nancy, France · September</span></li>
-      <li><span class="service-year">2010</span><span class="service-role">PC Member</span><span class="service-conf"><a href="http://www.thlab.net/pairing2010/" target="_blank">Pairing 2010</a> · Yamanaka Hot Spring, Japan · December</span></li>
-      <li><span class="service-year">2010</span><span class="service-role">Organizer</span><span class="service-conf"><a href="http://www.math.leidenuniv.nl/~dfreeman/workshop.html" target="_blank">Public Key Cryptography and the Geometry of Numbers</a> · Amsterdam · May</span></li>
-      <li><span class="service-year">2009</span><span class="service-role">PC Member</span><span class="service-conf"><a href="http://cseweb.ucsd.edu/pairing09/" target="_blank">Pairing 2009</a> · Stanford, USA · August</span></li>
+      <li><span class="service-role">Program Chair</span><span class="service-conf"><strong>Enigma 2026 Track</strong> at <a href="https://www.usenix.org/conference/usenixsecurity26" target="_blank">Usenix Security 2026</a> · Baltimore, USA</span><span class="service-date">August 2026</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.sigsac.org/ccs/CCS2026/" target="_blank">CCS 2026</a> (Machine Learning Track) · Den Haag, Netherlands</span><span class="service-date">November 2026</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.sigsac.org/ccs/CCS2022/" target="_blank">CCS 2022</a> · Los Angeles, USA</span><span class="service-date">November 2022</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/usenixsecurity22" target="_blank">Usenix Security 2022</a> · Boston, USA</span><span class="service-date">August 2022</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/usenixsecurity21" target="_blank">Usenix Security 2021</a> · virtual</span><span class="service-date">August 2021</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/usenixsecurity20" target="_blank">Usenix Security 2020</a> · virtual</span><span class="service-date">August 2020</span></li>
+      <li><span class="service-role">Organizer</span><span class="service-conf"><a href="https://atscaleconference.com/events/fighting-abuse-scale-2/" target="_blank">Fighting Abuse @Scale</a> · Menlo Park, USA</span><span class="service-date">November 2019</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="http://aisec.cc" target="_blank">AISec 2019</a> · London, UK</span><span class="service-date">November 2019</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/scainet19" target="_blank">ScAINet 2019</a> · Santa Clara, USA</span><span class="service-date">August 2019</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/usenixsecurity19" target="_blank">Usenix Security 2019</a> · Santa Clara, USA</span><span class="service-date">August 2019</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.ieee-security.org/TC/SPW2019/DLS/" target="_blank">Deep Learning and Security 2019</a> · San Francisco, USA</span><span class="service-date">May 2019</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/enigma2019" target="_blank">Enigma 2019</a> · Burlingame, USA</span><span class="service-date">January 2019</span></li>
+      <li><span class="service-role">Program Co-Chair</span><span class="service-conf"><a href="http://ai-sec.net/AISec2018/index.html" target="_blank">AISec 2018</a> · Toronto, Canada</span><span class="service-date">October 2018</span></li>
+      <li><span class="service-role">Organizer</span><span class="service-conf"><a href="https://atscaleconference.com/events/fighting-abuse-scale/" target="_blank">Fighting Abuse @Scale</a> · San Francisco, USA</span><span class="service-date">April 2018</span></li>
+      <li><span class="service-role">Program Co-Chair</span><span class="service-conf"><a href="http://ai-sec.net/AISec2017/index.html" target="_blank">AISec 2017</a> · Dallas, USA</span><span class="service-date">November 2017</span></li>
+      <li><span class="service-role">Program Co-Chair</span><span class="service-conf"><a href="http://www-personal.umich.edu/~arunesh/AISec2016.html" target="_blank">AISec 2016</a> · Vienna, Austria</span><span class="service-date">October 2016</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="http://apwg.org/apwg-events/ecrime2016/" target="_blank">eCrime 2016</a> · Toronto, Canada</span><span class="service-date">June 2016</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="https://www.usenix.org/conference/enigma2016" target="_blank">Enigma 2016</a> · San Francisco, USA</span><span class="service-date">January 2016</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="http://www-bcf.usc.edu/~aruneshs/AISec2015.html" target="_blank">AISec 2015</a> · Denver, USA</span><span class="service-date">October 2015</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="http://2012.pairing-conference.org/" target="_blank">Pairing 2012</a> · Cologne, Germany</span><span class="service-date">May 2012</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="http://fc12.ifca.ai/cfp.html" target="_blank">Financial Cryptography and Data Security 2012</a> · Bonaire</span><span class="service-date">February 2012</span></li>
+      <li><span class="service-role">Scientific Committee</span><span class="service-conf"><a href="http://ecc2011.loria.fr/" target="_blank">ECC 2011</a> · Nancy, France</span><span class="service-date">September 2011</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="http://www.thlab.net/pairing2010/" target="_blank">Pairing 2010</a> · Yamanaka Hot Spring, Japan</span><span class="service-date">December 2010</span></li>
+      <li><span class="service-role">Organizer</span><span class="service-conf"><a href="http://www.math.leidenuniv.nl/~dfreeman/workshop.html" target="_blank">Public Key Cryptography and the Geometry of Numbers</a> · Amsterdam</span><span class="service-date">May 2010</span></li>
+      <li><span class="service-role">PC Member</span><span class="service-conf"><a href="http://cseweb.ucsd.edu/pairing09/" target="_blank">Pairing 2009</a> · Stanford, USA</span><span class="service-date">August 2009</span></li>
     </ul>
+
+    <h3>Teaching</h3>
+    <p>In Fall 2011 I taught Elliptic Curves in Cryptography (CS 259C/Math 250) at Stanford. <a href="https://dsmfreeman.github.io/cs259c-f11/index.html" target="_blank">Course web page</a>.</p>
+    <p>In Fall 2007 I was a Graduate Student Instructor for Math 16a at Berkeley, taught by Jack Wagoner. <a href="https://dsmfreeman.github.io/math16a.html" target="_blank">Section web page</a>.</p>
+    <p>In Fall 2005 I was a Graduate Student Instructor for Math 1a at Berkeley, taught by <a href="http://math.berkeley.edu/~vfr" target="_blank">Vaughan Jones</a>. <a href="https://dsmfreeman.github.io/math1a.html" target="_blank">Section web page</a>.</p>
+
   </section>
 
-  <!-- TEACHING & OTHER -->
-  <section id="teaching" class="tab-panel">
-    <div class="other-section">
-      <h2>Teaching</h2>
-      <ul class="other-list">
-        <li><strong>Fall 2011</strong> — Elliptic Curves in Cryptography (CS 259C / Math 250), Stanford University &nbsp;<a href="https://dsmfreeman.github.io/cs259c-f11/index.html" target="_blank">→ Course page</a></li>
-        <li><strong>Fall 2007</strong> — GSI for Math 16a, UC Berkeley (instructor: Jack Wagoner) &nbsp;<a href="https://dsmfreeman.github.io/math16a.html" target="_blank">→ Section page</a></li>
-        <li><strong>Fall 2005</strong> — GSI for Math 1a, UC Berkeley (instructor: Vaughan Jones) &nbsp;<a href="https://dsmfreeman.github.io/math1a.html" target="_blank">→ Section page</a></li>
-      </ul>
-    </div>
+  <!-- ══ OTHER ══ -->
+  <section id="other" class="tab-panel">
 
     <div class="other-section">
       <h2>Other Activities</h2>
       <ul class="other-list">
-        <li>Since 2023: <a href="https://www.mathcounts.org" target="_blank">Mathcounts</a> coach at <a href="https://www.bullischarterschool.com" target="_blank">Bullis Charter School</a>, Los Altos, CA</li>
+        <li>Since 2023 I've coached the <a href="https://www.mathcounts.org" target="_blank">Mathcounts</a> team at <a href="https://www.bullischarterschool.com" target="_blank">Bullis Charter School</a> in Los Altos, CA.</li>
         <li><a href="https://missioncollege.edu/depts/music/symphony/" target="_blank">Mission College Symphony</a></li>
         <li><a href="https://music.stanford.edu/ensembles/university-singers" target="_blank">Stanford University Singers</a></li>
         <li><a href="http://studentenkooramsterdam.nl" target="_blank">Studentenkoor Amsterdam</a></li>
@@ -809,19 +958,21 @@
         <li><a href="http://www.calcycling.org" target="_blank">Cal Cycling</a></li>
         <li><a href="http://www.whrb.org" target="_blank">Harvard Radio Broadcasting (WHRB)</a></li>
         <li><a href="http://www.asktorrey.com" target="_blank">Ask Torrey</a></li>
-        <li><a href="http://torreysblog.blogspot.com" target="_blank">What I used to do in my spare time</a> · <a href="http://elodieandphoebe.blogspot.com" target="_blank">What I do now all the time</a></li>
+        <li>See what I used to do in my <a href="http://torreysblog.blogspot.com" target="_blank">spare time</a>, back when I had some.</li>
+        <li>See what I now do <a href="http://elodieandphoebe.blogspot.com" target="_blank">all the time</a>.</li>
       </ul>
     </div>
 
     <div class="other-section">
       <h2>Fact Tree Enterprises</h2>
       <ul class="other-list">
-        <li><a href="http://www.classicalcdguide.com/" target="_blank">ClassicalCDGuide.com</a> — Classical music CD recommendations with extensive reviews by composer, era, and genre.</li>
-        <li><a href="http://www.sailingcourseguide.com" target="_blank">SailingCourseGuide.com</a> — Advice for anyone in the U.S. looking to sign up for a sailing course.</li>
+        <li><a href="http://www.classicalcdguide.com/" target="_blank">ClassicalCDGuide.com</a> — Recommends classical music CDs, with Top 10/20 lists and recommendations by composer, era, and genre. Reviews are extremely detailed. Great for a beginner or someone looking to expand their collection.</li>
+        <li><a href="http://www.sailingcourseguide.com" target="_blank">SailingCourseGuide.com</a> — Provides general advice for anyone in the U.S. who wants to sign up for a sailing course, including tips on how to choose between schools and warning signs of problematic programs.</li>
       </ul>
     </div>
 
     <p class="last-updated">Last updated 23 Dec 2025</p>
+
   </section>
 
 </main>
