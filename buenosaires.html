@@ -1,0 +1,964 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Buenos Aires — June 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400;1,600&family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --paper: #f5efe4;
+    --paper-card: #faf6ee;
+    --paper-warm: #ede5d3;
+    --ink: #1a2438;
+    --ink-mid: #4a5468;
+    --ink-light: #8a8f9c;
+    --ink-faint: #d4cfc1;
+    --celeste: #3d6f99;
+    --celeste-light: #e5edf4;
+    --burgundy: #8b1e3f;
+    --burgundy-light: #f4e5ea;
+    --amber: #b8841a;
+    --amber-light: #f7eed8;
+    --forest: #2d5a3d;
+    --forest-light: #e3ede5;
+    --rule: #c8c0ac;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Inter', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+    font-weight: 400;
+  }
+
+  /* HEADER */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 4rem 2rem 3rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(184, 132, 26, 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 70%, rgba(61, 111, 153, 0.10) 0%, transparent 50%);
+    pointer-events: none;
+  }
+
+  .header-inner {
+    position: relative;
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .eyebrow {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.75rem;
+    font-weight: 500;
+    letter-spacing: 0.3em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 1.5rem;
+  }
+
+  h1 {
+    font-family: 'Playfair Display', serif;
+    font-weight: 400;
+    font-size: clamp(2.5rem, 7vw, 4.5rem);
+    line-height: 1.05;
+    margin-bottom: 0.75rem;
+    letter-spacing: -0.01em;
+  }
+
+  h1 .italic {
+    font-style: italic;
+    font-weight: 400;
+    color: var(--amber);
+  }
+
+  .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.15rem;
+    color: var(--ink-faint);
+    font-weight: 400;
+  }
+
+  .dates-bar {
+    margin-top: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(212, 207, 193, 0.15);
+    display: flex;
+    justify-content: center;
+    gap: 3rem;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--ink-faint);
+  }
+
+  .dates-bar span strong {
+    color: var(--paper);
+    font-weight: 500;
+    display: block;
+    margin-top: 0.25rem;
+    font-size: 0.95rem;
+    letter-spacing: normal;
+    text-transform: none;
+  }
+
+  /* STICKY NAV */
+  nav.day-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(245, 239, 228, 0.95);
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--rule);
+  }
+
+  .nav-inner {
+    max-width: 1100px;
+    margin: 0 auto;
+    display: flex;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  .nav-inner::-webkit-scrollbar { display: none; }
+
+  .nav-inner a {
+    flex: 1;
+    min-width: 110px;
+    padding: 1.1rem 1rem;
+    text-align: center;
+    text-decoration: none;
+    color: var(--ink-mid);
+    border-bottom: 2px solid transparent;
+    transition: all 0.2s ease;
+    font-size: 0.9rem;
+    white-space: nowrap;
+  }
+
+  .nav-inner a:hover {
+    color: var(--ink);
+    background: var(--paper-card);
+  }
+
+  .nav-inner a.active {
+    color: var(--burgundy);
+    border-bottom-color: var(--burgundy);
+  }
+
+  .nav-day {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 1.05rem;
+    display: block;
+    margin-bottom: 0.1rem;
+  }
+
+  .nav-date {
+    font-size: 0.7rem;
+    letter-spacing: 0.15em;
+    text-transform: uppercase;
+    opacity: 0.7;
+  }
+
+  /* MAIN CONTAINER */
+  main {
+    max-width: 900px;
+    margin: 0 auto;
+    padding: 3rem 1.5rem 5rem;
+  }
+
+  /* PRE-TRIP / RESERVATIONS BOX */
+  .pre-trip {
+    background: var(--paper-card);
+    border: 1px solid var(--rule);
+    border-left: 4px solid var(--burgundy);
+    padding: 2rem;
+    margin-bottom: 4rem;
+    border-radius: 2px;
+  }
+
+  .pre-trip h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: var(--burgundy);
+  }
+
+  .pre-trip h2 .es {
+    font-style: italic;
+    color: var(--ink-light);
+    font-weight: 400;
+    font-size: 0.95rem;
+    margin-left: 0.5rem;
+  }
+
+  .pre-trip ol {
+    margin-left: 1.25rem;
+    margin-top: 0.75rem;
+  }
+
+  .pre-trip li {
+    padding: 0.4rem 0;
+    color: var(--ink-mid);
+  }
+
+  .pre-trip li strong {
+    color: var(--ink);
+    font-weight: 600;
+  }
+
+  .pre-trip a {
+    color: var(--burgundy);
+    text-decoration: underline;
+    text-decoration-thickness: 1px;
+    text-underline-offset: 3px;
+  }
+
+  /* HOTEL CARD */
+  .hotel-card {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 1.75rem 2rem;
+    border-radius: 2px;
+    margin-bottom: 4rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  .hotel-card .label {
+    font-size: 0.7rem;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--amber);
+    margin-bottom: 0.4rem;
+  }
+
+  .hotel-card .name {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.4rem;
+    margin-bottom: 0.2rem;
+  }
+
+  .hotel-card .addr {
+    font-size: 0.9rem;
+    color: var(--ink-faint);
+  }
+
+  .hotel-card a {
+    color: var(--amber);
+    font-size: 0.85rem;
+    text-decoration: none;
+    border: 1px solid rgba(184, 132, 26, 0.4);
+    padding: 0.5rem 1rem;
+    border-radius: 2px;
+    transition: all 0.2s ease;
+  }
+
+  .hotel-card a:hover {
+    background: var(--amber);
+    color: var(--ink);
+  }
+
+  /* DAY SECTIONS */
+  section.day {
+    margin-bottom: 5rem;
+    scroll-margin-top: 80px;
+  }
+
+  .day-header {
+    display: flex;
+    align-items: baseline;
+    gap: 1.5rem;
+    margin-bottom: 0.5rem;
+    border-bottom: 1px solid var(--rule);
+    padding-bottom: 1rem;
+  }
+
+  .day-num {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 2.75rem;
+    color: var(--burgundy);
+    line-height: 1;
+    font-weight: 400;
+  }
+
+  .day-name-en {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.75rem;
+    font-weight: 600;
+    line-height: 1.1;
+  }
+
+  .day-name-es {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--ink-light);
+    font-size: 1rem;
+    margin-top: 0.15rem;
+  }
+
+  .day-date {
+    margin-left: auto;
+    font-size: 0.75rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    text-align: right;
+  }
+
+  .day-theme {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    color: var(--ink-mid);
+    margin: 1.5rem 0 2.5rem;
+    font-size: 1.1rem;
+  }
+
+  /* TIME BLOCKS */
+  .block {
+    display: grid;
+    grid-template-columns: 110px 1fr;
+    gap: 1.5rem;
+    padding: 1.25rem 0;
+    border-bottom: 1px dashed var(--ink-faint);
+  }
+
+  .block:last-child {
+    border-bottom: none;
+  }
+
+  .block-time {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    color: var(--burgundy);
+    font-weight: 600;
+    padding-top: 0.1rem;
+  }
+
+  .block-title {
+    font-family: 'Inter', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.4rem;
+    color: var(--ink);
+  }
+
+  .block-title a {
+    color: var(--celeste);
+    text-decoration: none;
+    border-bottom: 1px solid var(--celeste-light);
+    transition: border-color 0.2s ease;
+  }
+
+  .block-title a:hover {
+    border-bottom-color: var(--celeste);
+  }
+
+  .block-detail {
+    color: var(--ink-mid);
+    font-size: 0.96rem;
+    line-height: 1.65;
+  }
+
+  .block-detail a {
+    color: var(--celeste);
+    text-decoration: none;
+    border-bottom: 1px solid var(--celeste-light);
+  }
+
+  .block-detail a:hover {
+    border-bottom-color: var(--celeste);
+  }
+
+  /* CALLOUT TAGS */
+  .tag {
+    display: inline-block;
+    font-size: 0.7rem;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    padding: 0.2rem 0.55rem;
+    border-radius: 2px;
+    margin-left: 0.5rem;
+    font-weight: 500;
+    vertical-align: middle;
+  }
+
+  .tag-must { background: var(--burgundy-light); color: var(--burgundy); }
+  .tag-book { background: var(--amber-light); color: var(--amber); }
+  .tag-walk { background: var(--forest-light); color: var(--forest); }
+
+  /* INFO PANELS */
+  .info-panel {
+    background: var(--paper-card);
+    border-left: 3px solid var(--celeste);
+    padding: 1rem 1.25rem;
+    margin: 1rem 0 0;
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    border-radius: 2px;
+  }
+
+  .info-panel strong { color: var(--ink); font-weight: 600; }
+
+  /* PRACTICAL INFO */
+  .practical {
+    margin-top: 6rem;
+    padding-top: 3rem;
+    border-top: 2px solid var(--ink);
+  }
+
+  .practical h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .practical h2 .es {
+    font-style: italic;
+    color: var(--ink-light);
+    font-weight: 400;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .practical-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.5rem;
+    margin-top: 2rem;
+  }
+
+  .practical-card {
+    background: var(--paper-card);
+    border: 1px solid var(--rule);
+    padding: 1.5rem;
+    border-radius: 2px;
+  }
+
+  .practical-card h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    margin-bottom: 0.75rem;
+    color: var(--burgundy);
+    font-weight: 600;
+  }
+
+  .practical-card p {
+    font-size: 0.92rem;
+    color: var(--ink-mid);
+    margin-bottom: 0.5rem;
+  }
+
+  .practical-card p:last-child { margin-bottom: 0; }
+
+  /* FOOTER */
+  footer {
+    text-align: center;
+    padding: 3rem 1.5rem 2rem;
+    color: var(--ink-light);
+    font-size: 0.85rem;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+  }
+
+  footer .heart { color: var(--burgundy); }
+
+  /* MOBILE */
+  @media (max-width: 640px) {
+    header { padding: 3rem 1.25rem 2rem; }
+    .dates-bar { gap: 1.5rem; }
+    main { padding: 2rem 1rem 3rem; }
+    .pre-trip, .hotel-card { padding: 1.25rem; }
+    .hotel-card { flex-direction: column; align-items: flex-start; }
+    .day-header { flex-wrap: wrap; gap: 1rem; }
+    .day-date { margin-left: 0; width: 100%; text-align: left; }
+    .block { grid-template-columns: 1fr; gap: 0.5rem; }
+    .block-time {
+      font-size: 0.95rem;
+      letter-spacing: 0.05em;
+    }
+    .nav-inner a { padding: 0.85rem 0.75rem; min-width: 90px; }
+    .nav-day { font-size: 0.95rem; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-inner">
+    <div class="eyebrow">A Father-Daughter Trip</div>
+    <h1>Buenos <span class="italic">Aires</span></h1>
+    <div class="subtitle">Tango, books, parrillas (skipped), Minecraft under the moon</div>
+    <div class="dates-bar">
+      <span>Arrive<strong>Sun · Jun 21 · 8:00 am</strong></span>
+      <span>Depart<strong>Wed · Jun 24 · 9:00 pm</strong></span>
+      <span>Nights<strong>3</strong></span>
+    </div>
+  </div>
+</header>
+
+<nav class="day-nav">
+  <div class="nav-inner">
+    <a href="#pretrip"><span class="nav-day">Book</span><span class="nav-date">Before</span></a>
+    <a href="#sunday"><span class="nav-day">Domingo</span><span class="nav-date">Jun 21</span></a>
+    <a href="#monday"><span class="nav-day">Lunes</span><span class="nav-date">Jun 22</span></a>
+    <a href="#tuesday"><span class="nav-day">Martes</span><span class="nav-date">Jun 23</span></a>
+    <a href="#wednesday"><span class="nav-day">Miércoles</span><span class="nav-date">Jun 24</span></a>
+    <a href="#practical"><span class="nav-day">Info</span><span class="nav-date">Practical</span></a>
+  </div>
+</nav>
+
+<main>
+
+  <!-- HOTEL CARD -->
+  <div class="hotel-card">
+    <div>
+      <div class="label">Home Base</div>
+      <div class="name">Park Hyatt — Palacio Duhau</div>
+      <div class="addr">Av. Alvear 1661 · Recoleta</div>
+    </div>
+    <a href="https://www.google.com/maps/search/?api=1&query=Park+Hyatt+Palacio+Duhau+Buenos+Aires" target="_blank" rel="noopener">Open in Maps →</a>
+  </div>
+
+  <!-- PRE-TRIP -->
+  <section id="pretrip" class="pre-trip">
+    <h2>Book Before Departure <span class="es">Reservas</span></h2>
+    <p style="color: var(--ink-mid); margin-bottom: 0.5rem;">In rough priority order. Items 1–2 are time-sensitive.</p>
+    <ol>
+      <li><strong>Minecraft Experience: Moonlight Trail</strong> — Tuesday 6/23, 7:00 pm slot, at Ciudad Universitaria. <a href="https://www.ticketek.com.ar/" target="_blank" rel="noopener">Ticketek Argentina</a></li>
+      <li><strong>Jewish Heritage Private Tour</strong> — Monday morning. <em>Must book by Friday 6/19</em> — AMIA requires a 72hr security review with passport details. Options: <a href="https://www.viator.com/tours/Buenos-Aires/Private-Jewish-Walking-Tour-Includes-visit-to-AMIA-Libertad-Synagogue-more/d901-190535P17" target="_blank" rel="noopener">Viator</a> or <a href="https://www.contexttravel.com/cities/buenos-aires/tours/jewish-buenos-aires-tour" target="_blank" rel="noopener">Context Travel</a>. Or ask the Park Hyatt concierge to arrange a private guide</li>
+      <li><strong>Mishiguene</strong> — Monday dinner, 8:30 pm. <a href="https://www.mishiguene.com/" target="_blank" rel="noopener">mishiguene.com</a> or via OpenTable. The Park Hyatt concierge can help if booked out</li>
+      <li><strong>Café San Juan</strong> — Sunday lunch (San Telmo). Walk-in is usually fine but call ahead Sun is busy</li>
+      <li><strong>Tuesday lunch</strong> in Puerto Madero — Osaka or Fishing Club, your pick</li>
+      <li><strong>Niño Gordo</strong> — Tuesday late dinner. No reservations; just walk up. If it's a wait, Plan B is Anchoa</li>
+    </ol>
+  </section>
+
+  <!-- ============ SUNDAY ============ -->
+  <section id="sunday" class="day">
+    <div class="day-header">
+      <div class="day-num">01</div>
+      <div>
+        <div class="day-name-en">Sunday</div>
+        <div class="day-name-es">Domingo</div>
+      </div>
+      <div class="day-date">June 21<br>Arrival day</div>
+    </div>
+    <div class="day-theme">Land, drop bags, hit the city's most famous Sunday market while the jet lag hasn't caught up yet.</div>
+
+    <div class="block">
+      <div class="block-time">8:00 am</div>
+      <div>
+        <div class="block-title">Land at <a href="https://www.google.com/maps/search/?api=1&query=Ezeiza+International+Airport+EZE" target="_blank" rel="noopener">EZE</a></div>
+        <div class="block-detail">Through immigration, baggage. Uber or pre-booked car to the hotel — about 45 minutes, ~$30 USD. Avoid the airport ATM; use a card for the official rate or change USD via Western Union later.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">10:30 am</div>
+      <div>
+        <div class="block-title">Arrive <a href="https://www.google.com/maps/search/?api=1&query=Park+Hyatt+Palacio+Duhau+Buenos+Aires" target="_blank" rel="noopener">Park Hyatt</a> <span class="tag tag-must">Pre-checkin</span></div>
+        <div class="block-detail">Check-in is 3:00 pm but they'll store bags and let you freshen up. Tip: ask about a complimentary room upgrade at the front desk — Park Hyatts often deliver if you're nice and the property isn't full.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">11:30 am</div>
+      <div>
+        <div class="block-title">Breakfast at the hotel</div>
+        <div class="block-detail">Stay close on arrival day. The Duhau Restaurant or Piano Nobile does an elegant brunch. Save your energy for the market.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">1:00 pm</div>
+      <div>
+        <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=Plaza+Dorrego+San+Telmo+Buenos+Aires" target="_blank" rel="noopener">San Telmo Sunday Market</a> <span class="tag tag-must">Sunday only</span></div>
+        <div class="block-detail">Uber to Plaza Dorrego (~15 min). The market stretches ~13 blocks along Defensa Street: antiques, vintage, leather goods, mate gourds, art, street tango dancers, buskers. Walk north toward Plaza de Mayo. Goes until ~6 pm but late afternoon is busiest.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">2:00 pm</div>
+      <div>
+        <div class="block-title">Lunch at <a href="https://www.google.com/maps/search/?api=1&query=Mercado+de+San+Telmo+Bolivar+970" target="_blank" rel="noopener">Mercado de San Telmo</a></div>
+        <div class="block-detail">Step half a block off Defensa into this restored 1897 covered market hall. Food stalls, coffee, fresh juice, sit-down spots mixed with the old produce vendors. Atmospheric — a market inside the market. <br><br><strong>Alternative:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Cafe+San+Juan+Av+San+Juan+450+Buenos+Aires" target="_blank" rel="noopener">Café San Juan</a> (Chef Lele Cristóbal's institution — small plates, seafood, pasta, eclectic).</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">4:30 pm</div>
+      <div>
+        <div class="block-title">End at <a href="https://www.google.com/maps/search/?api=1&query=Plaza+de+Mayo+Buenos+Aires" target="_blank" rel="noopener">Plaza de Mayo</a> + <a href="https://www.google.com/maps/search/?api=1&query=Casa+Rosada+Buenos+Aires" target="_blank" rel="noopener">Casa Rosada</a></div>
+        <div class="block-detail">The historic heart — pink presidential palace, the Cabildo (colonial-era town hall, now a small museum), the cathedral where Pope Francis served. 15 minutes is enough for a look.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">5:30 pm</div>
+      <div>
+        <div class="block-title">Back to hotel + nap</div>
+        <div class="block-detail">Uber back to Recoleta. Real check-in, shower, horizontal time.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">8:00 pm</div>
+      <div>
+        <div class="block-title">Easy dinner: <a href="https://www.google.com/maps/search/?api=1&query=El+Sanjuanino+Posadas+1515+Buenos+Aires" target="_blank" rel="noopener">El Sanjuanino</a> <span class="tag tag-walk">5 min walk</span></div>
+        <div class="block-detail">A no-frills Recoleta classic since 1972 — empanadas (chicken/humita/caprese), tamales, locro, humita en chala. Cash-friendly, cheap, perfect first night. Or just stay in for room service if wrecked.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">9:30 pm</div>
+      <div>
+        <div class="block-title">Lights out</div>
+        <div class="block-detail">Don't push it. Tomorrow is the heavy day.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ MONDAY ============ -->
+  <section id="monday" class="day">
+    <div class="day-header">
+      <div class="day-num">02</div>
+      <div>
+        <div class="day-name-en">Monday</div>
+        <div class="day-name-es">Lunes</div>
+      </div>
+      <div class="day-date">June 22<br>History & Books</div>
+    </div>
+    <div class="day-theme">South America's largest Jewish community in the morning. Recoleta's most beautiful spaces in the afternoon.</div>
+
+    <div class="block">
+      <div class="block-time">9:00 am</div>
+      <div>
+        <div class="block-title">Hotel breakfast</div>
+        <div class="block-detail">Eat well — the morning is on foot. Bring passports for the AMIA security check.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">10:00 am</div>
+      <div>
+        <div class="block-title">Jewish Heritage Walking Tour <span class="tag tag-book">Book by Fri 6/19</span></div>
+        <div class="block-detail">A private guide for 3–4 hours through the largest Jewish community in Latin America. Standard route:
+          <ul style="margin: 0.6rem 0 0 1.2rem;">
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Once+neighborhood+Balvanera+Buenos+Aires" target="_blank" rel="noopener">Once / Balvanera</a> — historic Jewish quarter, Yiddish theater past, kosher bakeries</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=AMIA+Buenos+Aires+Pasteur+633" target="_blank" rel="noopener">AMIA building</a> — site of the 1994 bombing (85 killed), interior visit and memorial</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Templo+Libertad+Buenos+Aires" target="_blank" rel="noopener">Templo Libertad</a> (1862) — oldest synagogue in BA, with the Jewish Museum inside</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Pasteur+AMIA+station+Buenos+Aires" target="_blank" rel="noopener">Pasteur-AMIA subway station</a> — transformed into a memorial with 26 commissioned artworks</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Plaza+Embajada+de+Israel+Buenos+Aires" target="_blank" rel="noopener">Israeli Embassy memorial</a> — 1992 bombing site (29 killed)</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">2:30 pm</div>
+      <div>
+        <div class="block-title">Late lunch — <a href="https://www.google.com/maps/search/?api=1&query=La+Mar+Buenos+Aires+Arevalo" target="_blank" rel="noopener">La Mar</a></div>
+        <div class="block-detail">Gastón Acurio's Buenos Aires outpost — bright, casual, world-class Peruvian seafood. Order the classic ceviche, a tiradito, and chicharrón de pescado. Argentina has surprisingly strong Peruvian cuisine. ~30 min from Once.
+        <div class="info-panel"><strong>Kosher curiosity option:</strong> There's a kosher McDonald's in Abasto — one of only two outside Israel. Worth a curiosity stop if your guide routes near it.</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">4:30 pm</div>
+      <div>
+        <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=El+Ateneo+Grand+Splendid+Buenos+Aires" target="_blank" rel="noopener">El Ateneo Grand Splendid</a> <span class="tag tag-walk">10 min from hotel</span></div>
+        <div class="block-detail">Av. Santa Fe 1860. A 1919 opera house converted into one of the world's most beautiful bookstores — original frescoed ceiling, painted theater boxes now used as reading nooks, the stage repurposed as a café. 30–45 minutes is plenty. Spanish-language books mostly, but a few English titles and the architecture is the point.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">5:30 pm</div>
+      <div>
+        <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=Recoleta+Cemetery+Buenos+Aires" target="_blank" rel="noopener">Recoleta Cemetery</a> <span class="tag tag-walk">7 min from hotel</span></div>
+        <div class="block-detail">A maze of marble mausoleums housing Argentina's presidents, generals, writers, and Eva Perón. Closes at 6:00 pm — get there by 5:30. Surprisingly engaging at 15 — atmospheric, photogenic, history layered everywhere. Pick up a map at the entrance to find Evita's tomb (Duarte family vault).</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">6:30 pm</div>
+      <div>
+        <div class="block-title">Helado at <a href="https://www.google.com/maps/search/?api=1&query=Rapanui+Recoleta+Buenos+Aires" target="_blank" rel="noopener">Rapanui</a> or <a href="https://www.google.com/maps/search/?api=1&query=Lucciano%27s+Recoleta+Buenos+Aires" target="_blank" rel="noopener">Lucciano's</a></div>
+        <div class="block-detail">Argentine ice cream is among the world's best. Dulce de leche granizado is non-negotiable — try it at least once. Walk back toward the hotel via Recoleta Plaza.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">8:30 pm</div>
+      <div>
+        <div class="block-title">Dinner at <a href="https://www.google.com/maps/search/?api=1&query=Mishiguene+Buenos+Aires" target="_blank" rel="noopener">Mishiguene</a> <span class="tag tag-must">Reserve now</span></div>
+        <div class="block-detail">Chef Tomás Kalika's modern Jewish-Argentine restaurant — regularly on Latin America's 50 Best. Pastrami, gefilte fish reinterpretations, Sephardic plates, knishes, Iraqi influences. Perfect bookend to the day's theme. Palermo, ~15 min Uber from the hotel.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ TUESDAY ============ -->
+  <section id="tuesday" class="day">
+    <div class="day-header">
+      <div class="day-num">03</div>
+      <div>
+        <div class="day-name-en">Tuesday</div>
+        <div class="day-name-es">Martes</div>
+      </div>
+      <div class="day-date">June 23<br>Nature + Minecraft</div>
+    </div>
+    <div class="day-theme">Easy nature walk in the morning, rest in the afternoon, the main event tonight under the moon.</div>
+
+    <div class="block">
+      <div class="block-time">9:00 am</div>
+      <div>
+        <div class="block-title">Hotel breakfast — take your time</div>
+        <div class="block-detail">Sleeping in is allowed. Tonight runs late and the trail is ~90 min of walking outdoors.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">10:30 am</div>
+      <div>
+        <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=Reserva+Ecologica+Costanera+Sur+Buenos+Aires" target="_blank" rel="noopener">Reserva Ecológica Costanera Sur</a></div>
+        <div class="block-detail">A 350-hectare urban nature reserve along the Río de la Plata, just east of Puerto Madero. Flat dirt and gravel trails, birds, river views, rare quiet. Free entry. Pick the 4–6 km loop — bring water, dress for sun if it's clear (winter sun is still strong). About 15 min Uber from the hotel.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">1:00 pm</div>
+      <div>
+        <div class="block-title">Lunch at <a href="https://www.google.com/maps/search/?api=1&query=Osaka+restaurant+Palermo+Buenos+Aires" target="_blank" rel="noopener">Osaka</a> or <a href="https://www.google.com/maps/search/?api=1&query=Fishing+Club+Puerto+Madero+Buenos+Aires" target="_blank" rel="noopener">Fishing Club</a></div>
+        <div class="block-detail"><strong>Osaka</strong> — Nikkei (Japanese-Peruvian) sushi, tiraditos, hot dishes. Sleek, polished, very good. Palermo location.<br><strong>Fishing Club</strong> — casual seafood overlooking Puerto Madero's dikes. Whole grilled fish, ceviche, fresh and unfussy.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">3:00 pm</div>
+      <div>
+        <div class="block-title">Back to hotel — rest, layer up</div>
+        <div class="block-detail">Critical recovery window. Minecraft is ~90 min outdoors at night in winter. Wear layers, comfortable walking shoes, gloves and a beanie. Charge your phone.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">6:00 pm</div>
+      <div>
+        <div class="block-title">Uber to <a href="https://www.google.com/maps/search/?api=1&query=Ciudad+Universitaria+Buenos+Aires" target="_blank" rel="noopener">Ciudad Universitaria</a></div>
+        <div class="block-detail">Allow 25–30 min in evening traffic. Stop en route at <a href="https://www.google.com/maps/search/?api=1&query=Floralis+Generica+Buenos+Aires" target="_blank" rel="noopener">Floralis Genérica</a> in Plaza de las Naciones Unidas — the giant motorized steel flower, lit at night, 5-minute photo stop, literally on the way.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">7:00 pm</div>
+      <div>
+        <div class="block-title"><a href="https://buenosaires.gob.ar/descubrir/minecraft-experience-moonlight-trail" target="_blank" rel="noopener">Minecraft Experience: Moonlight Trail</a> <span class="tag tag-must">The main event</span></div>
+        <div class="block-detail">The world premiere of Minecraft's first outdoor nighttime immersive experience. ~1km trail through 8 biomes — cherry blossom forests, glowing caves, waterfalls, ancient ruins — ending in a mob battle to relight the beacon. Every visitor gets an in-game cape code via email within 72 hours.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">9:30 pm</div>
+      <div>
+        <div class="block-title">Late dinner at <a href="https://www.google.com/maps/search/?api=1&query=Nino+Gordo+Palermo+Buenos+Aires" target="_blank" rel="noopener">Niño Gordo</a></div>
+        <div class="block-detail">Neon-lit Asian-Argentine fever dream in Palermo — yakitori-style skewers, ceviche, dumplings, sake. Lively, no reservations, expect a 20–30 min wait but it moves. Perfect post-adventure energy for a 15-year-old. Open until 1 am.
+        <div class="info-panel"><strong>Plan B if the wait is too long:</strong> walk down the street to <a href="https://www.google.com/maps/search/?api=1&query=Anchoa+Palermo+Buenos+Aires" target="_blank" rel="noopener">Anchoa</a> for modern Italian pizza.</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============ WEDNESDAY ============ -->
+  <section id="wednesday" class="day">
+    <div class="day-header">
+      <div class="day-num">04</div>
+      <div>
+        <div class="day-name-en">Wednesday</div>
+        <div class="day-name-es">Miércoles</div>
+      </div>
+      <div class="day-date">June 24<br>Departure day</div>
+    </div>
+    <div class="day-theme">Anime gallery, bookstore browsing, alfajores for the flight, then home.</div>
+
+    <div class="block">
+      <div class="block-time">9:00 am</div>
+      <div>
+        <div class="block-title">Hotel breakfast + pack</div>
+        <div class="block-detail">Late checkout is worth requesting — Hyatt Globalists get 4 pm; otherwise ask for 2 pm. Leave bags with the bell desk after checkout.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">10:30 am</div>
+      <div>
+        <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=Galeria+Bond+Street+Buenos+Aires" target="_blank" rel="noopener">Galería Bond Street</a> <span class="tag tag-walk">10 min walk</span></div>
+        <div class="block-detail">Av. Santa Fe 1670. A three-story underground gallery that's been the alt-culture and youth subculture mecca of BA since the '60s. Anime, manga, comics, vinyl, vintage band tees, tattoo studios, skate gear. Perfect 15-year-old discovery zone — small shops to wander, weirder the better.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">12:30 pm</div>
+      <div>
+        <div class="block-title">Walk down Av. Santa Fe</div>
+        <div class="block-detail">Browse along Av. Santa Fe back toward Palermo — bookshops, vinyl stores, vintage. Window shopping at a relaxed last-day pace.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">1:00 pm</div>
+      <div>
+        <div class="block-title">Lunch at <a href="https://www.google.com/maps/search/?api=1&query=Casa+Cavia+Palermo+Buenos+Aires" target="_blank" rel="noopener">Casa Cavia</a></div>
+        <div class="block-detail">Cavia 2985 — a restored Recoleta-edge mansion housing a restaurant, a bookshop, a florist, and a perfumery all under one roof. The garden room is gorgeous. Chicken, fish, salads, pastas. A photogenic, slightly fancy farewell lunch.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">3:00 pm</div>
+      <div>
+        <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=Eterna+Cadencia+Honduras+5582+Buenos+Aires" target="_blank" rel="noopener">Eterna Cadencia</a> + alfajor stop</div>
+        <div class="block-detail">Honduras 5582 — a small Palermo literary bookshop with an attached café, gorgeous to wander, English-language section. Then a final stop for <a href="https://www.google.com/maps/search/?api=1&query=Havanna+Buenos+Aires" target="_blank" rel="noopener">Havanna</a> or <a href="https://www.google.com/maps/search/?api=1&query=Cachafaz+Buenos+Aires" target="_blank" rel="noopener">Cachafaz</a> alfajores to bring home (gift boxes travel well in carry-on).</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">4:30 pm</div>
+      <div>
+        <div class="block-title">Back to hotel → bags</div>
+        <div class="block-detail">Collect luggage, final restroom break, request the Uber.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">5:30 pm</div>
+      <div>
+        <div class="block-title">Uber to EZE</div>
+        <div class="block-detail">Allow 60–75 minutes — Wednesday evening traffic is real, and you want a 3-hour buffer for an international departure. ~$30 USD via Uber.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">9:00 pm</div>
+      <div>
+        <div class="block-title">Departure</div>
+        <div class="block-detail">Hasta luego, BA.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- PRACTICAL -->
+  <section id="practical" class="practical">
+    <h2>Practical Notes <span class="es">Datos Prácticos</span></h2>
+    <div class="practical-grid">
+
+      <div class="practical-card">
+        <h3>Money</h3>
+        <p>Currency is ARS (Argentine peso). Inflation is high; rates change weekly.</p>
+        <p>Use a foreign Visa/Mastercard at restaurants and hotels — they're now charged at the official rate, which is close to the "blue" street rate. Best deal without effort.</p>
+        <p>For cash, bring crisp USD bills (twenties or hundreds, no folds or marks) and exchange via <strong>Western Union</strong> for the best rate. Skip the airport ATMs.</p>
+      </div>
+
+      <div class="practical-card">
+        <h3>Language</h3>
+        <p>Spanish, but porteño Spanish is distinctive:</p>
+        <p>· <em>vos</em> instead of <em>tú</em> (you)<br>
+        · "ll" and "y" pronounced "sh" (calle = "ka-shay")<br>
+        · "che" used like "hey"<br>
+        · Italian-inflected rhythm and gestures</p>
+        <p>English is common in Recoleta, Palermo, and at the hotel. Spotty elsewhere — download Google Translate offline.</p>
+      </div>
+
+      <div class="practical-card">
+        <h3>Weather</h3>
+        <p>Late June is mid-winter. Expect <strong>45–60°F</strong> (7–15°C) with cool nights and the occasional rainy day.</p>
+        <p>Pack: warm layers, waterproof shell, walking shoes, gloves and beanie for Minecraft night, a scarf for variability.</p>
+        <p>Sunset around 5:50 pm.</p>
+      </div>
+
+      <div class="practical-card">
+        <h3>Getting Around</h3>
+        <p><strong>Uber</strong> works perfectly — cheap, plentiful, safer than street cabs at night. Cabify is the local equivalent.</p>
+        <p>The Subte (subway) is fine in daylight; buy a SUBE card if you'll use it more than twice.</p>
+        <p>Walking is the best way in Recoleta and Palermo. Avoid La Boca after dark; don't wander San Telmo back alleys at night.</p>
+      </div>
+
+      <div class="practical-card">
+        <h3>Eating Rhythms</h3>
+        <p>Locals eat dinner at <strong>9–10 pm</strong>. Restaurants don't fill until then; arriving at 7 pm feels eerie.</p>
+        <p>Lunch is 1–3 pm. Many places close 4–8 pm.</p>
+        <p>Tipping ~10% in cash is appreciated. Most places add a small <em>cubierto</em> (cover/bread) charge.</p>
+      </div>
+
+      <div class="practical-card">
+        <h3>Safety</h3>
+        <p>Recoleta and Palermo are very safe day and night. Use the same big-city awareness as anywhere — bag on the inside of your shoulder, phone not displayed, no flashy jewelry.</p>
+        <p>The most common issue is petty theft / phone snatching on busy streets like Florida. Park Hyatt has a doorman and arrivals are safe.</p>
+      </div>
+
+    </div>
+  </section>
+
+</main>
+
+<footer>
+  Made with <span class="heart">♥</span> for Buenos Aires, June 2026
+</footer>
+
+<script>
+  // Highlight active day in sticky nav based on scroll position
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-inner a');
+
+  function updateActive() {
+    let current = '';
+    const scrollPos = window.scrollY + 120;
+    sections.forEach(section => {
+      const top = section.offsetTop;
+      const height = section.offsetHeight;
+      if (scrollPos >= top && scrollPos < top + height) {
+        current = section.getAttribute('id');
+      }
+    });
+    navLinks.forEach(link => {
+      link.classList.remove('active');
+      if (link.getAttribute('href') === '#' + current) {
+        link.classList.add('active');
+      }
+    });
+  }
+
+  window.addEventListener('scroll', updateActive, { passive: true });
+  updateActive();
+</script>
+
+</body>
+</html>
