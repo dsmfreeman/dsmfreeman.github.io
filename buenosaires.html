@@ -492,6 +492,204 @@
 
   footer .heart { color: var(--burgundy); }
 
+  /* STARRED RESTAURANTS */
+  .restaurants {
+    margin-top: 5rem;
+    padding-top: 3rem;
+    border-top: 2px solid var(--ink);
+  }
+
+  .restaurants h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 0.25rem;
+  }
+
+  .restaurants h2 .es {
+    font-style: italic;
+    color: var(--ink-light);
+    font-weight: 400;
+    font-size: 1rem;
+    margin-left: 0.5rem;
+  }
+
+  .restaurants .lede {
+    color: var(--ink-mid);
+    font-size: 0.95rem;
+    margin: 0.5rem 0 2rem;
+    max-width: 640px;
+  }
+
+  .restaurants .lede em {
+    color: var(--ink);
+  }
+
+  .resto-group-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.72rem;
+    font-weight: 600;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--ink-light);
+    margin: 2rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+
+  .resto-group-label:first-of-type { margin-top: 0; }
+
+  .resto-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1rem;
+  }
+
+  .resto {
+    background: var(--paper-card);
+    border: 1px solid var(--rule);
+    border-radius: 2px;
+    padding: 1.1rem 1.25rem;
+    position: relative;
+  }
+
+  .resto.plan { border-left: 3px solid var(--forest); }
+  .resto.alt { border-left: 3px solid var(--amber); }
+  .resto.other { border-left: 3px solid var(--celeste); }
+
+  .resto h3 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.15rem;
+    color: var(--ink);
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    line-height: 1.25;
+  }
+
+  .resto h3 .star {
+    color: var(--amber);
+    margin-right: 0.2rem;
+    font-size: 0.9rem;
+  }
+
+  .resto h3 a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .resto h3 a:hover {
+    border-bottom-color: var(--burgundy);
+  }
+
+  .resto .meta {
+    font-size: 0.78rem;
+    color: var(--ink-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .resto .meta strong {
+    color: var(--ink-mid);
+    font-weight: 600;
+  }
+
+  .resto .note {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.5;
+    margin: 0;
+  }
+
+  .resto .note em {
+    color: var(--burgundy);
+    font-style: normal;
+    font-weight: 500;
+  }
+
+  /* OPTION CARDS for "choose one" morning blocks */
+  .choose-label {
+    font-family: 'Inter', sans-serif;
+    font-size: 0.7rem;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--burgundy);
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+    display: inline-block;
+  }
+
+  .options {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 0.75rem;
+    margin-top: 0.75rem;
+  }
+
+  .option {
+    background: var(--paper);
+    border: 1px solid var(--ink-faint);
+    border-left: 3px solid var(--celeste);
+    border-radius: 2px;
+    padding: 0.9rem 1rem;
+    position: relative;
+  }
+
+  .option.unavailable {
+    border-left-color: var(--ink-faint);
+    opacity: 0.7;
+  }
+
+  .option h4 {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.05rem;
+    font-weight: 600;
+    margin-bottom: 0.35rem;
+    color: var(--ink);
+    line-height: 1.25;
+  }
+
+  .option h4 a {
+    color: var(--ink);
+    text-decoration: none;
+    border-bottom: 1px solid transparent;
+  }
+
+  .option h4 a:hover {
+    border-bottom-color: var(--burgundy);
+  }
+
+  .option .opt-meta {
+    font-size: 0.72rem;
+    color: var(--ink-light);
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    margin-bottom: 0.5rem;
+    line-height: 1.5;
+  }
+
+  .option p {
+    font-size: 0.88rem;
+    color: var(--ink-mid);
+    line-height: 1.55;
+    margin: 0;
+  }
+
+  .option p + p {
+    margin-top: 0.5rem;
+  }
+
+  .option .conflict {
+    background: var(--burgundy-light);
+    color: var(--burgundy);
+    padding: 0.4rem 0.6rem;
+    font-size: 0.78rem;
+    border-radius: 2px;
+    margin-top: 0.5rem;
+  }
+
   /* MOBILE */
   @media (max-width: 640px) {
     header { padding: 3rem 1.25rem 2rem; }
@@ -534,6 +732,7 @@
     <a href="#tuesday"><span class="nav-day">Martes</span><span class="nav-date">Jun 23</span></a>
     <a href="#wednesday"><span class="nav-day">Miércoles</span><span class="nav-date">Jun 24</span></a>
     <a href="#practical"><span class="nav-day">Info</span><span class="nav-date">Practical</span></a>
+    <a href="#restaurants"><span class="nav-day">Eat</span><span class="nav-date">Starred</span></a>
   </div>
 </nav>
 
@@ -554,14 +753,15 @@
     <h2>Book Before Departure <span class="es">Reservas</span></h2>
     <p style="color: var(--ink-mid); margin-bottom: 0.5rem;">In rough priority order. Item 1 is time-sensitive.</p>
     <ol>
-      <li><strong>Jewish Heritage Private Tour</strong> — Monday morning. <em>Must book by Friday 6/19</em> — AMIA requires a 72hr security review with passport details. Options: <a href="https://www.viator.com/tours/Buenos-Aires/Private-Jewish-Walking-Tour-Includes-visit-to-AMIA-Libertad-Synagogue-more/d901-190535P17" target="_blank" rel="noopener">Viator</a> or <a href="https://www.contexttravel.com/cities/buenos-aires/tours/jewish-buenos-aires-tour" target="_blank" rel="noopener">Context Travel</a>. Or ask the Park Hyatt concierge to arrange a private guide</li>
-      <li><strong>Mishiguene</strong> — Monday dinner, 8:30 pm. <a href="https://www.mishiguene.com/" target="_blank" rel="noopener">mishiguene.com</a> or via OpenTable. The Park Hyatt concierge can help if booked out</li>
-      <li><strong>Wednesday lunch</strong> — Casa Cavia or wherever you'd like in Palermo after MALBA</li>
+      <li><strong>Palacio Barolo tour</strong> (optional, if going) — <strong>Tuesday:</strong> 50-min "Sky Tour" via <a href="https://www.viajesencompania.com/producto/barolo-sky-tour/" target="_blank" rel="noopener">Viajes en Compañía</a>, 10am-9pm. <strong>Wednesday:</strong> 1.5-hr daytime tour via <a href="https://palaciobarolotours.com.ar/" target="_blank" rel="noopener">palaciobarolotours.com.ar</a>, slots at 10am, 12pm, 2pm, etc.</li>
+      <li><strong>Wednesday lunch</strong> — Casa Cavia, Fishing Club, Osaka, or Café Tortoni depending on the morning choice</li>
       <li><strong>Niño Gordo</strong> — Tuesday late dinner. No reservations; just walk up. If it's a wait, Plan B is Anchoa</li>
       <li><strong>Confirm 4 pm late checkout</strong> — call the Park Hyatt the day before to lock in your Globalist benefit for Wednesday</li>
     </ol>
     <div style="margin-top: 1.5rem; padding-top: 1rem; border-top: 1px dashed var(--rule); font-size: 0.92rem; color: var(--ink-mid);">
-      <strong style="color: var(--forest);">✓ Booked:</strong> Minecraft Experience: Moonlight Trail · Tuesday 6/23 · 7:00 pm
+      <strong style="color: var(--forest);">✓ Booked:</strong> Minecraft Experience: Moonlight Trail · Tuesday 6/23 · 7:00 pm<br>
+      <strong style="color: var(--forest);">✓ Booked:</strong> Mishiguene · Monday 6/22 · 9:00 pm<br>
+      <strong style="color: var(--forest);">✓ Booked:</strong> Jewish Heritage Private Tour · Monday 6/22 · 9:45 am · meet at <a href="https://www.google.com/maps/search/?api=1&query=Pasteur+655+Buenos+Aires" target="_blank" rel="noopener" style="color: var(--forest); text-decoration: underline;">Pasteur 655</a> (AMIA building)
     </div>
   </section>
 
@@ -613,7 +813,9 @@
       <div class="block-time">2:00 pm</div>
       <div>
         <div class="block-title">Lunch at <a href="https://www.google.com/maps/search/?api=1&query=Mercado+de+San+Telmo+Bolivar+970" target="_blank" rel="noopener">Mercado de San Telmo</a></div>
-        <div class="block-detail">Step half a block off Defensa into this restored 1897 covered market hall. Food stalls, coffee, fresh juice, sit-down spots mixed with the old produce vendors. Atmospheric — a market inside the market. <br><br><strong>Alternative:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Cafe+San+Juan+Av+San+Juan+450+Buenos+Aires" target="_blank" rel="noopener">Café San Juan</a> (Chef Lele Cristóbal's institution — small plates, seafood, pasta, eclectic).</div>
+        <div class="block-detail">Step half a block off Defensa into this restored 1897 covered market hall. Food stalls, coffee, fresh juice, sit-down spots mixed with the old produce vendors. Atmospheric — a market inside the market.
+        <div class="info-panel"><strong>Backup:</strong> <a href="https://www.google.com/maps/search/?api=1&query=Cafe+San+Juan+La+Cantina+Chile+474+Buenos+Aires" target="_blank" rel="noopener">Café San Juan — La Cantina</a> (Chile 474, half a block off Defensa) — Lele Cristóbal's starred tapas spot. Walk-in only, cash-friendly. Closed Mondays so Sunday works.</div>
+        </div>
       </div>
     </div>
 
@@ -663,21 +865,29 @@
     <div class="day-theme">South America's largest Jewish community in the morning. Recoleta's most beautiful spaces in the afternoon.</div>
 
     <div class="block">
-      <div class="block-time">9:00 am</div>
+      <div class="block-time">8:15 am</div>
       <div>
         <div class="block-title">Hotel breakfast</div>
-        <div class="block-detail">Eat well — the morning is on foot. Bring passports for the AMIA security check.</div>
+        <div class="block-detail">Eat well — the morning is on foot. Bring passports for the AMIA security check (required to enter the building).</div>
       </div>
     </div>
 
     <div class="block">
-      <div class="block-time">10:00 am</div>
+      <div class="block-time">9:15 am</div>
       <div>
-        <div class="block-title">Jewish Heritage Walking Tour <span class="tag tag-book">Book by Fri 6/19</span></div>
-        <div class="block-detail">A private guide for 3–4 hours through the largest Jewish community in Latin America. Standard route:
+        <div class="block-title">Uber to <a href="https://www.google.com/maps/search/?api=1&query=Pasteur+655+Buenos+Aires" target="_blank" rel="noopener">Pasteur 655</a> <span class="tag tag-must">Meeting point</span></div>
+        <div class="block-detail">~15-20 min from the hotel depending on traffic. Pasteur 655 is the AMIA building itself — the guide meets you in front. Allow buffer time; you'll need to clear security to enter.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">9:45 am</div>
+      <div>
+        <div class="block-title">Jewish Heritage Private Tour <span class="tag tag-must">Confirmed</span></div>
+        <div class="block-detail">A private guide for ~3-4 hours through the largest Jewish community in Latin America. Starting at AMIA, the standard route covers:
           <ul style="margin: 0.6rem 0 0 1.2rem;">
-            <li><a href="https://www.google.com/maps/search/?api=1&query=Once+neighborhood+Balvanera+Buenos+Aires" target="_blank" rel="noopener">Once / Balvanera</a> — historic Jewish quarter, Yiddish theater past, kosher bakeries</li>
             <li><a href="https://www.google.com/maps/search/?api=1&query=AMIA+Buenos+Aires+Pasteur+633" target="_blank" rel="noopener">AMIA building</a> — site of the 1994 bombing (85 killed), interior visit and memorial</li>
+            <li><a href="https://www.google.com/maps/search/?api=1&query=Once+neighborhood+Balvanera+Buenos+Aires" target="_blank" rel="noopener">Once / Balvanera</a> — historic Jewish quarter, Yiddish theater past, kosher bakeries</li>
             <li><a href="https://www.google.com/maps/search/?api=1&query=Templo+Libertad+Buenos+Aires" target="_blank" rel="noopener">Templo Libertad</a> (1862) — oldest synagogue in BA, with the Jewish Museum inside</li>
             <li><a href="https://www.google.com/maps/search/?api=1&query=Pasteur+AMIA+station+Buenos+Aires" target="_blank" rel="noopener">Pasteur-AMIA subway station</a> — transformed into a memorial with 26 commissioned artworks</li>
             <li><a href="https://www.google.com/maps/search/?api=1&query=Plaza+Embajada+de+Israel+Buenos+Aires" target="_blank" rel="noopener">Israeli Embassy memorial</a> — 1992 bombing site (29 killed)</li>
@@ -687,33 +897,49 @@
     </div>
 
     <div class="block">
-      <div class="block-time">2:30 pm</div>
+      <div class="block-time">1:00 pm</div>
       <div>
-        <div class="block-title">Late lunch — <a href="https://www.google.com/maps/search/?api=1&query=La+Mar+Buenos+Aires+Arevalo" target="_blank" rel="noopener">La Mar</a></div>
-        <div class="block-detail">Gastón Acurio's Buenos Aires outpost — bright, casual, world-class Peruvian seafood. Order the classic ceviche, a tiradito, and chicharrón de pescado. Argentina has surprisingly strong Peruvian cuisine. ~30 min from Once.
+        <div class="block-title">Tour ends — head straight to lunch</div>
+        <div class="block-detail">Tour wraps around 1 pm. Uber from wherever it ends (likely near Templo Libertad / Microcentro) to lunch.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">1:30 pm</div>
+      <div>
+        <div class="block-title">Lunch at <a href="https://www.google.com/maps/search/?api=1&query=La+Mar+Arevalo+2024+Palermo+Buenos+Aires" target="_blank" rel="noopener">La Mar</a> <span class="tag tag-must">Starred</span></div>
+        <div class="block-detail">Gastón Acurio's Buenos Aires outpost — bright, casual, world-class Peruvian seafood. Order the classic ceviche, a tiradito, and chicharrón de pescado. Argentina has surprisingly strong Peruvian cuisine. ~25 min Uber from downtown to Palermo.
         <div class="info-panel"><strong>Kosher curiosity option:</strong> There's a kosher McDonald's in Abasto — one of only two outside Israel. Worth a curiosity stop if your guide routes near it.</div>
         </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="block-time">4:30 pm</div>
+      <div class="block-time">3:30 pm</div>
+      <div>
+        <div class="block-title">Uber back to Recoleta</div>
+        <div class="block-detail">~15 min back to the hotel area. Quick freshen-up or go straight to the cemetery.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">4:00 pm</div>
       <div>
         <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=Recoleta+Cemetery+Buenos+Aires" target="_blank" rel="noopener">Recoleta Cemetery</a> <span class="tag tag-walk">7 min from hotel</span></div>
-        <div class="block-detail">A maze of marble mausoleums housing Argentina's presidents, generals, writers, and Eva Perón. <strong>Closes at 6:00 pm</strong> — get there by 5:00 pm to have enough time. Surprisingly engaging at 15 — atmospheric, photogenic, history layered everywhere. Pick up a map at the entrance to find Evita's tomb (Duarte family vault).</div>
+        <div class="block-detail">A maze of marble mausoleums housing Argentina's presidents, generals, writers, and Eva Perón. <strong>Closes at 6:00 pm</strong> — plenty of time now. Surprisingly engaging at 15 — atmospheric, photogenic, history layered everywhere. Pick up a map at the entrance to find Evita's tomb (Duarte family vault).</div>
       </div>
     </div>
 
     <div class="block">
-      <div class="block-time">6:00 pm</div>
+      <div class="block-time">5:30 pm</div>
       <div>
         <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=El+Ateneo+Grand+Splendid+Buenos+Aires" target="_blank" rel="noopener">El Ateneo Grand Splendid</a> <span class="tag tag-walk">10 min from hotel</span></div>
-        <div class="block-detail">Av. Santa Fe 1860. A 1919 opera house converted into one of the world's most beautiful bookstores — original frescoed ceiling, painted theater boxes now used as reading nooks, the stage repurposed as a café. Open until 10 pm. 30–45 minutes is plenty. Spanish-language books mostly, but a few English titles and the architecture is the point.</div>
+        <div class="block-detail">Av. Santa Fe 1860. A 1919 opera house converted into one of the world's most beautiful bookstores — original frescoed ceiling, painted theater boxes now used as reading nooks, the stage repurposed as a café. Open until 10 pm. 30–45 minutes is plenty.</div>
       </div>
     </div>
 
     <div class="block">
-      <div class="block-time">7:00 pm</div>
+      <div class="block-time">6:30 pm</div>
       <div>
         <div class="block-title">Helado at <a href="https://www.google.com/maps/search/?api=1&query=Rapanui+Recoleta+Buenos+Aires" target="_blank" rel="noopener">Rapanui</a> or <a href="https://www.google.com/maps/search/?api=1&query=Lucciano%27s+Recoleta+Buenos+Aires" target="_blank" rel="noopener">Lucciano's</a></div>
         <div class="block-detail">Argentine ice cream is among the world's best. Dulce de leche granizado is non-negotiable — try it at least once. Walk back toward the hotel via Recoleta Plaza.</div>
@@ -721,9 +947,17 @@
     </div>
 
     <div class="block">
-      <div class="block-time">8:30 pm</div>
+      <div class="block-time">7:00 pm</div>
       <div>
-        <div class="block-title">Dinner at <a href="https://www.google.com/maps/search/?api=1&query=Mishiguene+Buenos+Aires" target="_blank" rel="noopener">Mishiguene</a> <span class="tag tag-must">Reserve now</span></div>
+        <div class="block-title">Back to hotel — brief rest</div>
+        <div class="block-detail">Time to put your feet up before dinner. Mishiguene is in Palermo, ~15 min Uber.</div>
+      </div>
+    </div>
+
+    <div class="block">
+      <div class="block-time">9:00 pm</div>
+      <div>
+        <div class="block-title">Dinner at <a href="https://www.google.com/maps/search/?api=1&query=Mishiguene+Buenos+Aires" target="_blank" rel="noopener">Mishiguene</a> <span class="tag tag-must">Confirmed</span></div>
         <div class="block-detail">Chef Tomás Kalika's modern Jewish-Argentine restaurant — regularly on Latin America's 50 Best. Pastrami, gefilte fish reinterpretations, Sephardic plates, knishes, Iraqi influences. Perfect bookend to the day's theme. Palermo, ~15 min Uber from the hotel.</div>
       </div>
     </div>
@@ -737,9 +971,9 @@
         <div class="day-name-en">Tuesday</div>
         <div class="day-name-es">Martes</div>
       </div>
-      <div class="day-date">June 23<br>Nature + Minecraft</div>
+      <div class="day-date">June 23<br>Morning + Minecraft</div>
     </div>
-    <div class="day-theme">Easy nature walk in the morning, rest in the afternoon, the main event tonight under the moon.</div>
+    <div class="day-theme">Pick a morning activity, rest in the afternoon, the main event tonight under the moon.</div>
 
     <div class="block">
       <div class="block-time">9:00 am</div>
@@ -752,21 +986,35 @@
     <div class="block">
       <div class="block-time">10:30 am</div>
       <div>
-        <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=Reserva+Ecologica+Costanera+Sur+Buenos+Aires" target="_blank" rel="noopener">Reserva Ecológica Costanera Sur</a></div>
-        <div class="block-detail">A 350-hectare urban nature reserve along the Río de la Plata, just east of Puerto Madero. Flat dirt and gravel trails, birds, river views, rare quiet. Free entry. Pick the 4–6 km loop — bring water, dress for sun if it's clear (winter sun is still strong). About 15 min Uber from the hotel.</div>
+        <div class="block-title">Morning activity</div>
+        <div class="block-detail">
+          <span class="choose-label">Choose one</span>
+          <div class="options">
+
+            <div class="option">
+              <h4><a href="https://www.google.com/maps/search/?api=1&query=Caminito+La+Boca+Buenos+Aires" target="_blank" rel="noopener">La Boca &amp; Caminito</a></h4>
+              <div class="opt-meta">~3 hrs · Uber 25 min each way · Daytime only</div>
+              <p>Walk the famous painted pedestrian street, see tango dancers, photograph the corrugated facades in blue / yellow / red — colors invented when Italian dockworkers painted houses with leftover ship paint. Stay on Caminito and surrounding streets only.</p>
+              <p><strong>Add-on:</strong> the Boca Juniors Museum + La Bombonera stadium tour, 4 blocks away. Daily 10am-6pm (except match days). Pre-book via <a href="https://www.getyourguide.com/buenos-aires-l1/guided-tour-boca-juniors-museum-stadium-caminito-t853395/" target="_blank" rel="noopener">GetYourGuide</a> for a guide.</p>
+            </div>
+
+            <div class="option">
+              <h4><a href="https://www.google.com/maps/search/?api=1&query=Palacio+Barolo+Av+de+Mayo+1370+Buenos+Aires" target="_blank" rel="noopener">Palacio Barolo — Sky Tour</a></h4>
+              <div class="opt-meta">50 min tour · Tue only · Av. de Mayo 1370 · Lunch downtown after</div>
+              <p>22-story Dante-themed building from 1923 — Hell at ground level, Purgatory in the offices, Paradise at the top, lighthouse on the dome. The Tuesday-only "Barolo Sky Tour" (50 min) focuses on the lighthouse climb and the 360° balcony views — the spectacular part.</p>
+              <p>Book via <a href="https://www.viajesencompania.com/producto/barolo-sky-tour/" target="_blank" rel="noopener">Viajes en Compañía</a> — the only operator running tours on Tuesdays.</p>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="block-time">12:45 pm</div>
+      <div class="block-time">1:00 pm</div>
       <div>
-        <div class="block-title">Lunch in <a href="https://www.google.com/maps/search/?api=1&query=Puerto+Madero+Buenos+Aires" target="_blank" rel="noopener">Puerto Madero</a></div>
-        <div class="block-detail">Walk back across the footbridge into Puerto Madero — sleek modern docklands. Options:
-          <ul style="margin: 0.6rem 0 0 1.2rem;">
-            <li><a href="https://www.google.com/maps/search/?api=1&query=Fishing+Club+Puerto+Madero+Buenos+Aires" target="_blank" rel="noopener">Fishing Club</a> — casual seafood overlooking the docks. Whole grilled fish, ceviche, oysters.</li>
-            <li><a href="https://www.google.com/maps/search/?api=1&query=Osaka+restaurant+Puerto+Madero+Buenos+Aires" target="_blank" rel="noopener">Osaka</a> — Nikkei (Japanese-Peruvian) sushi and tiraditos. Sleek, polished.</li>
-          </ul>
-        </div>
+        <div class="block-title">Lunch</div>
+        <div class="block-detail">If you did La Boca: lunch at <a href="https://www.google.com/maps/search/?api=1&query=Lo+de+Diego+La+Boca+Buenos+Aires" target="_blank" rel="noopener">Lo de Diego</a> (Maradona-themed, near Caminito) or Uber back to Palermo for <a href="https://www.google.com/maps/search/?api=1&query=Anchoa+Palermo+Buenos+Aires" target="_blank" rel="noopener">Anchoa</a> (modern Italian pizza).</div>
       </div>
     </div>
 
@@ -813,9 +1061,9 @@
         <div class="day-name-en">Wednesday</div>
         <div class="day-name-es">Miércoles</div>
       </div>
-      <div class="day-date">June 24<br>MALBA + departure</div>
+      <div class="day-date">June 24<br>Last morning + depart</div>
     </div>
-    <div class="day-theme">Latin American art, the giant steel flower next door, last anime browse, alfajores, late checkout, home.</div>
+    <div class="day-theme">One morning activity, lunch, the alfajor + anime stretch, late checkout, home.</div>
 
     <div class="block">
       <div class="block-time">9:00 am</div>
@@ -826,27 +1074,46 @@
     </div>
 
     <div class="block">
-      <div class="block-time">10:45 am</div>
+      <div class="block-time">10:30 am</div>
       <div>
-        <div class="block-title">Uber to <a href="https://www.google.com/maps/search/?api=1&query=Floralis+Generica+Buenos+Aires" target="_blank" rel="noopener">Floralis Genérica</a></div>
-        <div class="block-detail">~10 min from the hotel. The giant motorized steel flower in Plaza de las Naciones Unidas — designed by Eduardo Catalano in 2002, 75 ft tall, 18 tons of stainless steel. The petal-closing mechanism doesn't work anymore but the sculpture itself is striking. 10-min photo stop, then walk to MALBA (5 min south along Av. Figueroa Alcorta).</div>
-      </div>
-    </div>
+        <div class="block-title">Morning activity</div>
+        <div class="block-detail">
+          <span class="choose-label">Choose one — whichever you skipped on Tuesday is still available</span>
+          <div class="options">
 
-    <div class="block">
-      <div class="block-time">11:00 am</div>
-      <div>
-        <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=MALBA+Museo+de+Arte+Latinoamericano+de+Buenos+Aires" target="_blank" rel="noopener">MALBA</a> <span class="tag tag-must">Wednesday opening</span></div>
-        <div class="block-detail">Av. Figueroa Alcorta 3415. Museum of Latin American Art — Frida Kahlo's "Self-portrait with Monkey and Parrot," Diego Rivera, Tarsila do Amaral, Wifredo Lam, Roberto Matta, plus rotating contemporary exhibitions. Compact and walkable (allow 1.5–2 hours). <strong>Wednesdays only:</strong> opens at 11 am instead of noon, with half-price general admission. Buy tickets online or at the door. The building itself (deconstructivist polyhedron by Atelman-Fourcade-Tapia) is part of the experience.</div>
+            <div class="option">
+              <h4><a href="https://www.google.com/maps/search/?api=1&query=Reserva+Ecologica+Costanera+Sur+Buenos+Aires" target="_blank" rel="noopener">Reserva Ecológica Costanera Sur</a></h4>
+              <div class="opt-meta">~2.5 hrs · Free · Uber 15 min · Lunch in Puerto Madero after</div>
+              <p>350-hectare urban nature reserve along the Río de la Plata, just east of Puerto Madero. Flat dirt trails, birds, river views, rare quiet. Pick the 4–6 km loop.</p>
+            </div>
+
+            <div class="option">
+              <h4><a href="https://www.google.com/maps/search/?api=1&query=MALBA+Museo+de+Arte+Latinoamericano+de+Buenos+Aires" target="_blank" rel="noopener">MALBA</a></h4>
+              <div class="opt-meta">~2 hrs · ½ price Wed · Opens 11 am Wed · Lunch in Palermo after</div>
+              <p>Museum of Latin American Art — Frida Kahlo's "Self-portrait with Monkey and Parrot," Diego Rivera, Tarsila do Amaral, Wifredo Lam. Compact and walkable. Pair with <a href="https://www.google.com/maps/search/?api=1&query=Floralis+Generica+Buenos+Aires" target="_blank" rel="noopener">Floralis Genérica</a> (5 min walk).</p>
+            </div>
+
+            <div class="option">
+              <h4><a href="https://www.google.com/maps/search/?api=1&query=Palacio+Barolo+Av+de+Mayo+1370+Buenos+Aires" target="_blank" rel="noopener">Palacio Barolo</a></h4>
+              <div class="opt-meta">1.5 hr tour · 10 am or 12 pm slot · Av. de Mayo 1370 · Lunch downtown after</div>
+              <p>22-story Dante-themed building from 1923 — Hell at ground level, Purgatory in the offices, Paradise at the top, lighthouse on the dome. Climbs to lighthouse balconies for 360° city views. Pre-book on <a href="https://palaciobarolotours.com.ar/" target="_blank" rel="noopener">palaciobarolotours.com.ar</a>.</p>
+            </div>
+
+          </div>
+        </div>
       </div>
     </div>
 
     <div class="block">
       <div class="block-time">1:00 pm</div>
       <div>
-        <div class="block-title">Lunch at <a href="https://www.google.com/maps/search/?api=1&query=Casa+Cavia+Palermo+Buenos+Aires" target="_blank" rel="noopener">Casa Cavia</a></div>
-        <div class="block-detail">Cavia 2985 — a restored Recoleta-edge mansion housing a restaurant, a bookshop, a florist, and a perfumery all under one roof. The garden room is gorgeous. Chicken, fish, salads, pastas. A photogenic, slightly fancy farewell lunch. ~10 min Uber from MALBA.
-        <div class="info-panel"><strong>Or eat inside MALBA</strong> — Coronado, the museum restaurant, is solid and saves transit time if you'd rather hold MALBA longer.</div>
+        <div class="block-title">Lunch</div>
+        <div class="block-detail">Depends on morning choice:
+          <ul style="margin: 0.6rem 0 0 1.2rem;">
+            <li><strong>If Reserva</strong> → walk into Puerto Madero for <a href="https://www.google.com/maps/search/?api=1&query=Fishing+Club+Puerto+Madero+Buenos+Aires" target="_blank" rel="noopener">Fishing Club</a> (seafood, docks view) or <a href="https://www.google.com/maps/search/?api=1&query=Osaka+restaurant+Puerto+Madero+Buenos+Aires" target="_blank" rel="noopener">Osaka</a> (Nikkei)</li>
+            <li><strong>If MALBA</strong> → <a href="https://www.google.com/maps/search/?api=1&query=Casa+Cavia+Palermo+Buenos+Aires" target="_blank" rel="noopener">Casa Cavia</a> (Palermo, restored mansion w/ bookshop + florist + perfumery)</li>
+            <li><strong>If Palacio Barolo</strong> → Uber back toward Palermo for Casa Cavia, or stay downtown for <a href="https://www.google.com/maps/search/?api=1&query=Cafe+Tortoni+Buenos+Aires" target="_blank" rel="noopener">Café Tortoni</a> (BA's most famous historic café, half a block from Palacio Barolo)</li>
+          </ul>
         </div>
       </div>
     </div>
@@ -854,16 +1121,24 @@
     <div class="block">
       <div class="block-time">2:30 pm</div>
       <div>
-        <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=Galeria+Bond+Street+Buenos+Aires" target="_blank" rel="noopener">Galería Bond Street</a> <span class="tag tag-walk">Walk from Casa Cavia or hotel</span></div>
-        <div class="block-detail">Av. Santa Fe 1670. A three-story underground gallery that's been the alt-culture and youth subculture mecca of BA since the '60s. Anime, manga, comics, vinyl, vintage band tees, skate gear. Small shops to wander, weirder the better. ~45 minutes.</div>
+        <div class="block-title">Sin TACC alfajores — <a href="https://www.google.com/maps/search/?api=1&query=Celigourmet+Cabrera+5054+Palermo+Buenos+Aires" target="_blank" rel="noopener">Celigourmet</a> <span class="tag tag-must">Celiac-safe</span></div>
+        <div class="block-detail">Cabrera 5054, Palermo — ~10 min Uber from Casa Cavia. A 100% sin TACC dedicated bakery. Look for hermetically sealed boxes with the crossed-wheat sin TACC logo. Best picks for the trip home:
+          <ul style="margin: 0.6rem 0 0 1.2rem;">
+            <li><strong>Havanna Super Dulce de Leche</strong> — almond flour, 70% chocolate, the premium option (70g each)</li>
+            <li><strong>Havanna Semilia</strong> — 6-seed alfajor, 70% chocolate, 0% trans fat</li>
+            <li><strong>Cachafaz de Arroz</strong> — rice flour base, ~100 cal each</li>
+            <li><strong>Celigourmet house-made + artisan brands</strong> (Sentimenti, La Delfina, Geselinos) not exported anywhere</li>
+          </ul>
+        <div class="info-panel"><strong>⚠️ Important:</strong> Only the specifically labeled sin TACC lines are celiac-safe. Regular Havanna and Cachafaz (Maicena, classic chocolate, etc.) are NOT certified gluten-free even when ingredients seem benign — cross-contamination risk. The sealed sin TACC packaging is the only safe call.<br><br><strong>Backup:</strong> Havanna at EZE airport stocks the sin TACC variants too if you miss this stop.</div>
+        </div>
       </div>
     </div>
 
     <div class="block">
-      <div class="block-time">3:30 pm</div>
+      <div class="block-time">3:15 pm</div>
       <div>
-        <div class="block-title">Alfajor stop on the way back</div>
-        <div class="block-detail">Walk back toward the hotel via <a href="https://www.google.com/maps/search/?api=1&query=Havanna+Recoleta+Buenos+Aires" target="_blank" rel="noopener">Havanna</a> or <a href="https://www.google.com/maps/search/?api=1&query=Cachafaz+Buenos+Aires" target="_blank" rel="noopener">Cachafaz</a> for boxed alfajores — they travel well in carry-on. Cachafaz is the more respected brand; Havanna is the souvenir tin classic.</div>
+        <div class="block-title"><a href="https://www.google.com/maps/search/?api=1&query=Galeria+Bond+Street+Buenos+Aires" target="_blank" rel="noopener">Galería Bond Street</a> <span class="tag tag-walk">Walk back to hotel after</span></div>
+        <div class="block-detail">Av. Santa Fe 1670. ~15 min Uber from Celigourmet. Three-story underground gallery that's been the alt-culture and youth subculture mecca of BA since the '60s — anime, manga, comics, vinyl, vintage band tees, skate gear. Small shops to wander, weirder the better. ~45 minutes. Then 10-min walk back to the hotel.</div>
       </div>
     </div>
 
@@ -945,6 +1220,99 @@
         <h3>Safety</h3>
         <p>Recoleta and Palermo are very safe day and night. Use the same big-city awareness as anywhere — bag on the inside of your shoulder, phone not displayed, no flashy jewelry.</p>
         <p>The most common issue is petty theft / phone snatching on busy streets like Florida. Park Hyatt has a doorman and arrivals are safe.</p>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- STARRED RESTAURANTS -->
+  <section id="restaurants" class="restaurants">
+    <h2>Starred Restaurants <span class="es">Restaurantes</span></h2>
+    <p class="lede">From <em>Where Chefs Eat</em> — twelve picks worth noting. Three are already woven into the plan; the rest are alternatives, quick stops, or out-of-range references for next time.</p>
+
+    <div class="resto-group-label">In the Plan</div>
+    <div class="resto-grid">
+
+      <div class="resto plan">
+        <h3><span class="star">★</span> <a href="https://www.google.com/maps/search/?api=1&query=Cafe+San+Juan+La+Cantina+Chile+474+Buenos+Aires" target="_blank" rel="noopener">Café San Juan — La Cantina</a></h3>
+        <div class="meta"><strong>Tapas</strong> · San Telmo · Closed Mon · Affordable</div>
+        <p class="note">Chile 474. Chef Lele Cristóbal's casual offshoot. <em>Sun lunch backup.</em></p>
+      </div>
+
+      <div class="resto plan">
+        <h3><span class="star">★</span> <a href="https://www.google.com/maps/search/?api=1&query=La+Mar+Arevalo+2024+Palermo+Buenos+Aires" target="_blank" rel="noopener">La Mar</a></h3>
+        <div class="meta"><strong>Peruvian seafood</strong> · Palermo · Open 7 days · Affordable</div>
+        <p class="note">Arévalo 2024. Gastón Acurio's ceviche temple. <em>Mon lunch.</em></p>
+      </div>
+
+      <div class="resto plan">
+        <h3><span class="star">★</span> <a href="https://www.google.com/maps/search/?api=1&query=Mishiguene+Lafinur+3368+Palermo+Buenos+Aires" target="_blank" rel="noopener">Mishiguene</a></h3>
+        <div class="meta"><strong>Israeli / Jewish</strong> · Palermo · Open 7 days · Affordable</div>
+        <p class="note">Lafinur 3368. Tomás Kalika, on Latin America's 50 Best. <em>Mon dinner.</em></p>
+      </div>
+
+    </div>
+
+    <div class="resto-group-label">Alternatives — Easy Swaps</div>
+    <div class="resto-grid">
+
+      <div class="resto alt">
+        <h3><span class="star">★</span> <a href="https://www.google.com/maps/search/?api=1&query=Oviedo+restaurante+Antonio+Beruti+2602+Buenos+Aires" target="_blank" rel="noopener">Oviedo</a></h3>
+        <div class="meta"><strong>Modern Spanish / seafood</strong> · Barrio Norte · Open 7 days · Expensive</div>
+        <p class="note">Antonio Beruti 2602. Salt cod, squid ink risotto, ceviche — one of BA's most respected seafood houses. <em>Alt for Tue lunch (close to hotel) or a fancier Mon/Tue dinner.</em></p>
+      </div>
+
+      <div class="resto alt">
+        <h3><span class="star">★</span> <a href="https://www.google.com/maps/search/?api=1&query=Gran+Dabbang+Scalabrini+Ortiz+1543+Palermo+Buenos+Aires" target="_blank" rel="noopener">Gran Dabbang</a></h3>
+        <div class="meta"><strong>Asian</strong> · Palermo · Closed Sun · Affordable</div>
+        <p class="note">Raúl Scalabrini Ortiz 1543. Modern Indian-Southeast Asian by an Argentinian chef. <em>Alt for Tue late dinner if Niño Gordo is too loud / too long a wait.</em></p>
+      </div>
+
+      <div class="resto alt">
+        <h3><span class="star">★</span> <a href="https://www.google.com/maps/search/?api=1&query=I+Latina+Murillo+725+Villa+Crespo+Buenos+Aires" target="_blank" rel="noopener">I Latina</a></h3>
+        <div class="meta"><strong>Latin American</strong> · Villa Crespo · Closed Sun &amp; Mon · Expensive</div>
+        <p class="note">Murillo 725. High-end pan-Latin tasting — Colombian sisters' acclaimed project. <em>Alt for Wed farewell lunch if you want fancier than Casa Cavia.</em></p>
+      </div>
+
+    </div>
+
+    <div class="resto-group-label">Quick Stops &amp; Standalones</div>
+    <div class="resto-grid">
+
+      <div class="resto other">
+        <h3><span class="star">★</span> <a href="https://www.google.com/maps/search/?api=1&query=El+Cuartito+Talcahuano+937+Buenos+Aires" target="_blank" rel="noopener">El Cuartito</a></h3>
+        <div class="meta"><strong>Pizza</strong> · Retiro · Open 7 days · Affordable</div>
+        <p class="note">Talcahuano 937. Vintage pizza joint since 1934 — fugazzeta rellena, cold Quilmes, soccer posters. Walk-up, late-night friendly. Near Teatro Colón.</p>
+      </div>
+
+      <div class="resto other">
+        <h3><span class="star">★</span> <a href="https://www.google.com/maps/search/?api=1&query=La+Mezzeta+Alvarez+Thomas+1321+Villa+Ortuzar+Buenos+Aires" target="_blank" rel="noopener">La Mezzeta</a></h3>
+        <div class="meta"><strong>Pizza</strong> · Villa Ortuzar · Closed Sun · Budget</div>
+        <p class="note">Álvarez Thomas 1321. "Pizza passage" — no seats, stand and eat two portions with a beer. Far-north neighborhood, requires a detour.</p>
+      </div>
+
+      <div class="resto other">
+        <h3><span class="star">★</span> <a href="https://www.google.com/maps/search/?api=1&query=La+Alacena+Gascon+1401+Palermo+Buenos+Aires" target="_blank" rel="noopener">La Alacena</a></h3>
+        <div class="meta"><strong>Italian café</strong> · Palermo · Open 7 days · Budget</div>
+        <p class="note">Gascón 1401. Julieta Oriolo's tiny breakfast/lunch spot. Skip if breakfasting at the hotel.</p>
+      </div>
+
+      <div class="resto other">
+        <h3><span class="star">★</span> <a href="https://www.google.com/maps/search/?api=1&query=Cucina+Paradiso+Castaneda+1873+Belgrano+Buenos+Aires" target="_blank" rel="noopener">Cucina Paradiso</a></h3>
+        <div class="meta"><strong>Italian</strong> · Belgrano · Closed Sun · Affordable</div>
+        <p class="note">Castañeda 1873. Neighborhood Italian in Belgrano (north of Palermo, requires Uber).</p>
+      </div>
+
+      <div class="resto other">
+        <h3><span class="star">★</span> <a href="https://www.google.com/maps/search/?api=1&query=Guido%27s+Bar+Republica+de+la+India+2843+Palermo+Buenos+Aires" target="_blank" rel="noopener">Guido's Bar</a></h3>
+        <div class="meta"><strong>Italian</strong> · Palermo · Closed Sun · Budget</div>
+        <p class="note">República de la India 2843. Classic family-run Italian, owner Carlos Sosto in attendance.</p>
+      </div>
+
+      <div class="resto other">
+        <h3><span class="star">★</span> Italpast</h3>
+        <div class="meta"><strong>Italian</strong> · Campana · Closed Mon · Affordable</div>
+        <p class="note">Campana is ~75 km northwest of BA — not feasible this trip. Save for next time.</p>
       </div>
 
     </div>
