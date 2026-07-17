@@ -414,19 +414,14 @@
       <h2>About Me</h2>
       <p>I am a data scientist/software engineer/security researcher with a background in cryptography and a passion for using math and statistics to keep the Internet safe.</p>
 
-      <p>I spent 14 years building and leading teams at Meta and LinkedIn to address problems such as:</p>
-      <ul>
-        <li>Fake &amp; compromised accounts</li>
-        <li>Impersonation &amp; identity verification</li>
-        <li>Fraud, spam, phishing</li>
-        <li>Bot detection</li>
-        <li>Data privacy &amp; anti-scraping defenses</li>
-        <li>Measurement of all of the above</li>
-      </ul>
+      <p>I spent 14 years building and leading teams at Meta and LinkedIn to address problems such as
+        fake & compromised accounts; impersonation & identity verification; fraud, spam, & phishing; user data scraping; and measurement of all of the above.</p>
 
-      <p>I have also published <a href="#" onclick="document.querySelector('.tab-btn[data-tab=publications]').click(); return false;">27 research papers</a> in cryptography and security and chaired international workshops including Enigma, AISec, and Fighting Abuse@Scale.</p>
+      <p>I have published <a href="#" onclick="document.querySelector('.tab-btn[data-tab=publications]').click(); return false;">27 research papers</a> in cryptography and security and chaired international security workshops including <a href="https://www.usenix.org/conference/enigma">Enigma</a>, AISec, and Fighting Abuse@Scale.</p>
 
-      <p style="font-style: italic;">Specialties: Data science, cryptography, security, algorithms, probability/statistics, data mining, machine learning, software engineering.</p>
+      <p style="font-style: italic;">Specialties: Risk assessment, data science, data infrastructure, software engineering, cryptography, cybersecurity, algorithms, probability/statistics, data mining, machine learning.</p>
+
+      <p>I currently live in the San Francisco Bay Area with my wife, two daughters, and five black cats.</p>
 
       <h2>Further Resources</h2>
 
@@ -447,7 +442,7 @@
 
       <p>I was a postdoctoral scholar in the <a href="https://crypto.stanford.edu" target="_blank">Applied Cryptography Group</a> at <a href="https://www.stanford.edu" target="_blank">Stanford University</a>, under the supervision of <a href="https://crypto.stanford.edu" target="_blank">Dan Boneh</a>. My thesis and postdoctoral research focused on cryptographic applications of number theory and arithmetic geometry. Projects included elliptic and hyperelliptic curve cryptography, pairing-based systems, and lattice-based cryptography.</p>
 
-      <p>Other <a href="https://elodieandphoebe.blogspot.com" target="_blank">works in progress</a> (v1.0 released December 26, 2010; v2.0 released April 10, 2014).</p>
+      <!-- <p>Other <a href="https://elodieandphoebe.blogspot.com" target="_blank">works in progress</a> (v1.0 released December 26, 2010; v2.0 released April 10, 2014).</p> -->
     </div>
   </section>
 
@@ -677,7 +672,7 @@
     </div>
 
     <div class="pub-section">
-      <h2>Research at Berkeley</h2>
+      <h2>Research at UC Berkeley</h2>
       <!-- numbered 3-7 in the global sequence -->
       <ul class="pub-list">
         <li>
@@ -1002,8 +997,8 @@
         <li><a href="https://www.calcycling.org" target="_blank">Cal Cycling</a></li>
         <li><a href="https://www.whrb.org" target="_blank">Harvard Radio Broadcasting (WHRB)</a></li>
         <li><a href="https://www.asktorrey.com" target="_blank">Ask Torrey</a></li>
-        <li>See what I used to do in my <a href="https://torreysblog.blogspot.com" target="_blank">spare time</a>, back when I had some.</li>
-        <li>See what I now do <a href="https://elodieandphoebe.blogspot.com" target="_blank">all the time</a>.</li>
+        <!-- <li>See what I used to do in my <a href="https://torreysblog.blogspot.com" target="_blank">spare time</a>, back when I had some.</li> -->
+        <!-- <li>See what I now do <a href="https://elodieandphoebe.blogspot.com" target="_blank">all the time</a>.</li> -->
       </ul>
     </div>
 
@@ -1024,17 +1019,36 @@
 <script>
   const btns = document.querySelectorAll('.tab-btn');
   const panels = document.querySelectorAll('.tab-panel');
+  const defaultTab = 'about';
+
+  function activateTab(tab, { scroll = true } = {}) {
+    btns.forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
+    panels.forEach(p => p.classList.toggle('active', p.id === tab));
+    if (scroll) window.scrollTo({ top: 0, behavior: 'smooth' });
+  }
 
   btns.forEach(btn => {
     btn.addEventListener('click', () => {
       const target = btn.dataset.tab;
-      btns.forEach(b => b.classList.remove('active'));
-      panels.forEach(p => p.classList.remove('active'));
-      btn.classList.add('active');
-      document.getElementById(target).classList.add('active');
-      window.scrollTo({ top: 0, behavior: 'smooth' });
+      if (target !== (location.hash.slice(1) || defaultTab)) {
+        history.pushState({ tab: target }, '', '#' + target);
+      }
+      activateTab(target);
     });
   });
+
+  window.addEventListener('popstate', (e) => {
+    const tab = (e.state && e.state.tab) || location.hash.slice(1) || defaultTab;
+    activateTab(tab, { scroll: false });
+  });
+
+  const initialTab = location.hash.slice(1);
+  if (initialTab && document.getElementById(initialTab)) {
+    activateTab(initialTab, { scroll: false });
+    history.replaceState({ tab: initialTab }, '', '#' + initialTab);
+  } else {
+    history.replaceState({ tab: defaultTab }, '', location.pathname + location.search);
+  }
 </script>
 </body>
 </html>
