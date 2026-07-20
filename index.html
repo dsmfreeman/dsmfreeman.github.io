@@ -383,7 +383,7 @@
       <div class="subtitle">Anti-Abuse Research Scientist &amp; Engineering Leader</div>
       <div class="affiliation">Principal Scientist, Delphi Research</div>
       <div class="contact-grid">
-        <span>dfreeman @ delphiresear . ch</span>
+        <span><b>dfreeman @ delphiresear . ch</b></span>
       </div>
       <div class="header-links">
         <a class="pill" href="https://www.linkedin.com/in/dsmfreeman" target="_blank">LinkedIn Profile</a>
@@ -419,11 +419,12 @@
 
       <p>I have published <a href="#" onclick="document.querySelector('.tab-btn[data-tab=publications]').click(); return false;">27 research papers</a> in cryptography and security and chaired international security workshops including <a href="https://www.usenix.org/conference/enigma">Enigma</a>, AISec, and Fighting Abuse@Scale.</p>
 
+      <p>I currently live in the San Francisco Bay Area with my wife, two daughters, and five black cats.<a href="#footnote">*</a></p>
+
       <p style="font-style: italic;">Specialties: Risk assessment, data science, data infrastructure, software engineering, cryptography, cybersecurity, algorithms, probability/statistics, data mining, machine learning.</p>
 
-      <p>I currently live in the San Francisco Bay Area with my wife, two daughters, and five black cats.</p>
 
-      <h2>Further Resources</h2>
+      <h2>Resources</h2>
 
       <p>Here are some talks that give an overview of my work:</p>
       <ul class="overview-talks">
@@ -438,11 +439,15 @@
 
 
       <h2>Academic Background</h2>
-      <p>I received my Ph.D. in <a href="https://math.berkeley.edu" target="_blank">Mathematics</a> from the <a href="https://www.berkeley.edu" target="_blank">University of California, Berkeley</a>. My Ph.D. advisors were <a href="https://math.berkeley.edu/~ribet" target="_blank">Ken Ribet</a> (UC Berkeley) and <a href="https://www.scu.edu/cas/mathcs/faculty-and-staff/edward-schaefer/" target="_blank">Ed Schaefer</a> (Santa Clara University). In 2009 I was an NSF postdoctoral fellow at <a href="https://www.cwi.nl" target="_blank">CWI, Amsterdam</a> and <a href="https://www.math.leidenuniv.nl/en/home/" target="_blank">Universiteit Leiden</a> under the supervision of <a href="https://homepages.cwi.nl/~cramer/" target="_blank">Ronald Cramer</a>.</p>
-
-      <p>I was a postdoctoral scholar in the <a href="https://crypto.stanford.edu" target="_blank">Applied Cryptography Group</a> at <a href="https://www.stanford.edu" target="_blank">Stanford University</a>, under the supervision of <a href="https://crypto.stanford.edu" target="_blank">Dan Boneh</a>. My thesis and postdoctoral research focused on cryptographic applications of number theory and arithmetic geometry. Projects included elliptic and hyperelliptic curve cryptography, pairing-based systems, and lattice-based cryptography.</p>
+      <p>I received my Ph.D. in <a href="https://math.berkeley.edu" target="_blank">Mathematics</a> from the <a href="https://www.berkeley.edu" target="_blank">University of California, Berkeley</a>. My Ph.D. advisors were <a href="https://math.berkeley.edu/~ribet" target="_blank">Ken Ribet</a> (UC Berkeley) and <a href="https://www.scu.edu/cas/mathcs/faculty-and-staff/edward-schaefer/" target="_blank">Ed Schaefer</a> (Santa Clara University). Following my Ph.D., I was an NSF postdoctoral fellow at <a href="https://www.cwi.nl" target="_blank">CWI, Amsterdam</a> and <a href="https://www.math.leidenuniv.nl/en/home/" target="_blank">Universiteit Leiden</a> under the supervision of <a href="https://homepages.cwi.nl/~cramer/" target="_blank">Ronald Cramer</a>. I then spent three years as a postdoctoral scholar at <a href="https://crypto.stanford.edu" target="_blank">Stanford University</a> under the supervision of <a href="https://crypto.stanford.edu" target="_blank">Dan Boneh</a>. </p>
+      
+      <p>My <a href="papers/thesis.pdf" target="_blank">thesis</a> and postdoctoral research focused on cryptographic applications of number theory and arithmetic geometry. Projects included elliptic and hyperelliptic curve cryptography, pairing-based systems, and post-quantum cryptography.</p>
 
       <!-- <p>Other <a href="https://elodieandphoebe.blogspot.com" target="_blank">works in progress</a> (v1.0 released December 26, 2010; v2.0 released April 10, 2014).</p> -->
+
+      <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.12); margin: 2.5rem 0 0.75rem;">
+
+      <p style="font-size: 0.8rem; color: var(--muted);"><a name="footnote">*</a> Technically four black cats and one gray cat, but we call the gray one "light black."</p>
     </div>
   </section>
 
@@ -584,7 +589,7 @@
             <span class="pub-authors">Markus Dürmuth and David Mandell Freeman</span>
             <span class="pub-venue">Eurocrypt 2011 · Tallinn, Estonia</span>
             <div class="pub-links"><a class="pub-link" href="https://eprint.iacr.org/2011/066" target="_blank">PDF</a></div>
-            <div class="errata">Note: Subsequent to publication, it was shown that the main theorem is incorrect. A description appears in the Foreword to the full version.</div>
+            <div class="errata">Note: Subsequent to publication, it was shown that the main theorem is not true. A description appears in the Foreword to the full version.</div>
           </div>
         </li>
         <li>
@@ -1020,6 +1025,7 @@
   const btns = document.querySelectorAll('.tab-btn');
   const panels = document.querySelectorAll('.tab-panel');
   const defaultTab = 'about';
+  const tabIds = new Set(Array.from(panels).map(p => p.id));
 
   function activateTab(tab, { scroll = true } = {}) {
     btns.forEach(b => b.classList.toggle('active', b.dataset.tab === tab));
@@ -1038,12 +1044,13 @@
   });
 
   window.addEventListener('popstate', (e) => {
-    const tab = (e.state && e.state.tab) || location.hash.slice(1) || defaultTab;
-    activateTab(tab, { scroll: false });
+    const hashTab = location.hash.slice(1);
+    const tab = (e.state && e.state.tab) || (tabIds.has(hashTab) ? hashTab : null);
+    if (tab) activateTab(tab, { scroll: false });
   });
 
   const initialTab = location.hash.slice(1);
-  if (initialTab && document.getElementById(initialTab)) {
+  if (tabIds.has(initialTab)) {
     activateTab(initialTab, { scroll: false });
     history.replaceState({ tab: initialTab }, '', '#' + initialTab);
   } else {
