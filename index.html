@@ -231,6 +231,17 @@
       padding-bottom: 1.5rem;
       border-bottom: 1px solid rgba(0,0,0,0.09);
     }
+
+    .pub-table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 1.25rem 0;
+    }
+
+    .pub-table td {
+      vertical-align: top;
+      padding: 0;
+    }
     .pub-list li:last-child { border-bottom: none; }
 
     /* Use DM Sans for numbers — lining figures, no short oldstyle digits */
@@ -281,6 +292,12 @@
       transition: background 0.15s;
     }
     .pub-link:hover { background: rgba(26,79,138,0.07); text-decoration: none; color: var(--gold2); }
+
+    .pub-link.amazon-link {
+      border: none;
+      padding: 0;
+      border-radius: 0;
+    }
 
     .errata {
       background: rgba(0,0,0,0.04);
@@ -454,6 +471,21 @@
   <!-- ══ PUBLICATIONS ══ -->
   <section id="publications" class="tab-panel">
 
+
+    <div class="pub-section">
+      <h2>Books</h2>
+      <table class="pub-table">
+        <tr>
+          <td class="pub-cover"><a href="https://www.mlsec.net"><img src="images/mlsec.jpg" width="91" height="120"></a></td>
+          <td>
+            <a class="pub-title" href="https://www.mlsec.net">Machine Learning and Security: Protecting Systems with Data and Algorithms</a>
+            <span class="pub-authors">Clarence Chio and David Freeman</span>
+            <span class="pub-venue">O'Reilly Media, 2018</span>
+            <div class="pub-links"><a class="pub-link amazon-link" href="https://www.amazon.com/Machine-Learning-Security-Protecting-Algorithms/dp/1491979909/ref=nosim/classcom0c-20"><img src="images/amazon-buy.png" width="110" height="24"></a></div>
+          </td>
+        </tr>
+      </table>
+    </div>
     <div class="pub-section">
       <h2>Research at Meta</h2>
       <!-- numbered 25-29 in the global sequence, oldest=25, displayed newest first -->
@@ -799,7 +831,7 @@
     <h2>Anti-Abuse</h2>
     <ul class="pres-list">
       <li>
-        <a class="pres-title" href="https://docs.google.com/presentation/d/16-P1XwR5KyHrffQLlVCBFYd0weK3U7eK_fH05LgffZE/" target="_blank">Will AI Change Everything? Predictions and recommendations for fighting internet abuse at scale.</a>
+        <a class="pres-title" href="https://docs.google.com/presentation/d/16-P1XwR5KyHrffQLlVCBFYd0weK3U7eK_fH05LgffZE/" target="_blank">Will AI Change Everything? Predictions and Recommendations for Fighting Internet Abuse at Scale.</a>
         <span class="pres-venue">Korea Internet &amp; Security Agency CAMP 11th Annual Meeting · Seoul, Korea · July 2026</span>
         <div class="pub-links"><a class="pub-link" href="https://docs.google.com/presentation/d/16-P1XwR5KyHrffQLlVCBFYd0weK3U7eK_fH05LgffZE/" target="_blank">Slides</a></div>
       </li>
@@ -1015,7 +1047,7 @@
       </ul>
     </div>
 
-    <p class="last-updated">Last updated 16 Jul 2026</p>
+    <p class="last-updated">Last updated 20 Jul 2026</p>
 
   </section>
 
