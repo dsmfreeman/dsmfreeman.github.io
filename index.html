@@ -125,17 +125,16 @@
 
     .pill {
       display: inline-block;
-      padding: 0.3rem 0.75rem;
-      border: 1px solid;
+      padding: 0.25rem 0.85rem;
+      border: 1px solid rgba(0,0,0,0.25);
       border-radius: 2rem;
-      /* font-size: 0.95rem; */
-      /* background: #2f74b5; */
-      color: var(--cream);
+      font-size: 0.9rem;
+      color: var(--gold2);
       text-decoration: none;
       letter-spacing: 0.04em;
       transition: background 0.2s, border-color 0.2s;
     }
-    .pill:hover { background: #24608f; border-color: #24608f; color: #fff; text-decoration: none; }
+    .pill:hover { background: rgba(0,0,0,0.06); border-color: rgba(0,0,0,0.4); text-decoration: none; }
 
     /* ── TABS ── */
     nav.tabs {
@@ -479,10 +478,11 @@
     @media (max-width: 600px) {
       h1 { font-size: 2.2rem; }
       header { padding-bottom: 1.5rem; }
-      .header-inner { flex-direction: column; gap: 1.25rem; }
-      .header-photo { width: 120px; }
-      .header-photo img { width: 120px; height: 150px; }
-      .header-logo-box { width: 100px; height: 100px; padding: 0.4rem; margin-right: 0; }
+      .header-inner { flex-direction: row; flex-wrap: wrap; justify-content: center; gap: 1rem; }
+      .header-photo { order: 1; width: 100px; }
+      .header-photo img { width: 100px; height: 125px; }
+      .header-logo-box { order: 2; width: 90px; height: 90px; padding: 0.35rem; margin-right: 0; }
+      .header-text { order: 3; flex: 1 1 100%; }
       .service-role { display: none; }
       .service-date { display: none; }
     }
@@ -503,7 +503,7 @@
         <span><b>dfreeman @ delphiresear . ch</b></span>
       </div>
       <div class="header-links">
-        <a class="pill" href="https://www.linkedin.com/in/dsmfreeman" target="_blank" style="font-style: italic;">LinkedIn Profile</a>
+        <a class="pill" href="https://www.linkedin.com/in/dsmfreeman" target="_blank">LinkedIn Profile</a>
         <!-- <a class="pill" href="#" onclick="document.querySelector('.tab-btn[data-tab=contact]').click(); return false;">Contact</a> -->
         <!-- <a class="pill" href="https://dsmfreeman.github.io/freeman-cv.pdf" target="_blank">CV (PDF)</a> -->
       </div>
@@ -516,11 +516,11 @@
 
 <nav class="tabs">
   <div class="tabs-inner">
-    <button class="tab-btn" data-tab="contact">Contact</button>
     <button class="tab-btn active" data-tab="about">About</button>
     <button class="tab-btn" data-tab="publications">Publications</button>
     <button class="tab-btn" data-tab="presentations">Presentations</button>
     <button class="tab-btn" data-tab="service">Service &amp; Teaching</button>
+    <button class="tab-btn" data-tab="contact">Contact</button>
     <!-- <button class="tab-btn" data-tab="other">Other</button> -->
   </div>
 </nav>
@@ -531,7 +531,7 @@
   <section id="about" class="tab-panel active">
     <div class="about-body">
       <h2>About Me</h2>
-      <p>I am a data scientist/software engineer/security researcher with a background in cryptography and a passion for using math and statistics to keep the Internet safe.</p>
+      <p>I am a data scientist / software engineer / security researcher with a background in cryptography and a passion for using math and statistics to keep the Internet safe.</p>
 
       <p>I spent 14 years building and leading teams at Meta and LinkedIn to address problems such as
         fake & compromised accounts; impersonation & identity verification; fraud, spam, & phishing; user data scraping; and measurement of all of the above.</p>
@@ -555,7 +555,7 @@
         <li>Building security engineering teams (e.g. interviewing, onboarding, career development)</li>
       </ul>
 
-      <p><a class="pill" href="#" onclick="document.querySelector('.tab-btn[data-tab=contact]').click(); return false;">Contact me</a> to discuss your project!</p>
+      <p><a class="pill" href="#" onclick="document.querySelector('.tab-btn[data-tab=contact]').click(); return false;" style="font-weight: bold;">Contact me</a> to discuss your project!</p>
 
       <!-- <p style="font-style: italic;">Specialties: Risk assessment, data science, data infrastructure, software engineering, cryptography, cybersecurity, algorithms, probability/statistics, data mining, machine learning.</p> -->
 
