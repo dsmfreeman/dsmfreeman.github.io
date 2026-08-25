@@ -183,6 +183,17 @@
     .tab-panel { display: none; }
     .tab-panel.active { display: block; }
 
+    /* Shared across every tab — sits outside <main> */
+    .site-footer {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 0 2rem 3rem;
+      text-align: right;
+      font-size: 0.75rem;
+      font-style: italic;
+      color: rgba(138,154,181,0.5);
+    }
+
     /* ── TYPOGRAPHY ── */
     h2 {
       font-family: var(--serif);
@@ -281,6 +292,32 @@
       display: block;
       margin-bottom: 0.3rem;
     }
+    .engagements {
+      font-size: 0.9rem;
+      color: var(--cream2);
+      border-left: 2px solid var(--gold);
+      padding-left: 0.9rem;
+      margin: 1.5rem 0;
+    }
+
+    /* Opening value-proposition line on the About tab */
+    .lede {
+      font-family: var(--serif);
+      font-size: 1.35rem;
+      line-height: 1.45;
+      color: var(--cream);
+      margin: 0 0 1.75rem;
+    }
+
+    .pub-award {
+      font-size: 0.83rem;
+      color: var(--gold);
+      display: block;
+      margin-bottom: 0.3rem;
+    }
+    .pub-award a { color: var(--gold); text-decoration: none; }
+    .pub-award a:hover { text-decoration: underline; }
+
     .pub-links { display: flex; gap: 0.6rem; flex-wrap: wrap; }
     .pub-link {
       font-size: 0.76rem;
@@ -467,14 +504,6 @@
       display: none;
     }
 
-    .last-updated {
-      margin-top: 4rem;
-      font-size: 0.75rem;
-      color: rgba(138,154,181,0.5);
-      text-align: right;
-      font-style: italic;
-    }
-
     @media (max-width: 600px) {
       h1 { font-size: 2.2rem; }
       header { padding-bottom: 1.5rem; }
@@ -498,14 +527,14 @@
     <div class="header-text">
       <h1>David Freeman</h1>
       <div class="subtitle">Anti-Abuse Research Scientist &amp; Engineering Leader</div>
-      <div class="affiliation">Principal Scientist, Delphi Research</div>
+      <div class="affiliation">Principal, Delphi Research</div>
       <div class="contact-grid">
         <span><b>dfreeman @ delphiresear . ch</b></span>
       </div>
       <div class="header-links">
         <a class="pill" href="https://www.linkedin.com/in/dsmfreeman" target="_blank">LinkedIn Profile</a>
         <!-- <a class="pill" href="#" onclick="document.querySelector('.tab-btn[data-tab=contact]').click(); return false;">Contact</a> -->
-        <!-- <a class="pill" href="https://delphiresear.ch/freeman-cv.pdf" target="_blank">CV (PDF)</a> -->
+        <a class="pill" href="https://delphiresear.ch/freeman-cv.pdf" target="_blank">CV (PDF)</a>
       </div>
     </div>
     <div class="header-logo-box">
@@ -521,7 +550,6 @@
     <button class="tab-btn" data-tab="presentations">Presentations</button>
     <button class="tab-btn" data-tab="service">Service &amp; Teaching</button>
     <button class="tab-btn" data-tab="contact">Contact</button>
-    <!-- <button class="tab-btn" data-tab="other">Other</button> -->
   </div>
 </nav>
 
@@ -530,30 +558,34 @@
   <!-- ══ ABOUT ══ -->
   <section id="about" class="tab-panel active">
     <div class="about-body">
+      <p class="lede">I help platforms detect and stop fraud and abuse, turning escalating risks and chaotic organizations into managed programs.</p>
+
       <h2>About Me</h2>
-      <p>I am a data scientist / software engineer / security researcher with a Ph.D. in cryptography and a passion for using math and statistics to keep the Internet safe.</p>
+      <p>I am a data scientist / software engineer / security researcher with a Ph.D. in cryptography. I have both hands-on and leadership experience in every step of the security lifecycle: threat assessment, system design, model building, production deployment, continuous iteration.</p>
 
       <p>I spent 14 years building and leading teams at Meta and LinkedIn to address problems such as
-        fake & compromised accounts; impersonation & identity verification; fraud, spam, & phishing; user data scraping; and measurement of all of the above.</p>
+        fake & compromised accounts; impersonation & identity verification; fraud, spam, & phishing; user-data scraping; and measurement of all of the above.</p>
 
-      <p>I have published <a href="#" onclick="document.querySelector('.tab-btn[data-tab=publications]').click(); return false;">27 research papers</a> in cryptography and computer security and chaired international security workshops including <a href="https://www.usenix.org/conference/enigma">Usenix Enigma</a>, <a href="https://aisec.cc/">CCS AISec</a>, and Fighting Abuse@Scale.</p>
+      <p>I have published <a href="#" onclick="document.querySelector('.tab-btn[data-tab=publications]').click(); return false;">27 research papers</a> in cryptography and computer security, been cited <a href="https://scholar.google.com/citations?user=HIiW4zAAAAAJ&amp;hl=en" target="_blank">more than 5,000 times</a>, and chaired international security workshops including <a href="https://www.usenix.org/conference/enigma">Usenix Enigma</a>, <a href="https://aisec.cc/">CCS AISec</a>, and Fighting Abuse@Scale.</p>
 
       <p>I currently live in the San Francisco Bay Area with my wife, two daughters, and five black cats.<a href="#footnote">*</a></p>
 
 
       <h2>Consulting</h2>
 
-      <p>I am available to advise on security-related projects. My areas of expertise include:</p>
+      <p>I work with teams to understand their abuse risks and address the highest-priority vulnerabilities, whether or not there is an active attack. Typical engagements consist of one or more of the following:</p>
 
       <ul>
-        <li>Risk assessment (e.g. quantifying attcker prevalence and intervention effectiveness)</li>
-        <li>Data science (e.g. signal collection and analysis for attack detection)</li>
-        <li>Data infrastructure (e.g. logging and data management for full-system visibility)</li>
-        <li>AI/Machine Learning (e.g. training, validation, deployment)</li>
-        <li>User-facing security features (e.g. authentication flows)</li>
-        <li>Research and technical writing (e.g. papers, talks)</li>
-        <li>Building security engineering teams (e.g. interviewing, onboarding, career development)</li>
+        <li><b>Quantify the problem:</b> Set up logging and data management for full-system visibility. Measure attacker prevalence and intervention effectiveness.</li>
+        <li><b>Build the detection system:</b> Collect signals, analyze telemetry, and engineer features. Train, validate, and deploy models.</li>
+        <li><b>Harden the surface:</b> Reduce scraping and data-leakage exposure, close fake-account and account-compromise vectors, and balance security with user experience.</li>
+        <li><b>Support the team:</b> Build process and automation to handle highly adaptive adversaries. Set up structures for hiring and retaining security engineering talent.</li>
       </ul>
+
+      <p><b>Specialties:</b> Anti-Scraping • Authentication • Fake Accounts •
+      Scams • Risk Quantification • Measuring Detection Effectiveness • Building Security Teams</p>
+
+      <p class="engagements">I currently serve as an expert advisor for the <a href="https://www.kisa.or.kr/EN" target="_blank">Korea Internet &amp; Security Agency</a>'s <a href="https://www.cybersec-alliance.org/camp/aboutCyberNet.do" target="_blank">CAMP CyberNet Program</a>.</p>
 
       <p><a class="pill" href="#" onclick="document.querySelector('.tab-btn[data-tab=contact]').click(); return false;" style="font-weight: bold;">Contact me</a> to discuss your project!</p>
 
@@ -570,7 +602,7 @@
         <li>My <a href="https://www.slideshare.net/DavidFreeman14/data-science-vs-the-bad-guys-defending-linkedin-from-fraud-and-abuse" target="_blank">Strata 2015 talk</a> gives an overview of the kinds of anti-abuse systems I work on.</li>
       </ul>
 
-      <p>In addition, my book on <a href="https://mlsec.net" target="_blank">Machine Learning and Security</a> contains everything I knew about the topic (as of late 2017).</p>
+      <p>In addition, my book on <a href="https://mlsec.net" target="_blank">Machine Learning and Security</a> contains everything I knew about the topic (as of 2018).</p>
 
 
       <h2>Academic Background</h2>
@@ -584,7 +616,7 @@
 
       <hr style="border: none; border-top: 1px solid rgba(0,0,0,0.12); margin: 2.5rem 0 0.75rem;">
 
-      <p style="font-size: 0.8rem; color: var(--muted);"><a name="footnote">*</a> <a href="images/five_cats.jpg">Technically</a> four black cats and one gray cat, but we call the gray one "light black."</p>
+      <p style="font-size: 0.8rem; color: var(--muted);"><a name="footnote">*</a> <a href="images/five_cats2.jpg">Technically</a> four black cats and one gray cat, but we call the gray one "light black."</p>
     </div>
   </section>
 
@@ -813,6 +845,7 @@
             <a class="pub-title" href="https://delphiresear.ch/papers/netcode.pdf">Signing a Subspace: Signatures for Network Coding</a>
             <span class="pub-authors">Dan Boneh, David Freeman, Jonathan Katz, and Brent Waters</span>
             <span class="pub-venue">PKC 2009 · Irvine, CA</span>
+            <span class="pub-award">Winner of the <a href="https://www.iacr.org/meetings/pkc/test_of_time_award/" target="_blank">PKC Test-of-Time Award</a>, 2025</span>
             <div class="pub-links"><a class="pub-link" href="https://delphiresear.ch/papers/netcode.pdf">PDF</a></div>
           </div>
         </li>
@@ -1144,30 +1177,16 @@
         <li><a href="https://missioncollege.edu/depts/music/symphony/" target="_blank">Mission College Symphony</a></li>
         <li><a href="https://music.stanford.edu/ensembles/university-singers" target="_blank">Stanford University Singers</a></li>
         <li><a href="https://studentenkooramsterdam.nl" target="_blank">Studentenkoor Amsterdam</a></li>
-        <li>UC Berkeley <a href="https://music.berkeley.edu/chorus.html" target="_blank">University Chorus</a></li>
+        <li><a href="https://music.berkeley.edu/chorus.html" target="_blank">UC Berkeley University Chorus</a></li>
         <li><a href="https://www.ucac.net" target="_blank">University of California Alumni Chorus</a></li>
-        <li><a href="https://www.calcycling.org" target="_blank">Cal Cycling</a></li>
+        <!-- <li><a href="https://www.calcycling.org" target="_blank">Cal Cycling</a></li> -->
         <li><a href="https://www.whrb.org" target="_blank">Harvard Radio Broadcasting (WHRB)</a></li>
         <li><a href="https://www.asktorrey.com" target="_blank">Ask Torrey</a></li>
+        <li><a href="https://delphiresear.ch/travel.html" target="_blank">Travel Schedule</a></li>
         <!-- <li>See what I used to do in my <a href="https://torreysblog.blogspot.com" target="_blank">spare time</a>, back when I had some.</li> -->
         <!-- <li>See what I now do <a href="https://elodieandphoebe.blogspot.com" target="_blank">all the time</a>.</li> -->
       </ul>
     </div>
-
-    <div class="other-section">
-      <h2>Fact Tree Enterprises</h2>
-      <ul class="other-list">
-        <li><a href="https://www.classicalcdguide.com/" target="_blank">ClassicalCDGuide.com</a> — Recommends classical music CDs, with Top 10/20 lists and recommendations by composer, era, and genre. Reviews are extremely detailed. Great for a beginner or someone looking to expand their collection.</li>
-        <li><a href="https://www.sailingcourseguide.com" target="_blank">SailingCourseGuide.com</a> — Provides general advice for anyone in the U.S. who wants to sign up for a sailing course, including tips on how to choose between schools and warning signs of problematic programs.</li>
-      </ul>
-    </div>
-
-    <div class="other-section">
-      <h2><a href="https://delphiresear.ch/travel.html" target="_blank">Travel Schedule</a></h2>
-    </div>
-
-
-    <p class="last-updated">Last updated 20 Jul 2026</p>
 
   </section>
 
@@ -1266,6 +1285,10 @@
   </section>
 
 </main>
+
+<footer class="site-footer">
+  Last updated 24 Aug 2026
+</footer>
 
 <script>
   const btns = document.querySelectorAll('.tab-btn');
