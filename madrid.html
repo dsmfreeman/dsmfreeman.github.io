@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Madrid Thanksgiving Trip — November 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --ink: #1a1814;
+    --ink-mid: #4a4640;
+    --ink-light: #8a8480;
+    --ink-faint: #c8c4be;
+    --paper: #faf8f4;
+    --paper-warm: #f2ede4;
+    --paper-card: #ffffff;
+    --red: #b3261e;
+    --red-light: #fcefed;
+    --gold: #c9971c;
+    --gold-light: #fbf4e2;
+    --green: #2d6a4f;
+    --green-light: #eaf4ee;
+    --blue: #1a4a7a;
+    --blue-light: #eaf1f8;
+    --amber: #8b5e0a;
+    --amber-light: #fdf3e3;
+    --purple: #5b3d8c;
+    --purple-light: #f0eaf8;
+    --teal: #1a6b6b;
+    --teal-light: #e8f5f5;
+  }
+
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    font-family: 'DM Sans', sans-serif;
+    background: var(--paper);
+    color: var(--ink);
+    min-height: 100vh;
+    line-height: 1.6;
+  }
+
+  a { color: var(--blue); }
+
+  /* HEADER */
+  header {
+    background: var(--ink);
+    color: var(--paper);
+    padding: 3rem 2rem 2.5rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at 28% 50%, rgba(179,38,30,0.22) 0%, transparent 60%),
+                radial-gradient(ellipse at 72% 20%, rgba(201,151,28,0.16) 0%, transparent 50%);
+    pointer-events: none;
+  }
+  .header-eyebrow {
+    font-family: 'Cormorant Garamond', serif;
+    font-style: italic;
+    font-size: 15px;
+    letter-spacing: 0.12em;
+    color: var(--ink-faint);
+    margin-bottom: 0.6rem;
+  }
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5.5vw, 3.6rem);
+    font-weight: 600;
+    line-height: 1.1;
+    margin-bottom: 0.5rem;
+  }
+  header h1 span { color: #e7b53b; }
+  .header-meta {
+    font-size: 13px;
+    color: var(--ink-faint);
+    letter-spacing: 0.08em;
+    margin-top: 1rem;
+  }
+  .header-pills {
+    display: flex;
+    gap: 8px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 1.25rem;
+  }
+  .header-pill {
+    font-size: 11px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    border: 1px solid rgba(255,255,255,0.2);
+    color: rgba(255,255,255,0.78);
+    letter-spacing: 0.05em;
+  }
+
+  /* ALERTS BAR */
+  .alerts-bar {
+    background: var(--amber-light);
+    border-bottom: 1px solid #e8d5a8;
+    padding: 0.75rem 1.5rem;
+  }
+  .alerts-bar h3 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--amber);
+    margin-bottom: 0.4rem;
+  }
+  .alerts-list { display: flex; flex-wrap: wrap; gap: 6px 16px; }
+  .alert-item { font-size: 12.5px; color: var(--amber); }
+
+  /* NAV TABS */
+  nav {
+    background: var(--paper-card);
+    border-bottom: 1px solid var(--ink-faint);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+  nav::-webkit-scrollbar { display: none; }
+  .nav-inner { display: flex; min-width: max-content; padding: 0 1rem; }
+  .nav-tab {
+    padding: 0.85rem 1.1rem;
+    cursor: pointer;
+    border-bottom: 2px solid transparent;
+    white-space: nowrap;
+    transition: color 0.15s, border-color 0.15s;
+    text-decoration: none;
+    display: inline-block;
+  }
+  .nav-tab:hover .tab-date { color: var(--red); }
+  .nav-tab.active { border-bottom-color: var(--red); }
+  .nav-tab .tab-date { display: block; font-size: 13px; font-weight: 500; color: var(--ink); margin-bottom: 2px; }
+  .nav-tab .tab-label { display: block; font-size: 10px; color: var(--ink-light); letter-spacing: 0.03em; }
+  .nav-tab.active .tab-label { color: var(--ink-mid); }
+
+  /* MAIN LAYOUT */
+  main { max-width: 800px; margin: 0 auto; padding: 2rem 1.25rem 4rem; }
+  .day-panel { display: block; margin-bottom: 3.5rem; }
+  .day-anchor { display: block; height: 0; visibility: hidden; scroll-margin-top: 64px; }
+
+  /* DAY HEADER */
+  .day-header {
+    margin-bottom: 1.75rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 1px solid var(--ink-faint);
+  }
+  .day-number {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: var(--red);
+    margin-bottom: 0.35rem;
+  }
+  .day-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(1.7rem, 3.8vw, 2.25rem);
+    font-weight: 600;
+    line-height: 1.15;
+  }
+  .day-subtitle { font-size: 14px; color: var(--ink-mid); margin-top: 0.5rem; line-height: 1.55; }
+
+  /* BLOCKS */
+  .block {
+    background: var(--paper-card);
+    border: 1px solid #e8e4dc;
+    border-radius: 10px;
+    padding: 1.1rem 1.25rem;
+    margin-bottom: 10px;
+    transition: box-shadow 0.15s;
+  }
+  .block:hover { box-shadow: 0 2px 12px rgba(26,24,20,0.07); }
+  .block.priority { border: 1.5px solid var(--red); background: linear-gradient(0deg, #fff, #fff9f8); }
+  .block-time {
+    font-size: 10.5px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    margin-bottom: 0.3rem;
+  }
+  .block-title { font-size: 15px; font-weight: 500; margin-bottom: 0.4rem; line-height: 1.35; }
+  .block-detail { font-size: 13.5px; color: var(--ink-mid); line-height: 1.6; }
+  .block-detail p + p { margin-top: 0.5rem; }
+  .block-detail ul { margin: 0.4rem 0 0 1.1rem; }
+  .block-detail li { margin-bottom: 0.2rem; }
+
+  /* TAGS */
+  .tags { display: flex; gap: 5px; flex-wrap: wrap; margin-top: 0.65rem; }
+  .tag { font-size: 11px; padding: 2px 8px; border-radius: 12px; letter-spacing: 0.02em; white-space: nowrap; display: inline-block; }
+  .t-food { background: var(--green-light); color: var(--green); }
+  .t-move { background: var(--amber-light); color: var(--amber); }
+  .t-book { background: var(--red-light); color: var(--red); }
+  .t-booked { background: var(--green); color: #fff; }
+  .t-treat { background: var(--purple-light); color: var(--purple); }
+  .t-act { background: var(--blue-light); color: var(--blue); }
+  .t-gf { background: var(--teal-light); color: var(--teal); font-weight: 500; }
+  .t-gfx { background: var(--gold-light); color: var(--amber); }
+  .t-top { background: var(--red); color: #fff; font-weight: 500; }
+  .t-must { background: var(--gold); color: #fff; font-weight: 500; }
+
+  /* CALLOUTS */
+  .warn, .note, .gf-note {
+    font-size: 12.5px;
+    border-radius: 0 6px 6px 0;
+    padding: 8px 12px;
+    margin-top: 0.65rem;
+    line-height: 1.5;
+  }
+  .warn { color: var(--amber); background: var(--amber-light); border-left: 3px solid #d4a843; }
+  .note { color: var(--blue); background: var(--blue-light); border-left: 3px solid #6a9fcf; }
+  .gf-note { color: var(--teal); background: var(--teal-light); border-left: 3px solid #5aa5a5; }
+
+  /* MAP LINKS */
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 4px;
+    font-size: 11px;
+    color: var(--blue);
+    text-decoration: none;
+    border: 0.5px solid #93bce0;
+    border-radius: 10px;
+    padding: 2px 8px;
+    margin-top: 7px;
+    margin-right: 4px;
+    background: var(--blue-light);
+    transition: opacity 0.15s;
+  }
+  .map-link:hover { opacity: 0.75; }
+  .map-link.web { color: var(--amber); border-color: #e2c27a; background: var(--gold-light); }
+  .r-links { margin-top: 0.3rem; }
+
+  /* SECTION LABEL */
+  .section-label {
+    font-size: 10px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.15em;
+    color: var(--ink-light);
+    margin: 1.6rem 0 0.6rem;
+  }
+
+  /* NOTES & TODO */
+  .notes-panel {
+    background: var(--paper-warm);
+    border: 1px solid #e0dbd0;
+    border-radius: 12px;
+    padding: 1.4rem 1.4rem 1.2rem;
+    margin-bottom: 1.25rem;
+  }
+  .notes-panel h3 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 1.35rem;
+    font-weight: 600;
+    margin-bottom: 0.6rem;
+  }
+  .notes-panel h3 .sub { font-family: 'DM Sans', sans-serif; font-size: 11px; font-weight: 400; color: var(--ink-light); letter-spacing: 0.08em; text-transform: uppercase; margin-left: 6px; }
+  .todo { list-style: none; }
+  .todo li {
+    font-size: 13.5px;
+    color: var(--ink-mid);
+    padding: 5px 0 5px 1.7rem;
+    position: relative;
+    border-bottom: 1px dashed #ddd6c8;
+    line-height: 1.5;
+  }
+  .todo li:last-child { border-bottom: none; }
+  .todo li::before {
+    content: '☐';
+    position: absolute;
+    left: 0.15rem;
+    top: 4px;
+    color: var(--red);
+    font-size: 15px;
+  }
+  .todo li.done::before { content: '✓'; color: var(--green); font-weight: 600; }
+  .todo li.done { color: var(--ink-light); }
+  .todo li strong { color: var(--ink); font-weight: 500; }
+  .todo li.hot strong { color: var(--red); }
+
+  /* BOOKING TABLE */
+  .tbl-wrap { overflow-x: auto; }
+  table.bk {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    background: var(--paper-card);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+  table.bk th {
+    text-align: left;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-light);
+    font-weight: 500;
+    padding: 8px 10px;
+    background: #f7f4ee;
+    border-bottom: 1px solid #e8e4dc;
+  }
+  table.bk td { padding: 8px 10px; border-bottom: 1px solid #f0ece4; vertical-align: top; color: var(--ink-mid); }
+  table.bk tr:last-child td { border-bottom: none; }
+  table.bk td.k { color: var(--ink); font-weight: 500; white-space: nowrap; }
+
+  /* OPTIONS */
+  .options { display: grid; gap: 8px; margin-top: 0.75rem; }
+  .option {
+    border: 1px solid #e8e4dc;
+    border-left: 4px solid var(--ink-faint);
+    border-radius: 0 8px 8px 0;
+    padding: 0.7rem 0.9rem;
+    background: #fff;
+  }
+  .option.a { border-left-color: var(--green); background: var(--green-light); }
+  .option.b { border-left-color: var(--blue); background: var(--blue-light); }
+  .option.c { border-left-color: var(--purple); background: var(--purple-light); }
+  .option .opt-title { font-size: 13.5px; font-weight: 500; color: var(--ink); }
+  .option .opt-title .rec { font-size: 10px; text-transform: uppercase; letter-spacing: 0.1em; color: #fff; background: var(--green); border-radius: 10px; padding: 1px 7px; margin-left: 6px; vertical-align: 1px; }
+  .option .opt-body { font-size: 12.8px; color: var(--ink-mid); margin-top: 0.25rem; line-height: 1.55; }
+
+  /* LEGEND */
+  .legend {
+    background: var(--paper-warm);
+    border: 1px solid #e0dbd0;
+    border-radius: 10px;
+    padding: 1rem 1.25rem;
+    margin-bottom: 1.25rem;
+  }
+  .legend h3 {
+    font-size: 11px;
+    font-weight: 500;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--ink-mid);
+    margin-bottom: 0.6rem;
+  }
+  .legend-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 6px 16px; }
+  .legend-item { font-size: 12.5px; color: var(--ink-mid); display: flex; align-items: center; gap: 6px; }
+
+  /* RESTAURANT CARDS */
+  .resto-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 10px; }
+  .resto {
+    background: #fff;
+    border: 1px solid #e8e4dc;
+    border-radius: 10px;
+    padding: 0.9rem 1rem;
+  }
+  .resto.ded { border-top: 3px solid var(--teal); }
+  .resto.shared { border-top: 3px solid var(--gold); }
+  .resto .r-name { font-size: 14.5px; font-weight: 500; }
+  .resto .r-type { font-size: 11px; color: var(--ink-light); text-transform: uppercase; letter-spacing: 0.08em; margin-top: 1px; }
+  .resto .r-body { font-size: 12.8px; color: var(--ink-mid); margin-top: 0.45rem; line-height: 1.55; }
+  .resto .r-when { font-size: 11.5px; color: var(--purple); margin-top: 0.4rem; }
+
+  /* PRACTICAL */
+  .practical-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 10px; }
+  .practical-card { background: #fff; border: 1px solid #e8e4dc; border-radius: 10px; padding: 0.9rem 1rem; }
+  .practical-card h4 { font-size: 13.5px; font-weight: 500; margin-bottom: 0.35rem; }
+  .practical-card div, .practical-card li { font-size: 12.8px; color: var(--ink-mid); line-height: 1.55; }
+  .practical-card ul { margin-left: 1rem; }
+  .es { font-style: italic; color: var(--ink); }
+
+  footer {
+    text-align: center;
+    padding: 2rem;
+    font-size: 12px;
+    color: var(--ink-light);
+    border-top: 1px solid var(--ink-faint);
+  }
+  footer a { color: var(--ink-light); }
+
+  @media (max-width: 600px) {
+    header { padding: 2rem 1.25rem 1.75rem; }
+    main { padding: 1.5rem 1rem 3rem; }
+    .block { padding: 0.9rem 1rem; }
+    .resto-grid, .practical-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">Acción de Gracias en Madrid · Múnich · Fráncfort</div>
+  <h1>Madrid, <span>Thanksgiving 2026</span></h1>
+  <div class="header-meta">NOVEMBER 22 – 29, 2026 &nbsp;·&nbsp; PALACIO DE LOS DUQUES &nbsp;·&nbsp; 5 NIGHTS MADRID + 1 NIGHT FRANKFURT</div>
+  <div class="header-pills">
+    <span class="header-pill">Gluten-Free First · Celiac-Aware</span>
+    <span class="header-pill">Family of 4</span>
+    <span class="header-pill">Royals · Jewish History · Markets · Cheese</span>
+    <span class="header-pill">Christmas Lights + Weihnachtsmarkt 🎄</span>
+  </div>
+</header>
+
+<div class="alerts-bar">
+  <h3>📝 Draft itinerary — last updated Wed Nov 18</h3>
+  <div class="alerts-list">
+    <div class="alert-item">✅ Flights (with special meals), both hotels, and Navibus are booked</div>
+    <div class="alert-item">⏳ Still to book: Palacio Real tickets, dinner reservations, Toledo train</div>
+    <div class="alert-item">🕙 Plan assumes no departures from the hotel before 10am</div>
+  </div>
+</div>
+
+<nav>
+  <div class="nav-inner">
+    <a class="nav-tab active" href="#notes"><span class="tab-date">Notes</span><span class="tab-label">To-do + bookings</span></a>
+    <a class="nav-tab" href="#day-0"><span class="tab-date">Sun Nov 22</span><span class="tab-label">Depart SFO</span></a>
+    <a class="nav-tab" href="#day-1"><span class="tab-date">Mon Nov 23</span><span class="tab-label">Munich lounge → Madrid</span></a>
+    <a class="nav-tab" href="#day-2"><span class="tab-date">Tue Nov 24</span><span class="tab-label">Churros + Turrón + San Miguel ★</span></a>
+    <a class="nav-tab" href="#day-3"><span class="tab-date">Wed Nov 25</span><span class="tab-label">Palace + Retiro + Navibus</span></a>
+    <a class="nav-tab" href="#day-4"><span class="tab-date">Thu Nov 26</span><span class="tab-label">🦃 Toledo day trip</span></a>
+    <a class="nav-tab" href="#day-5"><span class="tab-date">Fri Nov 27</span><span class="tab-label">Bakeries + Metro + Sweets + Plaza Mayor market</span></a>
+    <a class="nav-tab" href="#day-6"><span class="tab-date">Sat Nov 28</span><span class="tab-label">→ Frankfurt Christmas market</span></a>
+    <a class="nav-tab" href="#day-7"><span class="tab-date">Sun Nov 29</span><span class="tab-label">Home</span></a>
+    <a class="nav-tab" href="#eats"><span class="tab-date">Eats</span><span class="tab-label">GF restaurant list</span></a>
+    <a class="nav-tab" href="#practical"><span class="tab-date">Practical</span><span class="tab-label">Transit, GF phrases</span></a>
+  </div>
+</nav>
+
+<main>
+
+<!-- ===== NOTES / TODO ===== -->
+<span id="notes" class="day-anchor"></span>
+<div class="day-panel">
+  <div class="day-header">
+    <div class="day-number">Notes &amp; To-Do</div>
+    <div class="day-title">Before We Go</div>
+    <div class="day-subtitle">Open items first, then what's already locked in. The day plans below are a proposal, so move things around freely.</div>
+  </div>
+
+  <div class="notes-panel">
+    <h3>To-Do <span class="sub">open items</span></h3>
+    <ul class="todo">
+      
+      <li class="hot"><strong>Book Palacio Real timed tickets for Wed ~12:00</strong> through Patrimonio Nacional. Consider the €24 combo with the Galería de las Colecciones Reales.</li>
+      <li class="hot"><strong>Book Renfe Avant/AVE to Toledo for Thursday</strong>: out around 10:45 from Atocha, back late afternoon.</li>
+      <li><strong>Reserve meals:</strong> Lalina La Latina (Tue dinner), Casa San Juan (Wed ~8:30pm after Navibus; closed Mondays), Ardemos (Thu, Thanksgiving), Okashi Sanda (Fri lunch), Bastardi or Lalina Chueca (Fri dinner).</li>
+      <li><strong>Carry-on limits.</strong> Dave and Phoebe's MUC–MAD ticket is Lufthansa Economy, which allows 1 cabin bag up to 8 kg plus 1 personal item (per the Lufthansa confirmation). Pack to that, since we aren't checking bags.</li>
+      <li><strong>Mon ~11:45pm arrival:</strong> tell the hotel we'll arrive after midnight. The flat-fare taxi (€33 within the M-30) takes 4 passengers. With 4 carry-ons, an XL car may be more comfortable.</li>
+      <li><strong>Find a gluten-free lunch in Toledo</strong> (not researched yet), or bring food from Amé or La Matería.</li>
+      <li><strong>Find a GF dinner option for Saturday in Frankfurt</strong> (not researched yet). Christmas market food is mostly wheat.</li>
+      <li><strong>Optional:</strong> email visitas@cjmadrid.org to visit Beth Yaacov synagogue and the Jewish community museum (Calle Balmes 3, near Andén 0). Appointment required; bring passports.</li>
+      <li><strong>Optional:</strong> book a guided slot at the Descalzas Reales convent (next door to Chocolatería 1902). Guided visits only, booked through Patrimonio Nacional.</li>
+      <li><strong>Entry rules:</strong> EES biometric registration (fingerprints and photo) happens at our first Schengen entry in Munich, so allow extra time. ETIAS has been postponed; recheck the official EU site a week before departure.</li>
+      <li class="done">Special meals on all flights: Torrey GFML (gluten-free), Ellie AVML (Asian vegetarian). Worth a glance in the apps the day before each flight.</li>
+      <li class="done">Navibus (Christmas lights bus): Wed Nov 25, 7:00pm, upper deck, 4 people</li>
+      <li class="done">Hotels: Palacio de los Duques (2 rooms, Amex FHR) and Hyatt Place Frankfurt Airport (2 rooms)</li>
+      <li class="done">All flights ticketed. Dave and Phoebe upgraded to First on SFO–MUC (PlusPoints cleared Nov 4).</li>
+    </ul>
+  </div>
+
+  <div class="notes-panel">
+    <h3>Priorities <span class="sub">what this trip is for</span></h3>
+    <div class="block-detail">
+      <p><strong>Top priority: Mercado de San Miguel ★</strong>, scheduled Tuesday evening with a backup slot Saturday morning. Next: gluten-free food (especially churros), the royal family, Jewish history, public transit, markets, and cheese. Also on the list: El Retiro and the Real Jardín Botánico, Museo del Turrón, Sweet Space, the Plaza Mayor Christmas market, a Toledo day trip for Jewish history, and a German Christmas market on the Frankfurt layover.</p>
+      <p style="margin-top:0.5rem;"><strong>Must-go treats:</strong> Chocolatería 1902 churros (Tue + Sat), Amé (Fri), Pastelería La Oriental (Fri).</p>
+    </div>
+  </div>
+
+  <div class="section-label">Booked — flights</div>
+  <div class="tbl-wrap">
+  <table class="bk">
+    <tr><th>Date</th><th>Flight</th><th>Route · Times</th><th>Cabin / notes</th></tr>
+    <tr><td class="k">Sun 11/22</td><td>LH459 / UA8882</td><td>SFO 9:40pm → MUC 5:55pm (+1)</td><td>Lufthansa. <strong>Dave + Phoebe in First</strong> (upgraded), the other two in Business.</td></tr>
+    <tr><td class="k">Mon 11/23</td><td>LH4154</td><td>MUC 8:55pm → MAD 11:35pm</td><td>Lufthansa City (A320neo), T2 → T2. Two in Business. Dave + Phoebe in Economy on a separate booking (8 kg carry-on limit).</td></tr>
+    <tr><td class="k">Sat 11/28</td><td>LH1113</td><td>MAD 1:20pm → FRA 3:50pm</td><td>Lufthansa Business</td></tr>
+    <tr><td class="k">Sun 11/29</td><td>UA59</td><td>FRA 1:30pm → SFO 4:05pm</td><td>United Polaris Business</td></tr>
+  </table>
+  </div>
+
+  <div class="section-label">Booked — hotels &amp; activities</div>
+  <div class="block">
+    <div class="block-time">Nov 23 – 28 · 5 nights · 2 rooms</div>
+    <div class="block-title">🏨 Palacio de los Duques, Gran Meliá</div>
+    <div class="block-detail">Cuesta de Santo Domingo 5 · +34 915 416 700. A 5-minute walk to the Royal Palace, Plaza Mayor, and Mercado de San Miguel. Booked through Amex Fine Hotels + Resorts, so each room gets daily breakfast for two, a $100 property credit, a guaranteed 4pm checkout, and an upgrade if available. Online check-in is open.</div>
+    <div class="tags"><span class="tag t-booked">booked ✓</span><span class="tag t-act">FHR perks</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Palacio+de+los+Duques+Gran+Melia+Madrid&ll=40.4198,-3.7090" target="_blank">📍 Map</a>
+    <div class="gf-note">Ask about gluten-free bread and pastries at breakfast on the first morning. Use the $100 credit for a hotel meal or drinks.</div>
+  </div>
+  <div class="block">
+    <div class="block-time">Nov 28 – 29 · 1 night · 2 rooms</div>
+    <div class="block-title">🏨 Hyatt Place Frankfurt Airport</div>
+    <div class="block-detail">De-Saint-Exupéry-Straße 4 (Gateway Gardens) · +49 69 643511234. Two rooms: one king, one with two twins. The S-Bahn stop Gateway Gardens (S8/S9) is next door and is one stop from the airport and about 15 minutes to central Frankfurt. With Globalist status, free cancellation runs until 11:59pm the night before.</div>
+    <div class="tags"><span class="tag t-booked">booked ✓</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Hyatt+Place+Frankfurt+Airport&ll=50.0530,8.5860" target="_blank">📍 Map</a>
+  </div>
+  <div class="block">
+    <div class="block-time">Wed Nov 25 · 7:00 – 7:50pm (be there 6:45)</div>
+    <div class="block-title">🚌 Navibus Madrid Tour: Christmas lights bus</div>
+    <div class="block-detail">Meet on Calle de Alfonso XII between Nos. 52 and 54, by the Retiro and Botánico. Upper-deck seats for 3 adults and 1 child. Seats are unnumbered and filled in order of arrival, so get there early for front seats. Vouchers are in email and can go in Apple Wallet. Madrid's lights switched on Sat Nov 21.</div>
+    <div class="tags"><span class="tag t-booked">booked ✓</span><span class="tag t-act">Christmas lights</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Calle+de+Alfonso+XII+52+Madrid&ll=40.4095,-3.6895" target="_blank">📍 Meeting point</a>
+  </div>
+</div>
+
+<!-- ===== DAY 0 ===== -->
+<span id="day-0" class="day-anchor"></span>
+<div class="day-panel">
+  <div class="day-header">
+    <div class="day-number">Day 0 · Sunday, November 22</div>
+    <div class="day-title">Depart San Francisco</div>
+    <div class="day-subtitle">Overnight Lufthansa to Munich. Dave and Phoebe in First, the other two in Business.</div>
+  </div>
+  <div class="block">
+    <div class="block-time">9:40 pm</div>
+    <div class="block-title">✈ SFO → MUC · LH459 / UA8882</div>
+    <div class="block-detail">Carry-on only, so check in online. Lufthansa operates the flight from the International Terminal. Special meals are booked: Torrey GFML, Ellie AVML. Sleep as much as possible, since we land at dinnertime and fly on to Madrid.</div>
+    <div class="tags"><span class="tag t-move">11h 15m</span><span class="tag t-gf">Torrey GFML · Ellie AVML ✓</span></div>
+  </div>
+</div>
+
+<!-- ===== DAY 1 ===== -->
+<span id="day-1" class="day-anchor"></span>
+<div class="day-panel">
+  <div class="day-header">
+    <div class="day-number">Day 1 · Monday, November 23</div>
+    <div class="day-title">Munich Lounge → Madrid</div>
+    <div class="day-subtitle">Land 5:55pm, enter Schengen in Munich, spend about 2.5 hours in the best lounge we can get into, then a late hop to Madrid.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">5:55 pm · MUC Terminal 2</div>
+    <div class="block-title">Arrive + passport control</div>
+    <div class="block-detail">This is our first Schengen entry, so we clear immigration in Munich, including the new EES fingerprint and photo registration. Follow the signs to departures, G gates (Schengen). LH4154 leaves at 8:55pm.</div>
+    <div class="tags"><span class="tag t-move">3h connection</span></div>
+  </div>
+
+  <div class="block priority">
+    <div class="block-time">~6:30 – 8:20 pm</div>
+    <div class="block-title">🥂 Best lounge plan: Lufthansa First Class Lounge (T2 main building)</div>
+    <div class="block-detail">
+      <p>Lufthansa reopened this lounge in 2025 after a remodel. It has an à la carte restaurant, a live cooking station, a new bar, and quiet rooms. Entrances are on Level 04 next to Gate G21 (Schengen) and Level 05 next to Gate H21 (non-Schengen). It's open 05:00–22:00.</p>
+      <p><strong>Why we should qualify:</strong> Lufthansa First passengers who arrive in Munich on a First flight the same day can use the lounge. That arrival rule matters because Dave and Phoebe's onward MUC–MAD is economy on a separate booking. The usual departure rule needs a First ticket on the same booking, which wouldn't apply. Lufthansa's companion rule covers spouses and children under 18 if they hold a boarding pass for the same flight, and all four of us share both flights. Dave should ask to bring the whole family in.</p>
+    </div>
+    <div class="options">
+      <div class="option a"><div class="opt-title">Plan A: First Class Lounge, all 4 <span class="rec">try first</span></div><div class="opt-body">Ask for the gluten-free menu. The à la carte kitchen is the best chance of a proper GF dinner before the late flight.</div></div>
+      <div class="option b"><div class="opt-title">Plan B: Senator Lounge, Schengen (near G24 or G28)</div><div class="opt-body">Senator Lounges admit Star Alliance Gold members (United 1K counts) flying internationally the same day, plus one guest each. Two 1Ks covers all four of us.</div></div>
+      <div class="option c"><div class="opt-title">Plan C: Business Lounge, Schengen (G28)</div><div class="opt-body">The two with Business tickets on MUC–MAD always qualify, and status covers Dave and Phoebe. The weakest of the three for food.</div></div>
+    </div>
+    <div class="tags"><span class="tag t-act">lounge</span><span class="tag t-gfx">ask for GF menu</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">8:55 pm → 11:35 pm</div>
+    <div class="block-title">✈ MUC → MAD · LH4154</div>
+    <div class="block-detail">Madrid arrival is at T2. Carry-on only, so straight out to the flat-fare taxi (€33 within the M-30, 24/7, no supplements). A taxi takes 4 passengers, or use an XL car if the carry-ons won't fit. About 25 minutes to the hotel at that hour.</div>
+    <div class="tags"><span class="tag t-move">taxi</span></div>
+  </div>
+</div>
+
+<!-- ===== DAY 2 ===== -->
+<span id="day-2" class="day-anchor"></span>
+<div class="day-panel">
+  <div class="day-header">
+    <div class="day-number">Day 2 · Tuesday, November 24</div>
+    <div class="day-title">Churros, Turrón &amp; Mercado de San Miguel ★</div>
+    <div class="day-subtitle">A jet-lag-friendly day, all within a 10-minute walk of the hotel: churros, Old Madrid's Jewish history, turrón, then San Miguel at aperitivo hour and GF tapas.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Until 10:00</div>
+    <div class="block-title">Sleep in + hotel breakfast</div>
+    <div class="block-detail">Breakfast is included for all four of us (FHR, two per room). Ask what's gluten-free. Head out around 10.</div>
+    <div class="tags"><span class="tag t-food">breakfast</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~10:15 am</div>
+    <div class="block-title">🍫 Chocolatería 1902: gluten-free churros con chocolate</div>
+    <div class="block-detail">The family running it is the fifth generation in the trade. They built a separate gluten-free churro station upstairs and fry the GF churros in their own fryer. The chocolate is GF too. Open roughly 7:00–23:00 daily. Ask for <span class="es">churros sin gluten</span>.</div>
+    <div class="tags"><span class="tag t-must">must-go</span><span class="tag t-treat">churros</span><span class="tag t-gfx">GF churros · separate fryer · not dedicated</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Chocolateria+1902+Calle+San+Martin+2+Madrid&ll=40.4186,-3.7058" target="_blank">📍 C. de San Martín 2</a>
+    <a class="map-link web" href="https://chocolateria1902.com/" target="_blank">🔗 Website + menu</a>
+    <div class="note">Next door: the Monasterio de las Descalzas Reales, a royal convent founded by Habsburg princesses. Guided visits only (see to-do).</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Midday</div>
+    <div class="block-title">✡ Madrid's medieval Jewish quarters: a short walk</div>
+    <div class="block-detail">
+      <p>Madrid's "old" Jewish quarter grew up from 1085 near today's Teatro Real and Calle del Arenal, with its cemetery where Plaza de Oriente is now. After the Black Death the community moved to a "new" quarter by the Plaza de la Armería, the site of today's Almudena Cathedral. Archaeology next to the palace has confirmed it. So the route from the hotel to the Teatro Real, Plaza de Oriente, and the Almudena is this history.</p>
+      <p>Then walk to Plaza Mayor, where the Inquisition held public <span class="es">autos de fe</span>. The popular "Lavapiés was the Jewish quarter" story is mostly legend. Conversos likely lived there after 1492.</p>
+    </div>
+    <div class="tags"><span class="tag t-act">Jewish history ✡</span><span class="tag t-act">walk</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Plaza+de+Oriente+Madrid&ll=40.4183,-3.7123" target="_blank">📍 Plaza de Oriente</a>
+    <a class="map-link" href="https://maps.apple.com/?q=Plaza+Mayor+Madrid&ll=40.4155,-3.7074" target="_blank">📍 Plaza Mayor</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Afternoon</div>
+    <div class="block-title">🍬 Museo del Turrón (Casa 1880)</div>
+    <div class="block-detail">A small self-guided museum inside the Casa 1880 shop at Calle Arenal 18. It costs €5, or is free with a €20 purchase, and ends with a tasting. Open daily 10:00–21:00. A good place to stock up on turrón for Christmas.</div>
+    <div class="tags"><span class="tag t-treat">sweets</span><span class="tag t-act">museum</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Casa+1880+Calle+del+Arenal+18+Madrid&ll=40.4172,-3.7074" target="_blank">📍 C. del Arenal 18</a>
+    <a class="map-link web" href="https://www.esmadrid.com/en/tourist-information/turron-museum" target="_blank">🔗 Info</a>
+    <div class="warn">⚠ Celiac caution at the tasting. Polvorones and mantecados contain wheat flour, and Alicante (hard) turrón usually has a wafer layer. Soft Jijona turrón is usually just almonds, honey, sugar, and egg. Only eat items labeled <span class="es">sin gluten</span>.</div>
+  </div>
+
+  <div class="block priority">
+    <div class="block-time">~5:00 – 7:30 pm · TOP PRIORITY</div>
+    <div class="block-title">★ Mercado de San Miguel</div>
+    <div class="block-detail">
+      <p>A 1916 iron-and-glass market, now a gourmet food hall a few steps from Plaza Mayor. Go at aperitivo time, before the late-evening crush. Take a slow lap, then graze. Mya Valdalos is the cheese stall: a good first stop for Spanish cheeses.</p>
+      <p><strong>Safest picks:</strong> oysters, jamón ibérico, cheese, olives, vermouth, fresh juice. Skip anything on bread, croquetas, and fried items, since nothing here is dedicated GF.</p>
+    </div>
+    <div class="tags"><span class="tag t-top">★ top priority</span><span class="tag t-act">market</span><span class="tag t-act">cheese 🧀</span><span class="tag t-gfx">no dedicated GF stalls</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Mercado+de+San+Miguel+Madrid&ll=40.4154,-3.7090" target="_blank">📍 Plaza de San Miguel</a>
+    <div class="note">Backup slot: Saturday 10:00, when the market opens, before the airport. It's 5 minutes from the hotel. The Plaza Mayor Christmas market next door opens Friday, Nov 27, and is planned for Friday evening.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~8:30 pm · reserve</div>
+    <div class="block-title">🍽 Lalina La Latina: 100% gluten-free tapas</div>
+    <div class="block-detail">The proper tapas meal San Miguel can't safely offer: patatas bravas, croquetas, tortilla, Iberian ham, cheese boards, all gluten-free. A 10-minute walk from San Miguel.</div>
+    <div class="tags"><span class="tag t-food">dinner</span><span class="tag t-gf">100% GF</span><span class="tag t-book">reserve</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=LaLina+Bravas+y+Tapas+La+Latina+Madrid&ll=40.4114,-3.7105" target="_blank">📍 Pl. de la Cebada 2</a>
+    <a class="map-link web" href="https://restaurantelalina.com/nuestra-carta/" target="_blank">🔗 Menu</a>
+  </div>
+</div>
+
+<!-- ===== DAY 3 ===== -->
+<span id="day-3" class="day-anchor"></span>
+<div class="day-panel">
+  <div class="day-header">
+    <div class="day-number">Day 3 · Wednesday, November 25</div>
+    <div class="day-title">Royal Palace, Retiro &amp; the Christmas-Lights Bus</div>
+    <div class="day-subtitle">Wednesday is a changing-of-the-guard day. Gluten-free breakfast, the guard and the palace, a late Spanish lunch, gardens, Navibus at 7, then dinner.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">10:15 am</div>
+    <div class="block-title">☕ La Matería: 100% gluten-free mate café</div>
+    <div class="block-detail">Run by Argentine and Uruguayan owners, with chipa, empanadas, alfajores, croissants, cinnamon rolls, and sandwiches, plus coffee and mate. Malasaña, about 15 minutes' walk from the hotel. The full brunch menu is weekends only.</div>
+    <div class="tags"><span class="tag t-food">breakfast</span><span class="tag t-gf">100% GF</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=La+Materia+Cafe+Calle+de+la+Palma+31+Madrid&ll=40.4260,-3.7060" target="_blank">📍 C. de la Palma 31</a>
+    <a class="map-link web" href="https://www.instagram.com/lamateria.cafe/" target="_blank">🔗 Instagram (menu posts)</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~11:30 am</div>
+    <div class="block-title">💂 Changing of the Guard: Puerta del Príncipe</div>
+    <div class="block-detail">Every Wednesday and Saturday from 11:00 to 14:00, guards are relieved every half hour at the Puerta del Príncipe. It's free. The big monthly Relevo Solemne is the first Wednesday (Dec 2), so we just miss it. About a 20-minute walk from La Matería.</div>
+    <div class="tags"><span class="tag t-act">royals 👑</span><span class="tag t-act">free</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">12:00 pm · book timed entry</div>
+    <div class="block-title">👑 Palacio Real</div>
+    <div class="block-detail">The official residence of the Spanish royal family, used for state ceremonies (the King and Queen live at the Zarzuela). €18 general, or €24 with the Galería de las Colecciones Reales next door. Winter hours are Mon–Sat 10:00–18:00. Since March 2026 the tour also includes the reliquary rooms of the Royal Chapel. Afterwards, step across to the Almudena Cathedral, where Felipe and Letizia married in 2004.</div>
+    <div class="tags"><span class="tag t-act">royals 👑</span><span class="tag t-book">book ahead</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Palacio+Real+de+Madrid&ll=40.4180,-3.7143" target="_blank">📍 Palacio Real</a>
+    <a class="map-link" href="https://maps.apple.com/?q=Catedral+de+la+Almudena+Madrid&ll=40.4157,-3.7146" target="_blank">📍 Almudena Cathedral</a>
+    <a class="map-link web" href="https://www.esmadrid.com/informacion-turistica/palacio-real" target="_blank">🔗 Info</a>
+    <div class="warn">⚠ The palace can close at short notice for official events. Check the morning of.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~2:15 pm (Spanish lunch hour)</div>
+    <div class="block-title">🍕 Senza Glutine di Grosso Napoletano (Calle de la Cruz)</div>
+    <div class="block-detail">Neapolitan pizza from Grosso Napoletano's 100% gluten-free spin-off. Its products are certified by FACE, Spain's celiac federation. Near Sol, on the way to the Retiro.</div>
+    <div class="tags"><span class="tag t-food">lunch</span><span class="tag t-gf">100% GF (this branch only)</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Senza+Glutine+di+Grosso+Napoletano+Calle+de+la+Cruz+7+Madrid&ll=40.4161,-3.7020" target="_blank">📍 C. de la Cruz 7</a>
+    <a class="map-link web" href="https://grossonapoletano.com/" target="_blank">🔗 Website + menu</a>
+    <div class="warn">⚠ Regular Grosso Napoletano locations are not gluten-free. Only the "Senza Glutine" ones are. Other dedicated branches: Fernando VI 23 and Santa Engracia 48.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~3:45 – 6:30 pm</div>
+    <div class="block-title">🌳 Real Jardín Botánico + El Retiro</div>
+    <div class="block-detail">
+      <p><strong>Botánico</strong> first, since it closes earlier (about 18:00 in November; entry about €4–6). It's Carlos III's 1781 garden on Plaza de Murillo next to the Prado, with greenhouses and the bonsai collection. Then cross into <strong>El Retiro</strong>: the boating lake and Alfonso XII monument, the Palacio de Cristal (check it's open), and the Rosaleda.</p>
+      <p>Finish at the southwest corner of the park, which is right by the Navibus meeting point.</p>
+    </div>
+    <div class="tags"><span class="tag t-act">gardens</span><span class="tag t-act">walk</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Real+Jardin+Botanico+Madrid&ll=40.4112,-3.6913" target="_blank">📍 Real Jardín Botánico</a>
+    <a class="map-link" href="https://maps.apple.com/?q=Palacio+de+Cristal+Retiro+Madrid&ll=40.4136,-3.6824" target="_blank">📍 Palacio de Cristal</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">6:45 pm meet · 7:00 – 7:50 pm</div>
+    <div class="block-title">🚌 Navibus: Christmas lights from the top deck</div>
+    <div class="block-detail">Booked for 3 adults and 1 child, upper deck. Seats are unnumbered, so be at Alfonso XII 52–54 by 6:40 for the front rows. Dress warmly, since it's an open top deck in late November.</div>
+    <div class="tags"><span class="tag t-booked">booked ✓</span><span class="tag t-act">lights ✨</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Calle+de+Alfonso+XII+52+Madrid&ll=40.4095,-3.6895" target="_blank">📍 Meeting point</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~8:30 pm · reserve</div>
+    <div class="block-title">🥘 Casa San Juan: 100% gluten-free Spanish</div>
+    <div class="block-detail">Paella, croquetas, calamares, cachopo, all gluten-free, in the Barrio de las Letras. About a 12-minute walk from the Navibus stop. Closed Mondays; dinner Tue–Sat from 20:00. The only gluten on the premises is bottled beer.</div>
+    <div class="tags"><span class="tag t-food">dinner</span><span class="tag t-gf">100% GF</span><span class="tag t-book">reserve</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Casa+San+Juan+Calle+de+las+Huertas+10+Madrid&ll=40.4144,-3.7013" target="_blank">📍 C. de las Huertas 10</a>
+    <a class="map-link web" href="https://www.apartamentoshuertas10.com/restaurante-casa-san-juan" target="_blank">🔗 Website</a>
+  </div>
+</div>
+
+<!-- ===== DAY 4 ===== -->
+<span id="day-4" class="day-anchor"></span>
+<div class="day-panel">
+  <div class="day-header">
+    <div class="day-number">Day 4 · Thursday, November 26 · Thanksgiving 🦃</div>
+    <div class="day-title">Day Trip: Toledo, the Heart of Sephardic Spain ✡</div>
+    <div class="day-subtitle">A late-morning fast train, the two great synagogues of the old Judería, then an all-American (and all-gluten-free) Thanksgiving dinner back in Madrid.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">10:00 am → ~10:45 train</div>
+    <div class="block-title">🚄 Hotel → Atocha → Toledo</div>
+    <div class="block-detail">Metro or taxi to Atocha, then about 33 minutes by Renfe Avant/AVE to Toledo. From Toledo station, take a short taxi up to the old town, or ride the escalators up from the river.</div>
+    <div class="tags"><span class="tag t-move">train</span><span class="tag t-book">book Renfe</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">Late morning – afternoon</div>
+    <div class="block-title">✡ Sinagoga del Tránsito / Museo Sefardí + Santa María la Blanca</div>
+    <div class="block-detail">
+      <p>The <strong>Sinagoga del Tránsito</strong> was built in 1355 by Samuel Leví. It houses the <strong>Museo Sefardí</strong> (€3, closed Mondays). Two sets of published hours conflict: Tue–Sat 9:30–18:00, or 9:30–14:00 and 16:00–18:30. Either way, go before 2pm to be safe. Nearby is <strong>Santa María la Blanca</strong>, the 12th-century synagogue with Mudéjar horseshoe arches.</p>
+      <p>Add the cathedral, the Judería's lanes, and the views over the Tajo. Back to Madrid late afternoon.</p>
+    </div>
+    <div class="tags"><span class="tag t-act">Jewish history ✡</span><span class="tag t-act">museum</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Sinagoga+del+Transito+Toledo&ll=39.8565,-4.0285" target="_blank">📍 Sinagoga del Tránsito</a>
+    <a class="map-link" href="https://maps.apple.com/?q=Sinagoga+Santa+Maria+la+Blanca+Toledo&ll=39.8573,-4.0275" target="_blank">📍 Santa María la Blanca</a>
+    <div class="warn">⚠ Lunch in Toledo isn't researched yet (see to-do). Pack backup GF snacks.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~8:30 pm · reserve</div>
+    <div class="block-title">🍔 Thanksgiving dinner: Ardemos (100% gluten-free burgers)</div>
+    <div class="block-detail">American food for an American holiday. Burgers on house-made GF buns, starters, desserts, and La Virgen gluten-free beer. Chamberí, near Glorieta de Bilbao. Reservations are recommended to avoid a wait.</div>
+    <div class="tags"><span class="tag t-food">Thanksgiving dinner 🦃</span><span class="tag t-gf">100% GF</span><span class="tag t-book">reserve</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Ardemos+Hamburguesas+sin+gluten+Calle+de+Carranza+4+Madrid&ll=40.4283,-3.7020" target="_blank">📍 C. de Carranza 4</a>
+    <a class="map-link web" href="https://ardemosburger.com/carta/" target="_blank">🔗 Menu</a>
+    <div class="note">Alternative: Bastardi (100% GF pizza, pasta and burgers) in Malasaña, about 5 minutes away.</div>
+  </div>
+</div>
+
+<!-- ===== DAY 5 ===== -->
+<span id="day-5" class="day-anchor"></span>
+<div class="day-panel">
+  <div class="day-header">
+    <div class="day-number">Day 5 · Friday, November 27</div>
+    <div class="day-title">Bakeries, Ghost Station, Sweets, Cheese &amp; Plaza Mayor Christmas Market</div>
+    <div class="day-subtitle">Both must-go bakeries, the 1919 Metro station, Japanese lunch, the Salamanca district for Sweet Space and the city's biggest cheese counter, then the Plaza Mayor Christmas market on its opening night.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">10:00 → ~10:20 am</div>
+    <div class="block-title">🥐 Pastelería La Oriental Sin Gluten</div>
+    <div class="block-detail">The family has been making pastry since 1950. On Ferraz they run a separate, 100% gluten-free shop, endorsed by Madrid's celiac association, next door to their regular pastelería. Breads, buñuelos, pastries, macarons, and cakes. Open daily 8:00–21:00. In Argüelles, about 15 minutes by Metro (Plaza de España → Ventura Rodríguez).</div>
+    <div class="tags"><span class="tag t-must">must-go</span><span class="tag t-treat">pastries</span><span class="tag t-gf">100% GF shop</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Pasteleria+La+Oriental+sin+Gluten+Calle+de+Ferraz+47+Madrid&ll=40.4290,-3.7180" target="_blank">📍 C. de Ferraz 47</a>
+    <a class="map-link web" href="https://www.pastelerialaorientalsingluten.com/" target="_blank">🔗 Website</a>
+    <div class="warn">⚠ There are two shops side by side. Make sure you're in the <span class="es">sin gluten</span> one.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~11:00 am</div>
+    <div class="block-title">🍰 Amé Gluten Free</div>
+    <div class="block-detail">A 100% gluten-free bakery-café with pastries, croissants (reviewers say they're the real thing), cinnamon rolls, donuts, and alfajores. Open 7 days. About 15 minutes' walk from La Oriental.</div>
+    <div class="tags"><span class="tag t-must">must-go</span><span class="tag t-treat">pastries</span><span class="tag t-gf">100% GF</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Ame+Gluten+Free+Calle+de+Andres+Mellado+18+Madrid&ll=40.4335,-3.7155" target="_blank">📍 C. de Andrés Mellado 18</a>
+    <a class="map-link web" href="http://ameglutenfree.es/" target="_blank">🔗 Website</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~11:45 am (Fri hours 11:00–19:00)</div>
+    <div class="block-title">🚇 Andén 0: Chamberí "ghost station"</div>
+    <div class="block-detail">A Line 1 station from 1919, closed in 1966 and restored as a free Metro museum, with original tiles, ticket windows, and 1920s ceramic ads. Trains still roll through. Free guided tours start on the hour (the noon tour is a good target). It's open only Thu 10–13, Fri 11–19, and Sat–Sun 11–15, so Friday is our window.</div>
+    <div class="tags"><span class="tag t-act">public transit 🚇</span><span class="tag t-act">free</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Anden+0+Estacion+de+Chamberi+Madrid&ll=40.4325,-3.7008" target="_blank">📍 Plaza de Chamberí</a>
+    <a class="map-link web" href="https://www.comunidad.madrid/servicios/transporte/descubre-metro" target="_blank">🔗 Hours</a>
+    <div class="note">Beth Yaacov synagogue and the Jewish community museum (Calle Balmes 3) are about 5 minutes away. It's open by appointment only (see to-do).</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~1:00 pm</div>
+    <div class="block-title">🧀 Quesería Cultivo (Conde Duque)</div>
+    <div class="block-detail">A cheesemakers' shop that ripens and sells artisan Spanish cheeses, around 40 at a time, chosen for quality. They hold tastings (check their site). Pick up cheese for the Frankfurt night or the flight home. On the walk from Chamberí down to Malasaña.</div>
+    <div class="tags"><span class="tag t-act">cheese 🧀</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Queseria+Cultivo+Calle+Conde+Duque+15+Madrid&ll=40.4265,-3.7110" target="_blank">📍 C. Conde Duque 15</a>
+    <a class="map-link web" href="https://queseriacultivo.com/" target="_blank">🔗 Website</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~2:00 pm · reserve</div>
+    <div class="block-title">🍜 Okashi Sanda: 100% gluten-free Japanese</div>
+    <div class="block-detail">Madrid's first fully gluten-free Japanese restaurant (also dairy-free). Get the takoyaki, ramen, gyoza, katsudon, and curry. The only gluten in the building is a couple of bottled beers.</div>
+    <div class="tags"><span class="tag t-food">lunch</span><span class="tag t-gf">100% GF</span><span class="tag t-book">reserve</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Okashi+Sanda+Calle+San+Vicente+Ferrer+22+Madrid&ll=40.4255,-3.7045" target="_blank">📍 C. San Vicente Ferrer 22</a>
+    <a class="map-link web" href="https://www.okashisanda.com/" target="_blank">🔗 Website</a> <a class="map-link web" href="https://cartaresto.com/okashi/malasana" target="_blank">🔗 Menu</a>
+    <div class="note">Malasaña hours per their site: closed Mon–Tue, dinner only Wed–Thu, lunch 12:45–17:15 Fri–Sun. The kitchen closes 75 minutes before the restaurant, so order by about 4pm.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~4:00 pm</div>
+    <div class="block-title">🍭 Sweet Space Museum</div>
+    <div class="block-detail">Madrid's candy museum: immersive, photogenic rooms with tastings, on the 2nd floor of the ABC Serrano mall. Adults €19, kids 4–12 €13. About 45 minutes. Open daily roughly 11:00–13:30 and 15:30–20:00, though one source says closed Mondays. Book online.</div>
+    <div class="tags"><span class="tag t-treat">sweets</span><span class="tag t-book">book online</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Sweet+Space+Museum+ABC+Serrano+Madrid&ll=40.4335,-3.6870" target="_blank">📍 ABC Serrano, C. de Serrano 61</a>
+    <a class="map-link web" href="https://www.sweetspace.com/" target="_blank">🔗 Tickets</a>
+    <div class="warn">⚠ The candy tastings and the waffle café are not celiac-safe. Read labels or skip them.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~5:15 pm</div>
+    <div class="block-title">🧀 Mercado de la Paz + La Boulette</div>
+    <div class="block-detail">One of Madrid's oldest markets (1880s, iron-sided), about 10 minutes' walk from Sweet Space. La Boulette has the biggest cheese selection in the city, with 400+ Spanish and imported cheeses. Its afternoon hours are Mon–Fri 17:00–20:00, which is why it's here.</div>
+    <div class="tags"><span class="tag t-act">market</span><span class="tag t-act">cheese 🧀</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Mercado+de+la+Paz+Calle+de+Ayala+28+Madrid&ll=40.4264,-3.6842" target="_blank">📍 C. de Ayala 28</a>
+  </div>
+
+  <div class="block priority">
+    <div class="block-time">~7:00 – 8:30 pm · opening night</div>
+    <div class="block-title">🎄 Mercado de Navidad de la Plaza Mayor</div>
+    <div class="block-detail">Madrid's traditional Christmas market opens on Friday, Nov 27, and runs through Dec 31. About 100 red-roofed stalls sell nativity figures, ornaments, and the joke wigs and hats madrileños wear for the holidays, around a big tree in the middle of the square. Entry is free. Last year it ran 10:00–21:00, and until 22:00 on Fridays and Saturdays. About 20 minutes by Metro from Mercado de la Paz to Sol. It's 5 minutes from the hotel, so it's easy to drop off purchases.</div>
+    <div class="tags"><span class="tag t-act">market</span><span class="tag t-act">Christmas 🎄</span><span class="tag t-act">free</span></div>
+    <a class="map-link" href="https://maps.apple.com/?q=Plaza+Mayor+Madrid&ll=40.4155,-3.7074" target="_blank">📍 Plaza Mayor</a>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~8:45 pm</div>
+    <div class="block-title">Dinner: pick one</div>
+    <div class="options">
+      <div class="option a"><div class="opt-title">Bastardi: 100% GF Italian, pizza, burgers</div><div class="opt-body">Malasaña, about 15 minutes' walk from Plaza Mayor. Popular and books up. <a href="https://maps.apple.com/?q=Bastardi+Calle+de+Manuela+Malasana+7+Madrid&ll=40.4278,-3.7040" target="_blank">📍 C. de Manuela Malasaña 7</a> · <a href="https://bastardiristorante.com/carta/" target="_blank">🔗 menu</a> · <a href="https://bastardiristorante.com/reservar/" target="_blank">reserve</a></div></div>
+      <div class="option b"><div class="opt-title">Lalina Chueca: 100% GF tapas</div><div class="opt-body">If we want tapas again. About 15 minutes' walk. <a href="https://maps.apple.com/?q=Lalina+Bravas+y+Tapas+Chueca+Calle+de+Gravina+18+Madrid&ll=40.4223,-3.6985" target="_blank">📍 C. de Gravina 18</a> · <a href="https://restaurantelalina.com/nuestra-carta/" target="_blank">🔗 menu</a></div></div>
+      <div class="option c"><div class="opt-title">Waraku: 100% GF Japanese (sushi, tempura, ramen)</div><div class="opt-body">In Argüelles, a short taxi ride. More sushi and tempura than Okashi. <a href="https://maps.apple.com/?q=Waraku+Calle+de+Benito+Gutierrez+4+Madrid&ll=40.4300,-3.7195" target="_blank">📍 C. de Benito Gutiérrez 4</a> · <a href="https://restaurantewaraku.com/la-carta/index.html" target="_blank">🔗 menu</a></div></div>
+    </div>
+    <div class="tags"><span class="tag t-food">dinner</span><span class="tag t-gf">all 100% GF</span><span class="tag t-book">reserve</span></div>
+  </div>
+</div>
+
+<!-- ===== DAY 6 ===== -->
+<span id="day-6" class="day-anchor"></span>
+<div class="day-panel">
+  <div class="day-header">
+    <div class="day-number">Day 6 · Saturday, November 28</div>
+    <div class="day-title">Last Churros → Frankfurt Christmas Market</div>
+    <div class="day-subtitle">A quick last loop near the hotel, an early-afternoon flight, then a German Christmas market under the lights.</div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">10:00 – 11:00 am</div>
+    <div class="block-title">🍫 Farewell churros at 1902 + San Miguel encore</div>
+    <div class="block-detail">Both are about 5 minutes from the hotel. 1902 is open from 7:00, and Mercado de San Miguel opens at 10:00, so take a final lap if Tuesday wasn't enough. The changing of the guard starts at 11:00 on Saturdays too, but we need to head for the airport around 11:15. Breakfast at the hotel before 10.</div>
+    <div class="tags"><span class="tag t-must">must-go</span><span class="tag t-gfx">GF churros</span><span class="tag t-top">★ San Miguel backup</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~11:15 am</div>
+    <div class="block-title">🚕 Taxi to MAD T2 · LH1113 1:20pm → FRA 3:50pm</div>
+    <div class="block-detail">Flat €33 fare. Carry-on only, so check in online and go straight to security.</div>
+    <div class="tags"><span class="tag t-move">flight</span></div>
+  </div>
+
+  <div class="block">
+    <div class="block-time">~4:30 pm</div>
+    <div class="block-title">Hyatt Place: drop bags</div>
+    <div class="block-detail">S-Bahn one stop from the airport to Gateway Gardens (S8/S9). Check in, layer up, head out.</div>
+    <div class="tags"><span class="tag t-move">S-Bahn</span></div>
+  </div>
+
+  <div class="block priority">
+    <div class="block-time">~5:15 – 9:00 pm</div>
+    <div class="block-title">🎄 German Christmas market: choose one</div>
+    <div class="options">
+      <div class="option a">
+        <div class="opt-title">A · Frankfurt: Römerberg + Paulsplatz + Mainkai <span class="rec">recommended</span></div>
+        <div class="opt-body">One of Germany's oldest and largest Christmas markets, dating to 1393. Open Nov 23 – Dec 22, Mon–Sat 10:00–21:00. About 15 minutes on S8/S9 from Gateway Gardens to Hauptwache. Walk Hauptwache → Römerberg (giant tree, half-timbered square, carousel) → down to the Main. Easiest option on a travel day.</div>
+        <a class="map-link" href="https://maps.apple.com/?q=Romerberg+Frankfurt&ll=50.1106,8.6821" target="_blank">📍 Römerberg</a>
+      </div>
+      <div class="option b">
+        <div class="opt-title">B · Mainz: historic market at the cathedral</div>
+        <div class="opt-body">Opens Thu Nov 26, 2026, so it's in its first weekend. The market sits at the foot of the Romanesque cathedral, with 110+ wooden stalls, a Christmas pyramid, and Mainz-wine Glühwein. S8 runs directly from Gateway Gardens to Mainz in about half an hour.</div>
+        <a class="map-link" href="https://maps.apple.com/?q=Mainzer+Weihnachtsmarkt+Dom&ll=49.9990,8.2740" target="_blank">📍 Mainz Dom</a>
+      </div>
+      <div class="option c">
+        <div class="opt-title">C · Cologne: market at the Dom (biggest wow, most effort)</div>
+        <div class="opt-body">Open Nov 16 – Dec 23, Thu–Sat 11:00–22:00, on Roncalliplatz under the cathedral, 2 minutes from Köln Hbf. ICE from Frankfurt Flughafen Fernbahnhof takes about 50–55 minutes. It's a late night: back around 11pm before an early-afternoon flight.</div>
+        <a class="map-link" href="https://maps.apple.com/?q=Weihnachtsmarkt+am+Kolner+Dom+Roncalliplatz&ll=50.9405,6.9580" target="_blank">📍 Roncalliplatz</a>
+      </div>
+    </div>
+    <div class="gf-note">🌾 GF at the market: Glühwein, Kinderpunsch, roasted chestnuts, and candied almonds are usually naturally gluten-free. Lebkuchen, Stollen, crêpes, and Reibekuchen (potato pancakes, usually made with flour) are not. For Bratwurst, ask "<span class="es">glutenfrei?</span>" and get it without the roll. Bring backup snacks from Amé.</div>
+    <div class="tags"><span class="tag t-act">Weihnachtsmarkt 🎄</span><span class="tag t-gfx">bring backup snacks</span></div>
+  </div>
+</div>
+
+<!-- ===== DAY 7 ===== -->
+<span id="day-7" class="day-anchor"></span>
+<div class="day-panel">
+  <div class="day-header">
+    <div class="day-number">Day 7 · Sunday, November 29</div>
+    <div class="day-title">Frankfurt → Home</div>
+    <div class="day-subtitle">A lazy morning, then Polaris home.</div>
+  </div>
+  <div class="block">
+    <div class="block-time">~11:00 am</div>
+    <div class="block-title">S-Bahn to FRA · UA59 1:30pm → SFO 4:05pm</div>
+    <div class="block-detail">Checkout is at noon. Allow time for non-Schengen exit passport control. Lounge: with Star Gold, Lufthansa's Senator and Business lounges in the non-Schengen area.</div>
+    <div class="tags"><span class="tag t-move">flight</span><span class="tag t-gf">Torrey GFML · Ellie AVML ✓</span></div>
+  </div>
+</div>
+
+<!-- ===== EATS ===== -->
+<span id="eats" class="day-anchor"></span>
+<div class="day-panel">
+  <div class="day-header">
+    <div class="day-number">Eats</div>
+    <div class="day-title">Gluten-Free Restaurant &amp; Bakery List</div>
+    <div class="day-subtitle">Every place from the wish list, checked for whether it's dedicated gluten-free (whole kitchen GF) or only has GF options in a shared kitchen.</div>
+  </div>
+
+  <div class="legend">
+    <h3>Legend</h3>
+    <div class="legend-grid">
+      <div class="legend-item"><span class="tag t-gf">100% GF</span> Dedicated: nothing with gluten in the kitchen</div>
+      <div class="legend-item"><span class="tag t-gfx">GF options</span> Shared kitchen: ask about cross-contamination</div>
+      <div class="legend-item"><span class="tag t-must">must-go</span> Flagged as a must</div>
+    </div>
+  </div>
+
+  <div class="resto-grid">
+    <div class="resto shared">
+      <div class="r-name">Chocolatería 1902 <span class="tag t-must">must-go</span></div>
+      <div class="r-type">Churros · Sol / Ópera</div>
+      <div class="r-body"><span class="tag t-gfx">GF options · not dedicated</span><br>GF churros come from a separate upstairs churro station and their own fryer, and the chocolate is GF. It's a historic shop (est. 1902), and its GF churros are often called the best in Madrid. Open ~7:00–23:00. <a href="https://maps.apple.com/?q=Chocolateria+1902+Madrid&ll=40.4186,-3.7058" target="_blank">C. de San Martín 2</a></div>
+      <div class="r-links"><a class="map-link web" href="https://chocolateria1902.com/" target="_blank">🔗 Website + menu</a></div>
+      <div class="r-when">Plan: Tue late morning + Sat early</div>
+    </div>
+    <div class="resto ded">
+      <div class="r-name">Amé Gluten Free <span class="tag t-must">must-go</span></div>
+      <div class="r-type">Pastelería / café · Chamberí</div>
+      <div class="r-body"><span class="tag t-gf">100% GF</span><br>Croissants, cinnamon rolls, donuts, alfajores, cakes. Open 7 days. <a href="https://maps.apple.com/?q=Ame+Gluten+Free+Madrid&ll=40.4335,-3.7155" target="_blank">C. de Andrés Mellado 18</a></div>
+      <div class="r-links"><a class="map-link web" href="http://ameglutenfree.es/" target="_blank">🔗 Website</a></div>
+      <div class="r-when">Plan: Fri ~11am</div>
+    </div>
+    <div class="resto ded">
+      <div class="r-name">Pastelería La Oriental <span class="tag t-must">must-go</span></div>
+      <div class="r-type">Traditional pastelería · Argüelles</div>
+      <div class="r-body"><span class="tag t-gf">100% GF (the sin gluten shop)</span><br>A pastry family since 1950 runs a separate, dedicated gluten-free shop next to its regular one, endorsed by the celiac association. Bread, buñuelos, pastries, macarons, cakes. Daily 8:00–21:00. Make sure you walk into the <em>sin gluten</em> shop. <a href="https://maps.apple.com/?q=Pasteleria+La+Oriental+sin+Gluten+Madrid&ll=40.4290,-3.7180" target="_blank">C. de Ferraz 47</a></div>
+      <div class="r-links"><a class="map-link web" href="https://www.pastelerialaorientalsingluten.com/" target="_blank">🔗 Website</a></div>
+      <div class="r-when">Plan: Fri ~10:20am</div>
+    </div>
+    <div class="resto ded">
+      <div class="r-name">Senza Glutine di Grosso Napoletano</div>
+      <div class="r-type">Neapolitan pizza · several locations</div>
+      <div class="r-body"><span class="tag t-gf">100% GF (Senza Glutine branches only)</span><br>Grosso's gluten-free spin-off. Its products carry FACE celiac certification. Nearest: <a href="https://maps.apple.com/?q=Senza+Glutine+di+Grosso+Napoletano+Calle+de+la+Cruz+7+Madrid&ll=40.4161,-3.7020" target="_blank">C. de la Cruz 7</a> (Sol). Also Fernando VI 23 and Santa Engracia 48. <strong>Regular Grosso locations are NOT GF.</strong> ~13:00–23:00.</div>
+      <div class="r-links"><a class="map-link web" href="https://grossonapoletano.com/" target="_blank">🔗 Website + menu</a></div>
+      <div class="r-when">Plan: Wed lunch</div>
+    </div>
+    <div class="resto ded">
+      <div class="r-name">Ardemos</div>
+      <div class="r-type">Burgers · Chamberí (Bilbao)</div>
+      <div class="r-body"><span class="tag t-gf">100% GF</span><br>House-made buns, sides, desserts, La Virgen GF beer. ~13:00–00:00. Reservation recommended. <a href="https://maps.apple.com/?q=Ardemos+Madrid&ll=40.4283,-3.7020" target="_blank">C. de Carranza 4</a></div>
+      <div class="r-links"><a class="map-link web" href="https://ardemosburger.com/carta/" target="_blank">🔗 Menu</a></div>
+      <div class="r-when">Plan: Thu Thanksgiving dinner</div>
+    </div>
+    <div class="resto ded">
+      <div class="r-name">Bastardi</div>
+      <div class="r-type">Italian, pizza, burgers · Malasaña</div>
+      <div class="r-body"><span class="tag t-gf">100% GF</span><br>Pizza, pasta, parmigiana, burgers. Books up, so reserve and confirm by phone. <a href="https://maps.apple.com/?q=Bastardi+Madrid&ll=40.4278,-3.7040" target="_blank">C. de Manuela Malasaña 7</a></div>
+      <div class="r-links"><a class="map-link web" href="https://bastardiristorante.com/carta/" target="_blank">🔗 Menu</a> <a class="map-link web" href="https://bastardiristorante.com/reservar/" target="_blank">🔗 Reserve</a></div>
+      <div class="r-when">Plan: Fri dinner option (or Thu alt)</div>
+    </div>
+    <div class="resto ded">
+      <div class="r-name">La Matería</div>
+      <div class="r-type">Mate café, breakfast/brunch · Malasaña</div>
+      <div class="r-body"><span class="tag t-gf">100% GF</span><br>Argentine/Uruguayan owners. Chipa, empanadas, alfajores, croissants, sandwiches, mate. Weekend brunch menu. <a href="https://maps.apple.com/?q=La+Materia+Cafe+Madrid&ll=40.4260,-3.7060" target="_blank">C. de la Palma 31</a></div>
+      <div class="r-links"><a class="map-link web" href="https://www.instagram.com/lamateria.cafe/" target="_blank">🔗 Instagram</a></div>
+      <div class="r-when">Plan: Wed breakfast</div>
+    </div>
+    <div class="resto ded">
+      <div class="r-name">Okashi Sanda</div>
+      <div class="r-type">Japanese · Malasaña</div>
+      <div class="r-body"><span class="tag t-gf">100% GF</span><br>Spain's first 100% GF Japanese restaurant, and dairy-free too. Takoyaki, ramen, gyoza. The only gluten is a couple of bottled beers. Closed Mon–Tue, dinner only Wed–Thu, lunch Fri–Sun; reserve. There's also a newer branch in Lavapiés (Salitre 45). <a href="https://maps.apple.com/?q=Okashi+Sanda+Madrid&ll=40.4255,-3.7045" target="_blank">C. San Vicente Ferrer 22</a></div>
+      <div class="r-links"><a class="map-link web" href="https://www.okashisanda.com/" target="_blank">🔗 Website</a> <a class="map-link web" href="https://cartaresto.com/okashi/malasana" target="_blank">🔗 Menu</a></div>
+      <div class="r-when">Plan: Fri lunch</div>
+    </div>
+    <div class="resto ded">
+      <div class="r-name">Casa San Juan</div>
+      <div class="r-type">Spanish · Barrio de las Letras</div>
+      <div class="r-body"><span class="tag t-gf">100% GF</span><br>Paella, croquetas, calamares, cachopo, all gluten-free, and there's a menú del día. The only gluten on the premises is bottled beer. Closed Mondays. <a href="https://maps.apple.com/?q=Casa+San+Juan+Madrid&ll=40.4144,-3.7013" target="_blank">C. de las Huertas 10</a></div>
+      <div class="r-links"><a class="map-link web" href="https://www.apartamentoshuertas10.com/restaurante-casa-san-juan" target="_blank">🔗 Website</a></div>
+      <div class="r-when">Plan: Wed dinner after Navibus</div>
+    </div>
+    <div class="resto ded">
+      <div class="r-name">Lalina Bravas y Tapas</div>
+      <div class="r-type">Tapas · 3 locations</div>
+      <div class="r-body"><span class="tag t-gf">100% GF</span><br>Bravas, croquetas, tortilla, jamón, cheese boards. Locations: <a href="https://maps.apple.com/?q=LaLina+La+Latina+Madrid&ll=40.4114,-3.7105" target="_blank">La Latina (Pl. de la Cebada 2)</a>, <a href="https://maps.apple.com/?q=Lalina+Chueca+Madrid&ll=40.4223,-3.6985" target="_blank">Chueca (Gravina 18)</a>, and Chamberí (Luchana 7, also does brunch). Reservations recommended.</div>
+      <div class="r-links"><a class="map-link web" href="https://restaurantelalina.com/nuestra-carta/" target="_blank">🔗 Menu</a></div>
+      <div class="r-when">Plan: Tue dinner (La Latina)</div>
+    </div>
+    <div class="resto ded">
+      <div class="r-name">Waraku</div>
+      <div class="r-type">Japanese · Argüelles</div>
+      <div class="r-body"><span class="tag t-gf">100% GF</span><br>Sushi, tempura, ramen, gyoza. GF directories and reviews list it as 100% GF, and it has a celiac-association badge. Tue–Sat 13:00–16:00 and 20:30–23:30; Sun–Mon lunch only. <a href="https://maps.apple.com/?q=Waraku+Madrid&ll=40.4300,-3.7195" target="_blank">C. de Benito Gutiérrez 4</a></div>
+      <div class="r-links"><a class="map-link web" href="https://restaurantewaraku.com/la-carta/index.html" target="_blank">🔗 Menu</a></div>
+      <div class="r-when">Plan: Fri dinner option (taxi)</div>
+    </div>
+    <div class="resto shared">
+      <div class="r-name">UMusic Hotel Madrid</div>
+      <div class="r-type">Hotel restaurant / bar · Sol</div>
+      <div class="r-body"><span class="tag t-gfx">GF options · not dedicated</span><br>A 5-star music-themed hotel built into the historic Teatro Albéniz, Calle de la Paz 11, steps from Sol. It has the El Albéniz restaurant, a piano bar, and a rooftop. Reviews say staff adapt dishes to be gluten-free on request. Fine with care, not dedicated. Some booking sites list it as adults-only, so check before going with the kids.</div>
+      <div class="r-links"><a class="map-link web" href="https://umusic-hotels.com/es/umusic-hotel-madrid/" target="_blank">🔗 Website</a></div>
+      <div class="r-when">Plan: unscheduled (drinks / backup)</div>
+    </div>
+  </div>
+</div>
+
+<!-- ===== PRACTICAL ===== -->
+<span id="practical" class="day-anchor"></span>
+<div class="day-panel">
+  <div class="day-header">
+    <div class="day-number">Practical</div>
+    <div class="day-title">Getting Around &amp; Eating Safely</div>
+  </div>
+  <div class="practical-grid">
+    <div class="practical-card">
+      <h4>🚇 Madrid public transit</h4>
+      <div>Nearest Metro stations to the hotel: <strong>Santo Domingo</strong> (L2), <strong>Callao</strong> (L3/L5), <strong>Ópera</strong> (L2/L5/R). Get a reusable <em>Tarjeta Multi</em> at any machine and load 10-trip tickets. A tourist pass (Abono Turístico) is the alternative. Toledo trains leave from <strong>Atocha</strong>, which is also the Metro stop for the Retiro and Botánico. Cercanías stops at Sol.</div>
+    </div>
+    <div class="practical-card">
+      <h4>🚕 Airport</h4>
+      <div>Taxi fare is fixed at <strong>€33</strong> from any terminal to anywhere inside the M-30, around the clock, with no luggage or holiday supplements (Tariff 4, 2026). A taxi takes 4 passengers. Lufthansa flights use T2.</div>
+    </div>
+    <div class="practical-card">
+      <h4>🌾 Gluten-free phrases</h4>
+      <ul>
+        <li><span class="es">Soy celíaco/a.</span> I have celiac disease.</li>
+        <li><span class="es">¿Es sin gluten? ¿Hay contaminación cruzada?</span> Is it gluten-free? Any cross-contamination?</li>
+        <li><span class="es">¿Lo fríen en aceite aparte?</span> Is it fried in separate oil?</li>
+        <li>German: <span class="es">Ich habe Zöliakie. Ist das glutenfrei?</span></li>
+      </ul>
+    </div>
+    <div class="practical-card">
+      <h4>🛒 Supermarket backup</h4>
+      <div>Mercadona's house brand (Hacendado) tests for gluten and labels GF items <em>sin gluten</em>. It's good for room snacks and plane food.</div>
+    </div>
+    <div class="practical-card">
+      <h4>🎄 Christmas in Madrid</h4>
+      <div>The lights switched on Sat Nov 21 and stay up through Jan 6. Best streets: Gran Vía, Puerta del Sol, Plaza Mayor, Calle Preciados, Serrano. The Plaza Mayor Christmas market opens Fri Nov 27 and runs to Dec 31.</div>
+    </div>
+    <div class="practical-card">
+      <h4>🛂 Entry</h4>
+      <div>EES biometric registration happens on first Schengen entry (Munich). ETIAS is not yet in operation; recheck the official EU site before departure.</div>
+    </div>
+  </div>
+</div>
+
+</main>
+
+<footer>
+  Madrid Thanksgiving Trip · November 22–29, 2026 · Gluten-free status reflects restaurant listings and reviews at time of planning. Always confirm with staff on arrival.<br>
+  <a href="https://delphiresear.ch/travel.html">Travel schedule</a> · <a href="https://delphiresear.ch/">delphiresear.ch</a>
+</footer>
+
+<script>
+const tabs = Array.from(document.querySelectorAll('.nav-tab'));
+const anchors = tabs.map(t => t.getAttribute('href').slice(1));
+
+function setActive(id) {
+  tabs.forEach((t, i) => t.classList.toggle('active', anchors[i] === id));
+  const active = tabs.find(t => t.classList.contains('active'));
+  const nav = document.querySelector('nav');
+  if (active && nav) {
+    const l = active.offsetLeft, r = l + active.offsetWidth;
+    if (l < nav.scrollLeft || r > nav.scrollLeft + nav.clientWidth) {
+      nav.scrollTo({ left: Math.max(0, l - 16), behavior: 'smooth' });
+    }
+  }
+}
+
+let current = null;
+function onScroll() {
+  let id = anchors[0];
+  for (const a of anchors) {
+    const el = document.getElementById(a);
+    if (el && el.getBoundingClientRect().top <= 120) id = a;
+  }
+  if (id !== current) { current = id; setActive(id); }
+}
+window.addEventListener('scroll', onScroll, { passive: true });
+window.addEventListener('load', onScroll);
+onScroll();
+</script>
+</body>
+</html>
